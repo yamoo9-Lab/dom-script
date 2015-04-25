@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>1일차 수업: 문서객체모델을 통해 문서의 요소에 접근하라!</title>
+	<script>
+	// 문서객체모델 API(사용설명서)를 이용해서 문서의 특정 요소에 접근한다.
+	// body, html
+	// body 요소에 접근했어요.
+	// 배경 색을 바꿔볼께요.
+	// 어라 안 바뀌네요? 원인이 뭘까요?
+	console.log( 1, document.body );
+	// document.body.backgroundColor = '#FC414B';
+	console.log( 2, document.body );
+
+	</script>
+</head>
+<body>
+	<script>
+		console.log( 3, document.body );
+	</script>
+
+
+<script>
+	document.body.style.backgroundColor = '#FC414B';
+</script>
+</body>
+</html>
