@@ -4,27 +4,54 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<meta charset="UTF-8">
 	<title>1일차 수업: 문서객체모델을 통해 문서의 요소에 접근하라!</title>
-	<script>
-	// function(){} // 함수 값(리터럴)
-
-	// 자바스크립트 이벤트(Event)
-	window.onload = function() {
-		// alert('문서가 완성되면 이 코드가 보입니다.');
-		// console.log('document loaded');
-		var page = document.getElementById('page');
-		console.log('로드 후에 호출',page);
-	};
-
-	alert('아직 문서가 완성되지 않았어요!!');
-	</script>
+	<style>
+		body {
+			margin: 0;
+		}
+		#page {
+			height:      100px;
+			line-height: 100px;
+			background:  #E5742F;
+			color:       #de9a74;
+			font-size:   60px;
+			text-align:  center;
+		}
+	</style>
+	<script src="js/libs/domHelper.js"></script>
 </head>
 <body>
 	<!-- 시작: #page -->
-	<div id="page"></div>
+	<div id="page">
+		I go to school!
+	</div>
 	<!-- 끝: #page -->
+
 <script>
+	// 문서에서 액션을 처리할 대상을 찾는다.
 	var page = document.getElementById('page');
-	console.log('body 끝자락에서 호출', page);
+	// 대상을 찾았으면, 원하는 스타일을 적용한다.
+	// page.style.height     = '100px';
+	// page.style.lineHeight = '100px';
+	// page.style.background = '#e5742f';
+	// page.style.color      = '#DE9A74';
+	// page.style.fontSize   = '60px';
+	// page.style.textAlign  = 'center';
+
+
+	// 요소의 style 속성은 인라인 스타일 설정 값만 가져올 수 있습니다.
+	// 만약 CSS 파일로 분리되어 문서에 적용된 스타일 설정 값을 가져오려면 아래처럼 가지고 와야 합니다.
+	// W3C 표준 문법
+	// window.getComputedStyle(대상요소).속성
+	// Microsoft 비 표준 문법
+	// 대상요소.currentStyle.속성
+
+	if (false) {
+		console.log('참');
+	} else {
+		console.log('거짓');
+	}
+
+	getStyle(body, 'fontSize')
 </script>
 </body>
 </html>
