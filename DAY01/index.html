@@ -9,12 +9,16 @@
 			margin: 0;
 		}
 		#page {
-			height:      100px;
-			line-height: 100px;
-			background:  #E5742F;
+			/*height:      488px;
+			line-height: 488px;*/
+			background: hotpink url(images/hero-dog.jpg) center top no-repeat;
+			background-size: cover;
 			color:       #de9a74;
 			font-size:   60px;
 			text-align:  center;
+		}
+		#page h1 {
+			margin-top: 0;
 		}
 	</style>
 	<script src="js/libs/domHelper.js"></script>
@@ -22,40 +26,20 @@
 <body>
 	<!-- 시작: #page -->
 	<div id="page">
-		I go to school!
+		<h1>Hero Dog</h1>
 	</div>
 	<!-- 끝: #page -->
 
 <script>
-	// 문서에서 액션을 처리할 대상을 찾는다.
 	var page = document.getElementById('page');
-	// 대상을 찾았으면, 원하는 스타일을 적용한다.
-	// page.style.height     = '100px';
-	// page.style.lineHeight = '100px';
-	// page.style.background = '#e5742f';
-	// page.style.color      = '#DE9A74';
-	// page.style.fontSize   = '60px';
-	// page.style.textAlign  = 'center';
+	var winH;
 
-	// CSS 리페인팅/리플로우를 최적화해서 속도를 향상시키는 코드(권장)
-	// page.style.cssText = 'height:300px; line-height:300px; background:#54AEC3; color:#D7D7D7; font-size:45px; text-align:center;';
+	window.onload = window.onresize = resizePageSetHeight;
 
-	// var how = window.prompt('돔스크립트가 왜 재밌는지 말해보세요.', '예시) 재밌으');
-	// var message = '돔 스크립트는 ' + how + '니까 재밌다(?)'
-	// console.log(message);
-
-	// page 변수가 참조하는 문서 요소를 클릭하면
-	// 어떤 일(원하는 스타일 코드를 인라은으로 설정)을 수행한다.
-	page.onclick = function() {
-
-		// 문자열 접합(용접, 문자와 문자를 서로 이어 붙인다)
-		page.style.cssText = 'line-height:300px; background:#54AEC3; color:#D7D7D7; font-size:45px; text-align:center;';
-	};
-
-	// 창 크기를 조정하면... 발생하는 이벤트 onresize
-	window.onresize = function() {
-		// console.log(window.innerWidth);
-		page.style.height = window.innerHeight + 'px';
+	function resizePageSetHeight() {
+		winH = window.innerHeight + 'px';
+		page.style.height = winH;
+		page.style.lineHeight = winH;
 	}
 </script>
 </body>
