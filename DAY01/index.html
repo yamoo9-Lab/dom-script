@@ -1,29 +1,52 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" class="no-js">
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<meta charset="UTF-8">
 	<title>1일차 수업: 문서객체모델을 통해 문서의 요소에 접근하라!</title>
+	<style>
+		.no-js body::before {
+			content: 'Javascript가 지원되지 않는 환경입니다.';
+		}
+		/*.js body {}*/
+	</style>
 	<script>
-	// 문서객체모델 API(사용설명서)를 이용해서 문서의 특정 요소에 접근한다.
-	// body, html
-	// body 요소에 접근했어요.
-	// 배경 색을 바꿔볼께요.
-	// 어라 안 바뀌네요? 원인이 뭘까요?
-	console.log( 1, document.body );
-	// document.body.backgroundColor = '#FC414B';
-	console.log( 2, document.body );
+	// document.documentElement // <html>
+	// console.log(document.documentElement);
+	// document.body // null
 
+	// 자바스크립트의 코어 문법
+	// 변수(Variables)
+	// 변수 선언
+	var html; // undefined
+	var head;
+	var body;
+
+	// 변수 선언 구간을 축소
+	var html, head, body;
+
+	// 선언된 변수에 값을 할당(대입)
+	html = document.documentElement;
+	head = document.head;
+	body = document.body;
+
+	// 변수 선언과 대입을 동시에 처리하는 구문
+	var html = document.documentElement;
+	var head = document.head;
+	var body = document.body;
+
+	// var 싱글턴 패턴
+	var html = document.documentElement,
+		head = document.head,
+		body = document.body;
+
+	// 값을 가져오는 것을 GET
+	console.log( html.className );
+	// 값을 설정하는 것을 SET
+	html.className = 'js';
 	</script>
 </head>
 <body>
-	<script>
-		console.log( 3, document.body );
-	</script>
 
-
-<script>
-	document.body.style.backgroundColor = '#FC414B';
-</script>
 </body>
 </html>
