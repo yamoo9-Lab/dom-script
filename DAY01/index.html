@@ -38,7 +38,14 @@
 	// page.style.textAlign  = 'center';
 
 	// CSS 리페인팅/리플로우를 최적화해서 속도를 향상시키는 코드(권장)
-	page.style.cssText = 'height:300px; line-height:300px; background:#54AEC3; color:#D7D7D7; font-size:45px; text-align:center;';
+	// page.style.cssText = 'height:300px; line-height:300px; background:#54AEC3; color:#D7D7D7; font-size:45px; text-align:center;';
+
+	// page 변수가 참조하는 문서 요소를 클릭하면
+	// 어떤 일(원하는 스타일 코드를 인라은으로 설정)을 수행한다.
+	page.onclick = function() {
+		// 문자열 접합(용접, 문자와 문자를 서로 이어 붙인다)
+		page.style.cssText = 'height:' + window.innerHeight + 'px; line-height:300px; background:#54AEC3; color:#D7D7D7; font-size:45px; text-align:center;';
+	};
 </script>
 </body>
 </html>
