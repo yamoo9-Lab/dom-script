@@ -4,11 +4,13 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<meta charset="UTF-8">
 	<title>1일차 수업: 문서객체모델을 통해 문서의 요소에 접근하라!</title>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 	<style>
 		body {
 			margin: 0;
 		}
 		#page {
+			position: relative;
 			/*height:      488px;
 			line-height: 488px;*/
 			background: hotpink url(images/hero-dog.jpg) center top no-repeat;
@@ -19,6 +21,22 @@
 		}
 		#page h1 {
 			margin-top: 0;
+			margin-bottom: 0;
+		}
+		#page .view-content-btn {
+			text-decoration: none;
+			position: absolute;
+			left: 50%;
+			bottom: 20px;
+			color: #fff;
+			margin-left: -19.25px;
+			/*transform: translateX(-50%);*/
+		}
+
+		.ir {
+			overflow: hidden;
+			text-indent: -9999em;
+			text-decoration: none;
 		}
 	</style>
 	<script src="js/libs/domHelper.js"></script>
@@ -27,20 +45,19 @@
 	<!-- 시작: #page -->
 	<div id="page">
 		<h1>Hero Dog</h1>
+		<a href role="button" aria-label="콘텐츠 뷰 바로보기" class="fa fa-angle-down view-content-btn"></a>
 	</div>
 	<!-- 끝: #page -->
 
 <script>
 	var page = document.getElementById('page');
-	var winH;
+	// var winH;
 
-	window.onload = window.onresize = resizePageSetHeight;
-
-	function resizePageSetHeight() {
-		winH = window.innerHeight + 'px';
+	window.onload = window.onresize = function() {
+		var winH = window.innerHeight + 'px';
 		page.style.height = winH;
 		page.style.lineHeight = winH;
-	}
+	};
 </script>
 </body>
 </html>
