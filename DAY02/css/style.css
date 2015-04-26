@@ -42,6 +42,14 @@ body {
 	height: 50px;
 	border: 3px solid #DADADA;
 	border-radius: 50%;
+	-webkit-filter: blur(10px) grayscale(100%);
+	filter: blur(10px) grayscale(100%);
+}
+
+.box:hover,
+.box:focus {
+	-webkit-filter: none;
+	filter: none;
 }
 
 .c1 { background-color: #0c274c; }
