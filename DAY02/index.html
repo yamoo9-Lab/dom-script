@@ -47,11 +47,16 @@ var cListBtns = cList.querySelectorAll('a');
 
 // console.log(cListBtns);
 
-cListBtns[0].onclick =
-cListBtns[1].onclick =
-cListBtns[2].onclick =
-cListBtns[3].onclick =
-cListBtns[4].onclick = function() {
+cListBtns[0].onclick = changeBGColor;
+cListBtns[1].onclick = changeBGColor;
+cListBtns[2].onclick = changeBGColor;
+cListBtns[3].onclick = changeBGColor;
+cListBtns[4].onclick = changeBGColor;
+
+// 찾은 모든 대상이 동시적으로 어떤 행위를 한다고 했을 때,
+// 그 행위를 모아서 모듈로 만든 것이 함수다.
+
+function changeBGColor() {
 
 	// 속성 가져오기/설정하기(=)
 	// console.log( document.documentElement.className = 'js' );
