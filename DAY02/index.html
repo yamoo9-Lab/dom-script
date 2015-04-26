@@ -15,6 +15,12 @@
 	<li><a class="box c3" href role="button" aria-label="#19bdc4" title="#19bdc4"></a></li>
 	<li><a class="box c4" href role="button" aria-label="#fff6ee" title="#fff6ee"></a></li>
 	<li><a class="box c5" href role="button" aria-label="#ef4089" title="#ef4089"></a></li>
+
+	<li><a class="box c6" href role="button" aria-label="#364659" title="#364659"></a></li>
+	<li><a class="box c7" href role="button" aria-label="#f2f2f2" title="#f2f2f2"></a></li>
+	<li><a class="box c8" href role="button" aria-label="#f2d2ae" title="#f2d2ae"></a></li>
+	<li><a class="box c9" href role="button" aria-label="#ec8871" title="#ec8871"></a></li>
+	<li><a class="box c10" href role="button" aria-label="#ea5545" title="#ea5545"></a></li>
 </ul>
 
 <script>
@@ -57,13 +63,18 @@ cListBtns[4].onclick = changeBGColor;
 // 그 행위를 모아서 모듈로 만든 것이 함수다.
 
 function changeBGColor() {
-
 	// 속성 가져오기/설정하기(=)
 	// console.log( document.documentElement.className = 'js' );
 
 	// body.style.backgroundColor = '#ef4089';
 	// console.log(this, this.title);
-	body.style.backgroundColor = this.title;
+
+	// DOM API: 속성을 가져오는 구형 방식 - .속성명
+	// body.style.backgroundColor = this.title;
+
+	// DOM API: 속성을 가져오는 신형 방식 - .getAttribute(속성명)
+	body.style.backgroundColor = this.getAttribute('aria-label');
+
 	// 브라우저의 기본 동작을 차단(a 요소의 기본동작)
 	return false;
 }
