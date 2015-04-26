@@ -41,6 +41,7 @@ body {
 	width: 50px;
 	height: 50px;
 	border: 3px solid #DADADA;
+	border-radius: 50%;
 }
 
 .c1 { background-color: #0c274c; }
