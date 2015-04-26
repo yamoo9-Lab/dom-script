@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko-KR">
+<html lang="ko-KR" class="no-js">
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<meta charset="UTF-8">
@@ -41,34 +41,24 @@
 // console.log(cList[3].className === 'color-list'); // 참(True)
 // console.log(cList[4].className === 'color-list'); // 참(True)
 
-
+var body = document.body;
 var cList = document.querySelector('.color-list');
 var cListBtns = cList.querySelectorAll('a');
 
 // console.log(cListBtns);
 
-cListBtns[0].onclick = function() {
-	document.body.style.backgroundColor = '#0c274c';
-	// 브라우저의 기본 동작을 차단(a 요소의 기본동작)
-	return false;
-}
-cListBtns[1].onclick = function() {
-	document.body.style.backgroundColor = '#18709c';
-	// 브라우저의 기본 동작을 차단(a 요소의 기본동작)
-	return false;
-}
-cListBtns[2].onclick = function() {
-	document.body.style.backgroundColor = '#19bdc4';
-	// 브라우저의 기본 동작을 차단(a 요소의 기본동작)
-	return false;
-}
-cListBtns[3].onclick = function() {
-	document.body.style.backgroundColor = '#fff6ee';
-	// 브라우저의 기본 동작을 차단(a 요소의 기본동작)
-	return false;
-}
+cListBtns[0].onclick =
+cListBtns[1].onclick =
+cListBtns[2].onclick =
+cListBtns[3].onclick =
 cListBtns[4].onclick = function() {
-	document.body.style.backgroundColor = '#ef4089';
+
+	// 속성 가져오기/설정하기(=)
+	// console.log( document.documentElement.className = 'js' );
+
+	// body.style.backgroundColor = '#ef4089';
+	// console.log(this, this.title);
+	body.style.backgroundColor = this.title;
 	// 브라우저의 기본 동작을 차단(a 요소의 기본동작)
 	return false;
 }
