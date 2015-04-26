@@ -3,6 +3,6 @@ function getStyle(el, prop) {
 	if (window.getComputedStyle) {
 		return window.getComputedStyle(el)[prop];
 	} else {
-		return el.currentStyle[prop]
+		return el.currentStyle[prop];
 	}
 }
