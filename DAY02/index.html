@@ -9,6 +9,10 @@
 </head>
 <body>
 
+<ul>
+	<li></li>
+</ul>
+
 <ul class="color-list">
 	<li><a class="box c1" href role="button" aria-label="#0c274c" title="#0c274c"></a></li>
 	<li><a class="box c2" href role="button" aria-label="#18709c" title="#18709c"></a></li>
@@ -17,7 +21,50 @@
 	<li><a class="box c5" href role="button" aria-label="#ef4089" title="#ef4089"></a></li>
 </ul>
 
+<ul>
+	<li></li>
+</ul>
+<ul>
+	<li></li>
+</ul>
+<ul>
+	<li></li>
+</ul>
+<ul>
+	<li></li>
+</ul>
+<ul>
+	<li></li>
+</ul>
+
 <script>
+// DOM API: 선택(Select) API
+// id를 찾고자 할 때: document.getElementById()
+// tag를 찾고자 할 때: document.getElementsByTagName()
+// class를 찾고자 할 때: document.getElementsByClassName()
+
+// DOM API: 선택자(Selector) API
+// CSS 선택자를 활용하여 대상을 찾고자 할 때: document.querySelector() IE 8+
+// document.querySelector('.color-list li a')
+
+// ul을 찾는다.
+// tag 이름으로 찾는 방법, class 이름으로 찾는 방법
+// var cList = document.getElementsByClassName('color-list');
+// cList[0] // IE 9+
+
+// IE 8 이하 브라우저에서 class 속성을 통해 대상을 찾는 방법
+// var cList = document.getElementsByTagName('ul');
+
+// console.log(cList[0].className === 'color-list'); // 참(True)
+// console.log(cList[1].className === 'color-list'); // 참(True)
+// console.log(cList[2].className === 'color-list'); // 참(True)
+// console.log(cList[3].className === 'color-list'); // 참(True)
+// console.log(cList[4].className === 'color-list'); // 참(True)
+
+
+var cList = document.querySelectorAll('.color-list li a');
+
+console.log(cList);
 
 </script>
 </body>

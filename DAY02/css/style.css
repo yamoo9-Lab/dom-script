@@ -1,5 +1,6 @@
 body {
 	margin: 0;
+	background: #5D5D5D;
 }
 
 /* color-list */
@@ -9,7 +10,9 @@ body {
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	transform: translate(-50%, -50%);
+	margin-left: -155.5px;
+	margin-top: -30.5px;
+	/*transform: translate(-50%, -50%);*/
 }
 
 .color-list li {
@@ -17,10 +20,22 @@ body {
 	margin-right: 3px;
 }
 
+.color-list li a {
+	transition: transform .2s cubic-bezier(0.680, -0.550, 0.265, 1.550);
+}
+.color-list li a:hover,
+.color-list li a:focus {
+	transform: scale(1.35);
+}
+.color-list li a:focus {
+	outline: none;
+}
+
 .box {
 	display: block;
 	width: 50px;
 	height: 50px;
+	border: 3px solid #DADADA;
 }
 
 .c1 { background-color: #0c274c; }
