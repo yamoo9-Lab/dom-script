@@ -6,13 +6,32 @@
 	<title>2일차 - about 문서객체모델</title>
 	<link rel="stylesheet" href="css/style.css">
 	<script src="../libs/domHelper.js"></script>
-
 </head>
 <body>
 
+	<button type="button">브라우저 정보 출력</button>
+
+	<p class="browser-info">......</p>
+
 	<script>
 		// 2일차 수업 내용
-		//
+		// 전역객체(Global Object): Window 객체
+		// Document, Screen, Navigator, Location, History 하위 객체
+		// Navigator 브라우저의 정보
+		// 브라우저의 식별자(ID)
+		var print_info_btn = document.getElementsByTagName('button');
+		var browser_info_text_field = document.getElementsByTagName('p')[0];
+
+		// 노드 리스트, HTML 콜렉션
+		// 대상.이벤트 속성 = 이벤트 핸들러
+		print_info_btn[0].onclick = function(){
+			// 무엇을 할 것인가?
+			// BOM - window.navigator.userAgent 속성 출력
+			// navigator.userAgent
+			// 어디에 그것을 출력할 것인가?
+			browser_info_text_field.textContent = navigator.userAgent;
+		};
+
 	</script>
 </body>
 </html>
