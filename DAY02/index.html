@@ -15,7 +15,6 @@
 	<li><a class="box c3" href role="button" aria-label="#19bdc4" title="#19bdc4"></a></li>
 	<li><a class="box c4" href role="button" aria-label="#fff6ee" title="#fff6ee"></a></li>
 	<li><a class="box c5" href role="button" aria-label="#ef4089" title="#ef4089"></a></li>
-
 	<li><a class="box c6" href role="button" aria-label="#364659" title="#364659"></a></li>
 	<li><a class="box c7" href role="button" aria-label="#f2f2f2" title="#f2f2f2"></a></li>
 	<li><a class="box c8" href role="button" aria-label="#f2d2ae" title="#f2d2ae"></a></li>
@@ -50,14 +49,29 @@
 var body = document.body;
 var cList = document.querySelector('.color-list');
 var cListBtns = cList.querySelectorAll('a');
-
+var cListBtnsCount = cListBtns.length;
 // console.log(cListBtns);
 
-cListBtns[0].onclick = changeBGColor;
-cListBtns[1].onclick = changeBGColor;
-cListBtns[2].onclick = changeBGColor;
-cListBtns[3].onclick = changeBGColor;
-cListBtns[4].onclick = changeBGColor;
+// 반복문, while, for, do ~ while
+
+while (cListBtnsCount > 0) {
+	// 코드 수행
+	// 조건 변화
+	cListBtnsCount = cListBtnsCount - 1;
+	// console.log(cListBtnsCount);
+	cListBtns[cListBtnsCount].onclick = changeBGColor;
+}
+
+// cListBtns[0].onclick = changeBGColor;
+// cListBtns[1].onclick = changeBGColor;
+// cListBtns[2].onclick = changeBGColor;
+// cListBtns[3].onclick = changeBGColor;
+// cListBtns[4].onclick = changeBGColor;
+// cListBtns[5].onclick = changeBGColor;
+// cListBtns[6].onclick = changeBGColor;
+// cListBtns[7].onclick = changeBGColor;
+// cListBtns[8].onclick = changeBGColor;
+// cListBtns[9].onclick = changeBGColor;
 
 // 찾은 모든 대상이 동시적으로 어떤 행위를 한다고 했을 때,
 // 그 행위를 모아서 모듈로 만든 것이 함수다.
