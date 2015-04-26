@@ -9,32 +9,12 @@
 </head>
 <body>
 
-<ul>
-	<li></li>
-</ul>
-
 <ul class="color-list">
 	<li><a class="box c1" href role="button" aria-label="#0c274c" title="#0c274c"></a></li>
 	<li><a class="box c2" href role="button" aria-label="#18709c" title="#18709c"></a></li>
 	<li><a class="box c3" href role="button" aria-label="#19bdc4" title="#19bdc4"></a></li>
 	<li><a class="box c4" href role="button" aria-label="#fff6ee" title="#fff6ee"></a></li>
 	<li><a class="box c5" href role="button" aria-label="#ef4089" title="#ef4089"></a></li>
-</ul>
-
-<ul>
-	<li></li>
-</ul>
-<ul>
-	<li></li>
-</ul>
-<ul>
-	<li></li>
-</ul>
-<ul>
-	<li></li>
-</ul>
-<ul>
-	<li></li>
 </ul>
 
 <script>
@@ -62,10 +42,36 @@
 // console.log(cList[4].className === 'color-list'); // 참(True)
 
 
-var cList = document.querySelectorAll('.color-list li a');
+var cList = document.querySelector('.color-list');
+var cListBtns = cList.querySelectorAll('a');
 
-console.log(cList);
+// console.log(cListBtns);
+
+cListBtns[0].onclick = function() {
+	document.body.style.backgroundColor = '#0c274c';
+	// 브라우저의 기본 동작을 차단(a 요소의 기본동작)
+	return false;
+}
+cListBtns[1].onclick = function() {
+	document.body.style.backgroundColor = '#18709c';
+	// 브라우저의 기본 동작을 차단(a 요소의 기본동작)
+	return false;
+}
+cListBtns[2].onclick = function() {
+	document.body.style.backgroundColor = '#19bdc4';
+	// 브라우저의 기본 동작을 차단(a 요소의 기본동작)
+	return false;
+}
+cListBtns[3].onclick = function() {
+	document.body.style.backgroundColor = '#fff6ee';
+	// 브라우저의 기본 동작을 차단(a 요소의 기본동작)
+	return false;
+}
+cListBtns[4].onclick = function() {
+	document.body.style.backgroundColor = '#ef4089';
+	// 브라우저의 기본 동작을 차단(a 요소의 기본동작)
+	return false;
+}
 
 </script>
 </body>
-</html>
