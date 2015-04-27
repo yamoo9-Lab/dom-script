@@ -1,6 +1,6 @@
 body {
 	margin: 0;
-	background: #5D5D5D;
+	background: hsl(0, 0%, 36%);
 }
 
 /* color-list */
@@ -26,11 +26,11 @@ body {
 }
 
 .color-list li a {
-	transition: all .2s cubic-bezier(0.680, -0.550, 0.265, 1.550);
+	transition: all .6s cubic-bezier(0.680, -0.550, 0.265, 1.550);
 }
 .color-list li a:hover,
 .color-list li a:focus {
-	transform: scale(1.35);
+	transform: scale(1.2);
 }
 .color-list li a:focus {
 	outline: none;
@@ -40,10 +40,10 @@ body {
 	display: block;
 	width: 50px;
 	height: 50px;
-	border: 3px solid #DADADA;
+	border: 3px solid hsl(0, 0%, 85%);
 	border-radius: 50%;
-	-webkit-filter: blur(10px) grayscale(100%);
-	filter: blur(10px) grayscale(100%);
+	-webkit-filter: blur(3px) grayscale(70%);
+	filter: blur(3px) grayscale(70%);
 }
 
 .box:hover,
@@ -52,13 +52,13 @@ body {
 	filter: none;
 }
 
-.c1 { background-color: #0c274c; }
-.c2 { background-color: #18709c; }
-.c3 { background-color: #19bdc4; }
-.c4 { background-color: #fff6ee; }
-.c5 { background-color: #ef4089; }
-.c6 { background-color: #364659; }
-.c7 { background-color: #f2f2f2; }
-.c8 { background-color: #f2d2ae; }
-.c9 { background-color: #ec8871; }
-.c10 { background-color: #ea5545; }
+.c1 { background-color: hsl(215, 73%, 17%); }
+.c2 { background-color: hsl(200, 73%, 35%); }
+.c3 { background-color: hsl(182, 77%, 43%); }
+.c4 { background-color: hsl(28, 100%, 97%); }
+.c5 { background-color: hsl(335, 85%, 59%); }
+.c6 { background-color: hsl(213, 24%, 28%); }
+.c7 { background-color: hsl(0, 0%, 95%); }
+.c8 { background-color: hsl(32, 72%, 82%); }
+.c9 { background-color: hsl(11, 76%, 68%); }
+.c10 { background-color: hsl(6, 80%, 59%); }
