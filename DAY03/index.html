@@ -4,6 +4,20 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<meta charset="UTF-8">
 	<title>DOMScript - 3일차</title>
+	<style>
+		.change-btn {
+			padding: 0.4em 1em;
+			border: 1px solid;
+			text-decoration: none;
+			color: #333;
+		}
+
+		.changed-para {
+			background: #FFF0A5;
+			padding: .4em 1em;
+			border: 1px solid #847C4F;
+		}
+	</style>
 	<script src="js/dom_helper/dom.js"></script>
 </head>
 <body>
@@ -11,6 +25,8 @@
 	<div id="page">
 		<header>
 			<h1 id="brand">야무 한글 로렘입숨. 하고!</h1>
+			<a href role="button" class="change-btn">.changed-para 내용 변경</a>
+			<p class="changed-para">야무 한글 로렘입숨. 거추장스런, 눈부신.</p>
 		</header>
 		<main role="main">
 			<div class="article">
@@ -100,7 +116,16 @@
 			console.log('다음에 나오는 요소는 <main> 요소가 아닙니다.');
 		}
 
-
+		// prompt()를 사용해서 변경할 텍스트 문구를 받아 변수에 참조합니다.
+		var msg = prompt('하고 싶은 메시지를 입력해주세요');
+		// 참조된 변수의 값을 화면에 그려진 .change-btn 버튼을 클릭하면
+		console.log(document.querySelector('.change-btn'));
+		document.querySelector('.change-btn').onclick = function() {
+			// .changed-para 단락 요소에 내용 값이 변경됩니다.
+			// console.log(document.querySelector('.changed-para').firstChild.nodeValue);
+			document.querySelector('.changed-para').firstChild.nodeValue = msg;
+			return false;
+		}
 	</script>
 </body>
 </html>
