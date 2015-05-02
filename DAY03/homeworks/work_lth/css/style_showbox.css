@@ -21,6 +21,9 @@ body, h1, ul, a {
 
 section {
   text-align: center;
+  background: center no-repeat;
+  height: 100vh;
+  background-size: cover;
 }
 
 /*# sourceMappingURL=style_showbox.css.map */

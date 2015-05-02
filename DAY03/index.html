@@ -7,5 +7,42 @@
 </head>
 <body>
 
+	<div id="page">
+		header>h1#brand>lorem3
+		<main role="main">
+			.article*3>p*2>lorem
+		</main>
+		<aside id="sidebar">
+			ul>li*3>lorem1
+		</aside>
+		<footer>
+			small>lorem6
+		</footer>
+	</div>
+
+	<script>
+
+		// DOM API
+		// 대상을 탐색(선택)~!!!!
+
+		var html, head, body;
+
+		/*
+			html = head의 부모(ParentNode)
+				head = body의 이전 형제(Previous Sibling)
+					title
+				body = head의 다음 형제(Next Sibling)
+
+		 */
+
+		head = document.head;
+		html = head.parentNode;
+		body = head.nextElementSibling;
+
+		console.log('head: ', head);
+		console.log('html: ', html);
+		console.log('body: ', body);
+
+	</script>
 </body>
 </html>
