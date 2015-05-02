@@ -63,9 +63,32 @@
 		console.log('body: ', body);
 
 		// 다음요소를 찾는 헬퍼함수
+		// nextEl(document.getElementById('page'))
 		function nextEl(el) {
-			// 유효성검사
-			if (el.nodeType !== 1) { throw new Error('전달받은 인자가 요소노드가 아닙니다.'); }
+			// 전달인자 유효성검사
+			// if (el.nodeType !== 1) { throw new Error('전달받은 인자가 요소노드가 아닙니다.'); }
+			if (el.nodeType !== 1) {
+				console.error('전달받은 인자가 요소노드가 아닙니다.');
+				return; // 함수 종료
+			}
+
+			if ( el.nextElementSibling ) {
+				return el.nextElementSibling;
+			} else {
+				// IE 8 이하 브라우저 아래 코드 수행
+				// el.nextSibling // 요소노드이냐? 아니냐?
+				while( el.nextSibling ) {
+					if ( el.nextSibling.nodeType !== 1 ) {
+						el = el.nextSibling;
+					} else {
+						// el.nextSibling 요소노드라면?
+						// 반복문 종료
+						// el.nextSibling 반환
+						return el.nextSibling;
+					}
+				}
+			}
+
 			// return 다음 요소노드
 		}
 
@@ -81,7 +104,7 @@
 			} else {
 				// 첫번째 자식노드가 요소가 아니라면?
 				// 다음 노드를 확인하는 것이죠. 요소 노드인지를?
-				return el.firstChild.nextSibling;
+				return nextEl(el.firstChild);
 			}
 		}
 
