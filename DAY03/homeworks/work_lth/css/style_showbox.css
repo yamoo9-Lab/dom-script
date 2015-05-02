@@ -1,0 +1,26 @@
+body, h1, ul, a {
+  margin: 0;
+  padding: 0;
+}
+
+.img-list {
+  margin: 1.25rem 0;
+}
+
+.img-list li {
+  list-style: none;
+  display: inline-block;
+}
+.img-list li a {
+  display: block;
+}
+.img-list li a img {
+  width: 50px;
+  height: 50px;
+}
+
+section {
+  text-align: center;
+}
+
+/*# sourceMappingURL=style_showbox.css.map */

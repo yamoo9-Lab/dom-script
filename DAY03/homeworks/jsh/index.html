@@ -9,34 +9,48 @@
 <body>
 	<div class="boxwrap">
 		<ul class="gall_list">
-			<li><a href class="imgBox gall01" aria-lable="이미지사진1"></a></li>
-			<li><a href class="imgBox gall02" aria-lable="이미지사진2"></a></li>
-			<li><a href class="imgBox gall03" aria-lable="이미지사진3"></a></li>
-			<li><a href class="imgBox gall04" aria-lable="이미지사진4"></a></li>
-			<li><a href class="imgBox gall05" aria-lable="이미지사진5"></a></li>
+			<li><a href class="imgBox" aria-label=""></a></li>
+			<!-- <li><a href class="imgBox gall02" aria-label="이미지사진2"></a></li>
+			<li><a href class="imgBox gall03" aria-label="이미지사진3"></a></li>
+			<li><a href class="imgBox gall04" aria-label="이미지사진4"></a></li>
+			<li><a href class="imgBox gall05" aria-label="이미지사진5"></a></li> -->
 		</ul>
+		<div class="gall_navi">
+			<a href>1</a>
+			<a href>2</a>
+			<a href>3</a>
+			<a href>4</a>
+			<a href>5</a>
+		</div>
 	</div>
-	<span><a href="" class="num">1</a></span>
-	<span><a href="" class="num">2</a></span>
-	<span><a href="" class="num">3</a></span>
-	<span><a href="" class="num">4</a></span>
-	<span><a href="" class="num">5</a></span>
+
 <script>
 // 대상 1을 클릭했을때 gall01을 보게하는것
 // 변수선언
-var gList = document.queryselector('.gall_list');
-var imgbox = gList.queryselectorAll('.imgBox');
-var numBtn = document.queryselector('a');
-var numBtnCount = ntmBtn.length;
-// 
+var gList       = document.querySelector('.gall_list');
+var gNavi       = document.querySelector('.gall_navi');
+var imgbox      = gList.querySelector('.imgBox');
+var numBtns     = gNavi.querySelectorAll('a');
+var numBtnCount = numBtns.length; // 5
+
+// console.log('gList: ', gList);
+// console.log('gNavi: ', gNavi);
+// console.log('imgbox: ', imgbox);
+// console.log('numBtns: ', numBtns);
+// console.log('numBtnCount: ', numBtnCount);
+
+//
 while (numBtnCount > 0){
-	numBtnCount = numBtnCount -1;
-	numBtn[numBtnCount].onclick = changeImage;
+	numBtnCount = numBtnCount - 1; // 4
+	numBtns[numBtnCount].num = numBtnCount+1;
+	numBtns[numBtnCount].onclick = changeImage;
 }
 
+numBtns[2].onclick();
+
 function changeImage() {
- imgbox.style.backgroundImage = this.getAttribute('aria-lable');
- return fales;
+	imgbox.style.backgroundImage = 'url(images/bg_0'+this.num+'.jpg)';
+	return false;
 }
 
 </script>

@@ -1,0 +1,48 @@
+body, ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: url("../imgs/img01.jpg") top left no-repeat;
+  background-size: cover;
+}
+
+h1 {
+  display: block;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.img-list {
+  width: 35.8125rem;
+  margin: 0 auto;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -260px;
+  margin-top: -230px;
+}
+
+.img-list li {
+  display: inline-block;
+  list-style-type: none;
+}
+.img-list li a {
+  display: block;
+}
+.img-list li a img {
+  width: 100px;
+  height: 100px;
+  margin-right: 5px;
+  border: 4px solid #fff;
+}
+.img-list li a img:last-child {
+  margin-right: 0;
+}
+.img-list li a img:hover, .img-list li a img:focus {
+  border: 4px solid #345fce;
+  transform: scale(1.2);
+}
+
+/*# sourceMappingURL=style.css.map */
