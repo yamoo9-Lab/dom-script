@@ -86,6 +86,21 @@
 		// console.log('html: ', html);
 		// console.log('body: ', body);
 
+		// 노드(Node)의 속성(Properties)
+		// 노드의 이름 (nodeName) ※ 대문자 노드이름 반환
+		// 노드의 유형 (nodeType)
+		// 노드의 값 (nodeValue)
+
+		var page   = document.querySelector('#page');
+		var header = page.querySelector('header');
+
+		if (header.nextElementSibling.nodeName.toLowerCase() === 'main') {
+			console.log('다음에 나오는 요소는 <main> 요소가 맞습니다.');
+		} else {
+			console.log('다음에 나오는 요소는 <main> 요소가 아닙니다.');
+		}
+
+
 	</script>
 </body>
 </html>
