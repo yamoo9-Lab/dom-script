@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title> 여행 </title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+	<ul class="picList">
+		<li><a class="box p-1" href><img src="_/pic1.JPG" width="150" alt="사진1"></a></li>
+		<li><a class="box p-2" href><img src="_/pic2.JPG" width="150" alt="사진2"></a></li>
+		<li><a class="box p-3" href><img src="_/pic3.JPG" width="150" alt="사진3"></a></li>
+		<li><a class="box p-4" href><img src="_/pic4.JPG" width="150" alt="사진4"></a></li>
+		<li><a class="box p-5" href><img src="_/pic5.JPG" width="150" alt="사진5"></a></li>
+	</ul>
+
+
+	<!-- 스크립트 부분 -->
+	<script>
+		var	body = document.body,
+			picBtns = document.querySelectorAll('a'),
+			pics = document.querySelectorAll('img');
+			// picBgs = document.getElementsByClassName('picBG');
+
+		// window.onload = function(){
+		// 	body.style.background = '#333';
+		// }
+
+		picBtns[0].onclick = function(){
+			// body.style.background = '#333';
+			body.style.backgroundImage = 'url(_/pic1.JPG)';
+			body.style.backgroundSize = 'cover';
+			// body.style.background = 'center';
+			// body.style.background.cssText = url(_/pic1.JPG), cover;
+			return false;
+		}
+		picBtns[1].onclick = function(){
+			body.style.backgroundImage = 'url(_/pic2.JPG)';
+			body.style.backgroundSize = 'cover';
+			return false;
+		}
+		picBtns[2].onclick = function(){
+			body.style.backgroundImage = 'url(_/pic3.JPG)';
+			body.style.backgroundSize = 'cover';
+			return false;
+		}
+		picBtns[3].onclick = function(){
+			body.style.backgroundImage = 'url(_/pic4.JPG)';
+			body.style.backgroundSize = 'cover';
+			return false;
+		}
+		picBtns[4].onclick = function(){
+			body.style.backgroundImage = 'url(_/pic5.JPG)';
+			body.style.backgroundSize = 'cover';
+			return false;
+		}
+	</script>
+</body>
+</html>
