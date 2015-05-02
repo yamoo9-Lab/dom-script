@@ -33,6 +33,25 @@
 					title
 				body = head의 다음 형제(Next Sibling)
 
+			부모(요소)찾기 :
+				.parentNode
+
+			자식(노드)찾기 :
+				.firstChild
+				.lastChild
+
+			자식(요소)찾기 :
+				.firstElementChild
+				.lastElementChild
+
+			형제(노드)찾기 :
+				.nextSibling
+				.previousSibling
+
+			형제(요소)찾기 :
+				.nextElementSibling
+				.previousElementSibling
+
 		 */
 
 		head = document.head;
@@ -42,6 +61,29 @@
 		console.log('head: ', head);
 		console.log('html: ', html);
 		console.log('body: ', body);
+
+		// 다음요소를 찾는 헬퍼함수
+		function nextEl(el) {
+			// 유효성검사
+			if (el.nodeType !== 1) { throw new Error('전달받은 인자가 요소노드가 아닙니다.'); }
+			// return 다음 요소노드
+		}
+
+		// 문제 제기: DOM 스크립트의 문제점(노드 탐색...) -> 요소 탐색
+		// DOM 탐색을 도와주는 함수 => helper function
+		// firstElement찾는 헬퍼 함수
+		function firstEl(el) {
+			// el의 첫번째 자식 요소노드를 찾아서 반환한다.
+			// el.firstChild를 찾는다.
+			// el.firstChild가 요소니?
+			if(el.firstChild.nodeType === 1) {
+				return el.firstChild;
+			} else {
+				// 첫번째 자식노드가 요소가 아니라면?
+				// 다음 노드를 확인하는 것이죠. 요소 노드인지를?
+				return el.firstChild.nextSibling;
+			}
+		}
 
 	</script>
 </body>
