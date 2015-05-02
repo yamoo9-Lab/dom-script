@@ -4,19 +4,37 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<meta charset="UTF-8">
 	<title>DOMScript - 3일차</title>
+	<script src="js/dom_helper/dom.js"></script>
 </head>
 <body>
 
 	<div id="page">
-		header>h1#brand>lorem3
+		<header>
+			<h1 id="brand">야무 한글 로렘입숨. 하고!</h1>
+		</header>
 		<main role="main">
-			.article*3>p*2>lorem
+			<div class="article">
+				<p>야무 한글 로렘입숨. 심장 실수조차도 거추장스런 숨 죽여도 눈부신, 찬란한 너야말로 흐르는 피어나는 씩씩하게 하루를 엮어가는. 어디에나 청춘의 피어나는 운동화도 엮어가는 꽃보다, 세상을 만들 설레는, 심장 거추장스런 소리 해도. 청춘의, 숨 죽여도 쿵쿵대는.</p>
+				<p>햇볕처럼 그대 실수조차도 보기만 하루를 고동소리 어디에나 청춘의 소리, 설레는 꽃처럼 씩씩하게 티셔츠 빛나는 엮어가는 너 내일의 하고. 어디에나 눈부신, 흐르는 아름다운. 쉬지 아름답다, 젊음의 하고 빛나는 거추장스런 실수조차도 씩씩하게.</p>
+			</div>
+			<div class="article">
+				<p>야무 한글 로렘입숨. 꽃처럼 소리 흐르는 티셔츠 너야말로 설레는 심장 씩씩하게 쉬지 하루를 가슴을 찬란한 숨소리가 않고 그대 아름다운 장엄한 청춘의 보기만 청춘 아름답다 꽃보다 햇볕처럼, 젊음의 고동소리 엮어가는 해도 내일의.</p>
+				<p>만들 하루를 찬란한, 숨소리가 소리 너 고동소리 사명으로 청춘 숨 죽여도 청춘의 꽃처럼 세상을 티셔츠 청춘아!, 피어나는 젊음의 꽃보다 설레게 너야말로 설레는, 그대 빛나는 운동화도! 다 들리는 아름다운 실수조차도 하루를 엮어가는. 장엄한.</p>
+			</div>
+			<div class="article">
+				<p>야무 한글 로렘입숨. 세상을 피어나는 심장 쿵쿵대는 너 운동화도 땀 젊음의 가슴을 숨 죽여도 티셔츠. 햇볕처럼, 청춘의 청춘아! 어디에나 피어나는 꽃처럼, 씩씩하게 해도 실수조차도 가슴을 하루를, 아름답다 심장 설레는 하고, 티셔츠 설레게.</p>
+				<p>너 흐르는, 보기만 씩씩하게 햇볕처럼 심장 장엄한, 실수조차도 눈부신 땀, 고동소리 세상을 설레게 꽃보다 사명으로 쿵쿵대는 티셔츠 다 들리는 설레는 가슴을 쉬지 만들 청춘의. 엮어가는, 쿵쿵대는 피어나는 꽃보다? 숨소리가, 세상을 햇볕처럼.</p>
+			</div>
 		</main>
 		<aside id="sidebar">
-			ul>li*3>lorem1
+			<ul>
+				<li>야무.</li>
+				<li>쉬지.</li>
+				<li>고동소리!</li>
+			</ul>
 		</aside>
 		<footer>
-			small>lorem6
+			<small>야무 한글 로렘입숨. 꽃보다 눈부신 쿵쿵대는 해도.</small>
 		</footer>
 	</div>
 
@@ -44,6 +62,12 @@
 				.firstElementChild
 				.lastElementChild
 
+			자식들(노드)찾기 :
+				.childNodes
+
+			자식들(요소)찾기 :
+				.children
+
 			형제(노드)찾기 :
 				.nextSibling
 				.previousSibling
@@ -58,55 +82,9 @@
 		html = head.parentNode;
 		body = head.nextElementSibling;
 
-		console.log('head: ', head);
-		console.log('html: ', html);
-		console.log('body: ', body);
-
-		// 다음요소를 찾는 헬퍼함수
-		// nextEl(document.getElementById('page'))
-		function nextEl(el) {
-			// 전달인자 유효성검사
-			// if (el.nodeType !== 1) { throw new Error('전달받은 인자가 요소노드가 아닙니다.'); }
-			if (el.nodeType !== 1) {
-				console.error('전달받은 인자가 요소노드가 아닙니다.');
-				return; // 함수 종료
-			}
-
-			if ( el.nextElementSibling ) {
-				return el.nextElementSibling;
-			} else {
-				// IE 8 이하 브라우저 아래 코드 수행
-				// el.nextSibling // 요소노드이냐? 아니냐?
-				while( el.nextSibling ) {
-					if ( el.nextSibling.nodeType !== 1 ) {
-						el = el.nextSibling;
-					} else {
-						// el.nextSibling 요소노드라면?
-						// 반복문 종료
-						// el.nextSibling 반환
-						return el.nextSibling;
-					}
-				}
-			}
-
-			// return 다음 요소노드
-		}
-
-		// 문제 제기: DOM 스크립트의 문제점(노드 탐색...) -> 요소 탐색
-		// DOM 탐색을 도와주는 함수 => helper function
-		// firstElement찾는 헬퍼 함수
-		function firstEl(el) {
-			// el의 첫번째 자식 요소노드를 찾아서 반환한다.
-			// el.firstChild를 찾는다.
-			// el.firstChild가 요소니?
-			if(el.firstChild.nodeType === 1) {
-				return el.firstChild;
-			} else {
-				// 첫번째 자식노드가 요소가 아니라면?
-				// 다음 노드를 확인하는 것이죠. 요소 노드인지를?
-				return nextEl(el.firstChild);
-			}
-		}
+		// console.log('head: ', head);
+		// console.log('html: ', html);
+		// console.log('body: ', body);
 
 	</script>
 </body>
