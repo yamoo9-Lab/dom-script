@@ -7,3 +7,6 @@
 
 ### Detecting Scroll Position
 - [Stiky Scroll](http://blog.grayghostvisuals.com/js/detecting-scroll-position/)
+
+### Cross-browser element.classList
+- [classList.js](https://github.com/eligrey/classList.js)

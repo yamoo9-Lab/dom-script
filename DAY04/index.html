@@ -68,18 +68,35 @@
 	</main>
 
 <script>
+	var stickyEl = document.querySelector('.sticky-scroll');
+
+	// stickyEl.className = stickyEl.className + ' sticky__fixed';
+
 	// 구현할 스크립트 코드를 생각해봅시다.
 	// 창을 사용자가 스크롤하는지를 이벤트로 감지한다.
 	window.onscroll = function() {
 		// 현재 창의 스크롤 위치 값을 확인한다.
 		// 목적지의 위치가 어디인가?
 		// console.log( window.scrollY ); // 467
-		console.log( window.scrollY );
+		// console.log( window.scrollY );
 
 		// 화면 스크롤 Y축의 높이 값이 467보다 커지면
-		// .sticky-scroll 요소에 .sticky__fixed 클래스 속성을 추가하라.
+		if ( window.scrollY > 445 ) {
+			// console.log('sticky!!!');
+			// .sticky-scroll 요소에 .sticky__fixed 클래스 속성을 추가하라.
+			// stickyEl.className = stickyEl.className + ' sticky__fixed';
+
+			// element.classList는 IE 10+ 지원
+			stickyEl.classList.add('sticky__fixed');
+		}
 		// 그렇지 않으면
-		// .sticky-scroll 요소에 .sticky__fixed 클래스 속성을 제거하라.
+		else {
+			// console.log('no sticky!!!');
+			// .sticky-scroll 요소에 .sticky__fixed 클래스 속성을 제거하라.
+			// stickyEl.className = '';
+
+			stickyEl.classList.remove('sticky__fixed');
+		}
 
 	};
 
