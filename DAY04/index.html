@@ -69,8 +69,13 @@
 
 <script>
 	var stickyEl = document.querySelector('.sticky-scroll');
+	var stickyTopPos = stickyEl.offsetTop;
 
-	// stickyEl.className = stickyEl.className + ' sticky__fixed';
+	// window.onresize = function() {
+	// 	stickyEl.classList.remove('sticky__fixed');
+	// 	stickyTopPos = stickyEl.offsetTop;
+	// 	console.log(stickyTopPos);
+	// };
 
 	// 구현할 스크립트 코드를 생각해봅시다.
 	// 창을 사용자가 스크롤하는지를 이벤트로 감지한다.
@@ -80,8 +85,8 @@
 		// console.log( window.scrollY ); // 467
 		// console.log( window.scrollY );
 
-		// 화면 스크롤 Y축의 높이 값이 467보다 커지면
-		if ( window.scrollY > 445 ) {
+		// 화면 스크롤 Y축의 높이 값이 element의 화면 상단에서의 Y위치 값보다 커지면
+		if ( window.scrollY > stickyTopPos ) {
 			// console.log('sticky!!!');
 			// .sticky-scroll 요소에 .sticky__fixed 클래스 속성을 추가하라.
 			// stickyEl.className = stickyEl.className + ' sticky__fixed';
