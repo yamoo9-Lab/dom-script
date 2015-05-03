@@ -1,4 +1,12 @@
-// 맛보기!! 크로스 브라우징 헬퍼 함수를 만들어보자!!!
+
+function css(el, prop, value) {
+	if (value) {
+		setStyle(el, prop, value);
+	} else {
+		return getStyle(el, prop);
+	}
+}
+
 function getStyle(el, prop) {
 	if (window.getComputedStyle) {
 		return window.getComputedStyle(el)[prop];
@@ -6,6 +14,11 @@ function getStyle(el, prop) {
 		return el.currentStyle[prop];
 	}
 }
+
+function setStyle(el, prop, value) {
+	el.style[prop] = value;
+}
+
 
 function addTitle(el, title) {
 		if ( el.nodeType === 1 ) {

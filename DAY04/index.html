@@ -4,6 +4,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<meta charset="UTF-8">
 	<title>DOM API</title>
+	<script src="../libs/domHelper.js"></script>
 </head>
 <body>
 
@@ -19,14 +20,27 @@
 
 	img1.onload = function() {
 		// console.log('이미지 로드 완료');
-		addClass(img1, 'loaded');
-		addClass(img1, 'cup');
-		addClass(img1, 'cup');
-		addClass(img1, 'cup');
-		addClass(img1, 'cup');
-		addClass(img1, 'cup');
-		addClass(img1, 'cup');
+		addClass(this, 'loaded');
+		css(this, 'padding', '10px');
+		css(this, 'border', '1px solid #333');
 	};
+
+	// JS 반복문 완전정복!!!
+	// while문, do~while문, for문
+
+	var num = 10;
+
+	do {
+		// 반복 코드
+	} while( --num > 0 );
+
+	while(--num > 0) {
+		// 반복 코드
+	}
+
+	for(var i=0; i < 10; i++) {
+		// 반복 코드
+	}
 
 	</script>
 </body>
