@@ -68,16 +68,21 @@
 	</main>
 
 <script>
-	var stickyEl = document.querySelector('.sticky-scroll');
-	var stickyTopPos = stickyEl.offsetTop;
-
-	// window.onresize = function() {
-	// 	stickyEl.classList.remove('sticky__fixed');
-	// 	stickyTopPos = stickyEl.offsetTop;
-	// 	console.log(stickyTopPos);
-	// };
-
 	// 구현할 스크립트 코드를 생각해봅시다.
+	// ------------------------------------------------------------
+	// 제어할 대상 참조
+	var stickyEl     = document.querySelector('.sticky-scroll');
+	// 제어할 대상의 스크롤 높이 값 변수에 참조
+	var stickyTopPos = stickyEl.offsetTop - stickyEl.clientHeight;
+
+	// 창 크기 조정 시, 초기화 및 스크롤 높이 값 변경
+	window.onresize = function() {
+		// 초기화 (fixed 설정 제거)
+		stickyEl.classList.remove('sticky__fixed');
+		// 창 크기 조정에 따른 sticky 요소의 스크롤 높이 값을 변경
+		stickyTopPos = stickyEl.offsetTop - stickyEl.clientHeight;
+	};
+
 	// 창을 사용자가 스크롤하는지를 이벤트로 감지한다.
 	window.onscroll = function() {
 		// 현재 창의 스크롤 위치 값을 확인한다.
