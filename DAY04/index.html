@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>DOM API</title>
+</head>
+<body>
+
+	<img class="img images media" src="http://lorempixel.com/320/240/fashion" width="320" height="240" alt="fashion">
+
+	<script>
+
+	var img1 = document.images[0];
+
+	img1.onclick = function() {
+		addTitle( this , '패션!!' );
+	}
+
+	img1.onload = function() {
+		// console.log('이미지 로드 완료');
+		addClass(img1, 'loaded');
+		addClass(img1, 'cup');
+		addClass(img1, 'cup');
+		addClass(img1, 'cup');
+		addClass(img1, 'cup');
+		addClass(img1, 'cup');
+		addClass(img1, 'cup');
+	};
+
+	</script>
+</body>
+</html>
