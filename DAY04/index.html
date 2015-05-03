@@ -26,13 +26,15 @@
 			padding: 1em;
 		}
 
-		.sticky__fixed {
+		.fixed {
 			position: fixed;
 			top: 0;
 			left: 0;
 			width: 100%;
 		}
 	</style>
+	<script src="js/libs/stickyScroll.js"></script>
+	<script src="js/libs/classList.min.js"></script>
 </head>
 <body>
 	<header>
@@ -68,51 +70,8 @@
 	</main>
 
 <script>
-	// 구현할 스크립트 코드를 생각해봅시다.
-	// ------------------------------------------------------------
-	// 제어할 대상 참조
-	var stickyEl     = document.querySelector('.sticky-scroll');
-	// 제어할 대상의 스크롤 높이 값 변수에 참조
-	var stickyTopPos = stickyEl.offsetTop - stickyEl.clientHeight;
-
-	// 창 크기 조정 시, 초기화 및 스크롤 높이 값 변경
-	window.onresize = function() {
-		// 초기화 (fixed 설정 제거)
-		stickyEl.classList.remove('sticky__fixed');
-		// 창 크기 조정에 따른 sticky 요소의 스크롤 높이 값을 변경
-		stickyTopPos = stickyEl.offsetTop - stickyEl.clientHeight;
-	};
-
-	// 창을 사용자가 스크롤하는지를 이벤트로 감지한다.
-	window.onscroll = function() {
-		// 현재 창의 스크롤 위치 값을 확인한다.
-		// 목적지의 위치가 어디인가?
-		// console.log( window.scrollY ); // 467
-		// console.log( window.scrollY );
-
-		// 화면 스크롤 Y축의 높이 값이 element의 화면 상단에서의 Y위치 값보다 커지면
-		if ( window.scrollY > stickyTopPos ) {
-			// console.log('sticky!!!');
-			// .sticky-scroll 요소에 .sticky__fixed 클래스 속성을 추가하라.
-			// stickyEl.className = stickyEl.className + ' sticky__fixed';
-
-			// element.classList는 IE 10+ 지원
-			stickyEl.classList.add('sticky__fixed');
-		}
-		// 그렇지 않으면
-		else {
-			// console.log('no sticky!!!');
-			// .sticky-scroll 요소에 .sticky__fixed 클래스 속성을 제거하라.
-			// stickyEl.className = '';
-
-			stickyEl.classList.remove('sticky__fixed');
-		}
-
-	};
-
-
-
-
+var el = document.querySelector('.sticky-scroll');
+stickyScroll( el, 'fixed', false );
 </script>
 </body>
 </html>
