@@ -4,8 +4,6 @@
 // 스티키 스크롤을 적용할 요소
 function stickyScroll(el, fixedClass, snap) {
 
-	console.log(snap);
-
 	// 유효성 검사
 	if ( el === undefined || el.nodeType !== 1 ) {
 		throw new Error('전달인자가 잘못되었습니다. 요소를 전달해주세요.');
@@ -13,8 +11,6 @@ function stickyScroll(el, fixedClass, snap) {
 
 	// snap 초기 값 설정
 	snap = (snap===false && snap!==undefined) ? false : true;
-
-	console.log(snap);
 
 	/**
 	 * 제어할 대상 참조
