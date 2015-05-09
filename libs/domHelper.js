@@ -46,9 +46,24 @@ function _setStyle(el, prop, value) {
  * @param  {String} value 값(문자열)
  */
 function attr(el, prop, value) {
-	if ( el.nodeType === 1 ) {
-		el.setAttribute(prop, value);
+	if (!value) {
+		return getAttr(el, prop);
+	} else {
+		setAttr(el, prop, value);
 	}
+}
+
+function getAttr(el, prop) {
+	if ( !el || !el.nodeName ) { throw new Error(''); }
+	if ( !prop || typeof prop !== 'string' ) { throw new Error(''); }
+	return el.getAttribute(prop);
+}
+
+function setAttr(el, prop, value) {
+	if ( !el || !el.nodeName ) { throw new Error(''); }
+	if ( !prop || typeof prop !== 'string' ) { throw new Error(''); }
+	if ( !value ) { throw new Error(''); }
+	el.setAttribute(prop, value);
 }
 
 /**
