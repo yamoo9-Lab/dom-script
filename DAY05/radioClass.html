@@ -28,7 +28,17 @@ var navi_a = navi.querySelectorAll('a');
 
 for (var i=0, l=navi_a.length; i<l; i++) {
 	var item = navi_a[i];
-	console.log(item);
+	item.onclick = radioClass;
+}
+
+function radioClass() {
+	var parent = this.parentNode; // li
+	var parentSiblings = parent.parentNode.children;
+	for (var i=0, l=parentSiblings.length; i<l; i++) {
+		removeClass(parentSiblings[i], 'on');
+	}
+	addClass(parent, 'on');
+	return false;
 }
 
 </script>
