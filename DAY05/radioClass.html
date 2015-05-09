@@ -18,28 +18,47 @@
 	</nav>
 
 <script>
+
 // addClass
 // removeClass
 // hasClass
 // toggleClass
 
-var navi = document.querySelector('#navi');
-var navi_a = navi.querySelectorAll('a');
+(function(){
+	var navi = document.querySelector('#navi');
+	var navi_a = navi.querySelectorAll('a');
 
-for (var i=0, l=navi_a.length; i<l; i++) {
-	var item = navi_a[i];
-	item.onclick = radioClass;
-}
-
-function radioClass() {
-	var parent = this.parentNode; // li
-	var parentSiblings = parent.parentNode.children;
-	for (var i=0, l=parentSiblings.length; i<l; i++) {
-		removeClass(parentSiblings[i], 'on');
+	for (var i=0, l=navi_a.length; i<l; i++) {
+		var item = navi_a[i];
+		item.onclick = itemFn;
 	}
-	addClass(parent, 'on');
-	return false;
-}
+
+	function itemFn() {
+		radioClass(this.parentNode, 'on');
+		// console.log(this);
+		return false;
+	}
+})();
+
+
+
+// // 숫자(Number)
+// 9, 10, 21
+// // 문자(String)
+// '9', '10px', "20%"
+// // 불린(Boolean)
+// true, false
+
+// // 배열(Array)
+// []
+// // 함수(Function)
+// function() {}
+// // 객체(Object)
+// {}
+//
+
+
+
 
 </script>
 </body>

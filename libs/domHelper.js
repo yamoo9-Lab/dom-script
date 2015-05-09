@@ -105,3 +105,23 @@ function toggleClass(el, className) {
 		addClass(el, className);
 	}
 }
+
+function radioClass(el, className) {
+	// 유효성 검사
+	if ( !el || !el.nodeName ) { throw new Error('첫번째 전달인자는 요소노드를 설정하여야 합니다.'); }
+	if ( !className || typeof className !== 'string' ) { throw new Error('두번째 전달인자는 문자열로 설정하여야 합니다.'); }
+
+	var _siblings = el.parentNode.children;
+	var _len = _siblings.length;
+	var _item;
+
+	while( _len-- ) {
+		_item = _siblings[_len];
+		if ( hasClass(_item, className) ) {
+			removeClass(_item, className);
+		}
+	}
+
+	addClass(el, className);
+
+}
