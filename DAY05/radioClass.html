@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>5일차 - radioClass</title>
+	<script src="../libs/domHelper.js"></script>
+</head>
+<body>
+	<nav id="navi">
+		<ul>
+			<li><a href="">야무.</a></li>
+			<li><a href="">운동화도!</a></li>
+			<li><a href="">해도!</a></li>
+			<li><a href="">하고.</a></li>
+			<li><a href="">장엄한.</a></li>
+		</ul>
+	</nav>
+
+<script>
+// addClass
+// removeClass
+// hasClass
+// toggleClass
+
+var navi = document.querySelector('#navi');
+var navi_a = navi.querySelectorAll('a');
+
+for (var i=0, l=navi_a.length; i<l; i++) {
+	var item = navi_a[i];
+	console.log(item);
+}
+
+</script>
+</body>
+</html>

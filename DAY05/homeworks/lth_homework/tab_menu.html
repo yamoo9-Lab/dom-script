@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title> 탭메뉴 </title>
+	<style>
+	body, header, h1, ul, li, a {margin: 0;padding: 0;}
+	ul {
+		display: inline-block;
+		position: relative;
+		letter-spacing: -0.03em;
+	}
+	li {
+		float: left;
+		list-style-type: none;
+	}
+	.clrFX::before {
+		content:"";
+		display:block;
+		overflow: hidden;
+	}
+	.clrFix {
+		zoom: 1;
+	}
+	
+	a {
+		display: block;
+		background-color: #B4712B;
+		text-decoration: none;
+		color: #fff;
+		text-align: center;
+		padding: 0 20px;
+		width: 7.0625rem;
+		height: 50px;
+		line-height: 50px;
+		border: 1px solid #A96D26;
+		border-radius: 0.625rem;
+	}
+
+	.contents_box {
+		display: none;
+		/*text-align: center;*/
+	}
+
+	.contents_box_show {
+		position: absolute;
+		top: 100%;
+		left: 0%;
+		display: block;
+	}
+	</style>
+	<script src="js/libs/classList.min.js"></script>
+</head>
+<body>
+	<header>
+		<h1> 탭 메뉴 </h1>
+		<ul class="clrFix">
+			<li>
+				<a href>료칸의 방</a>
+				<div class="contents_box">
+					<img src="img/ryokan0.jpg" title="료칸의 방" class="contents" alt="일본 료칸, 창 밖으로 화원이 펼쳐진 방">
+				</div>
+			</li>
+			<li>
+				<a href>료칸 요리</a>
+				<div class="contents_box">
+					<img src="img/ryokan1.jpg" title="료칸 요리" class="contents" alt="료칸에서 제공하는 일본 전통 음식">
+				</div>
+			</li>
+			<li>
+				<a href>료칸 설경</a>
+				<div class="contents_box">
+					<img src="img/ryokan2.jpg" title="료칸 설경" class="contents" alt="료칸의 설경">
+				</div>
+			</li>
+			<li>
+				<a href>카이세키 요리</a>
+				<div class="contents_box">
+					<img src="img/ryokan3.jpg" title="카이세키 요리" class="contents" alt="료칸에서 제공하는 일본 전통 음식">
+				</div>
+			</li>
+			<li>
+				<a href>료칸 뒤뜰</a>
+				<div class="contents_box">
+					<img src="img/ryokan4.jpg" title="료칸 뒤뜰" class="contents" alt="료칸의 뒤뜰 야경">
+				</div>
+			</li>
+		</ul>
+	</header>
+	<script>
+	var tabBtns = document.querySelectorAll('a');
+	var tabBtnsCount = tabBtns.length;
+	var contentBox = document.querySelectorAll('.contents_box');
+	var contentBoxCount;
+
+	// while (contentBoxCount > 0 ) {
+	// 	contentBoxCount--;
+	// 	contentBox[contentBoxCount].cssText = "display: none";
+	// }
+
+	while ( tabBtnsCount > 0 ) {
+		tabBtnsCount--;
+		tabBtns[tabBtnsCount].onclick = tabMenu;
+	}
+	// while ( contentBoxCount > 0 ) {
+	// 	contentBoxCount--;
+	// 	console.log(contentBox[contentBoxCount].className = 'contents_box');
+	// }
+
+	function tabMenu() {
+		// if ( this.nextElementSibling.className === 'contents_box') {
+		// 	contentBox.classList.remove('contents_box');
+		// 	this.nextElementSibling.classList.add('contents_box_show');
+		// } else {
+		// 	contentBox.classList.remove('contents_box_show');
+		// 	this.nextElementSibling.classList.add('contents_box');
+		// }
+		// contentBox.classList.add('contents_box');
+		// contentBox.classList.remove('contents_box_show');
+		// if ( this.nextElementSibling.className === 'contents_box') {
+		// 	// this.nextElementSibling = div.contents_box
+		// 	// console.log(this.nextElementSibling.classList.item(0));
+		// 	contentBox.className = 'contents_box';
+		// 	this.nextElementSibling.className = 'contents_box_show';
+		// 	return false;
+		// } else {
+		// 	contentBox.className = 'contents_box_show';
+		// 	this.nextElementSibling.className = 'contents_box';
+		// 	return false;
+		// }
+		// contentBox[0].className = 'contents_box';
+		// contentBox[1].className = 'contents_box';
+		// contentBox[2].className = 'contents_box';
+		// contentBox[3].className = 'contents_box';
+		// contentBox[4].className = 'contents_box';
+		contentBoxCount = contentBox.length;
+		while ( contentBoxCount > 0 ) {
+			contentBoxCount--;
+			contentBox[contentBoxCount].className = 'contents_box';
+		}
+		this.nextElementSibling.className = 'contents_box_show';
+		return false;
+	}
+	</script>
+</body>
+</html>

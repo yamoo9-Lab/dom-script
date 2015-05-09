@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="description" content="" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>slide</title>
+<link rel="stylesheet" type="text/css" href="" />
+<style>
+body,div,ul,li,a{margin:0;padding:0;}
+li{list-style:none}
+.slide_box{height:200px;overflow:hidden}
+.slide_box li{float:left;width:80px;height:200px;}
+.slide_box li.on{width:300px;}
+.slide_box a{display:block;width:100%;height:200px;}
+
+</style>
+</head>
+<body>
+<div class="slide_box">
+	<ul>
+		<li class="on"><a href="http://www.naver.com/" style="background:red;"></a></li>
+		<li><a href="http://www.naver.com/" style="background:green;"></a></li>
+		<li><a href="http://www.naver.com/" style="background:pink;"></a></li>
+		<li><a href="http://www.naver.com/" style="background:lime;"></a></li>
+		<li><a href="http://www.naver.com/" style="background:silver;"></a></li>
+	</ul>
+</div>
+<script>
+
+var slide_box = document.getElementsByTagName('div')[0];// slide-box
+var li_el = slide_box.getElementsByTagName('li');// li
+var li_length = li_el.length; //li의 갯수 5
+var target_a = slide_box.getElementsByTagName('a'); // a
+
+var min_width = 80;// min-width값
+var max_width = 300;// max-width값
+var slide_box_width = (li_length-1)*min_width+max_width;// slide-box의 width값
+slide_box.style.width = slide_box_width+'px';
+var this_li;
+var next_li
+
+ //data-num 속성추가
+for(var i=0; i<li_length; i++){
+	li_el[i].setAttribute('data-num',i);
+};
+
+function next_slide(){
+	for(var j=0; j<li_length; j++){
+		if(target_a[j].parentNode.className=='on'){
+			this_li = li_el[j].getAttribute('data-num');
+			next_li = Number(this_li)+1;
+		}
+		li_el[j].className='';
+	}
+	if(next_li>=li_length){
+		next_li=0;
+	}
+	li_el[next_li].className = 'on'; //다음 li에 class 추가
+	console.log(next_li);	
+};
+
+/* //click
+for(var j=0; j<li_length; j++){
+	target_a[j].onclick = function(){
+		//stop_animation // clearInterval이 들어있는 함수는 적용되지 않아 아래에 직접 적어줌. 이유 모르겠음.
+		clearInterval(animation_slide);
+		for(var k=0; k<li_length; k++){
+			target_a[k].parentNode.className=='';
+			console.log('클릭 인식하나...',target_a[k]);
+		}
+		this.parentNode.className='on';
+		console.log("click");
+		animation_slide;
+		return false;
+	};
+};
+*/
+
+slide_box.onmouseover = stop_animation; //mouseover 이벤트는 div에 적용했는데, 마우스를 움직이니 계속 적용됩니다. 이유가 뭘까요? 
+
+slide_box.onmouseleave = function(){//함수가 아닌 animation_slide 변수를 사용하면 작동하지 않는다.
+	animation_slide = setInterval(function(){next_slide()},2000);
+	console.log("leave");
+}
+
+
+// -> onmouseleave와 onclick 이벤트가 동시에 적용되어. stop이 되지 않는다.....ㅠㅠ
+// 2초마다 다음 li에 class="on"을 적용한다.
+var animation_slide = setInterval(function(){next_slide()},2000);
+
+function stop_animation(){
+	clearInterval(animation_slide);
+	console.log('mouseover');
+};
+
+
+for(var j=0; j<li_length; j++){
+	target_a[j].onclick = function(){
+		clearInterval(animation_slide);
+		return false;
+	};
+};
+
+
+
+
+
+
+
+
+
+
+// http://www.w3schools.com/jsref/event_preventdefault.asp
+
+</script>
+</body>
+</html>
