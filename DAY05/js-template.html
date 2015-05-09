@@ -39,12 +39,14 @@ var images_desc = [
 
 var covers = document.querySelector('.covers');
 
+console.time('images-path');
 for (var i=0, l=images_path.length; i<l; i++) {
 	var new_img = document.createElement('img');
 	new_img.setAttribute('src', images_path[i]);
 	new_img.setAttribute('class', 'cover-img');
 	covers.appendChild(new_img);
 }
+console.timeEnd('images-path');
 
 for (var i=0, l=images_desc.length; i<l; i++) {
 	var new_fig = document.createElement('figcaption');
