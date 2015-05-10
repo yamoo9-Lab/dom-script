@@ -139,6 +139,15 @@ var covers = document.querySelector('.covers'),
 
 
 /**
+ * Button 이벤트 핸들링
+ * --------------------------------
+ */
+
+button.onclick = function() {
+	loadData(images, covers, 4, 3);
+};
+
+/**
  * 피규어를 화면에 출력해주는 것
  * createElement()
  * createTextNode()
@@ -174,8 +183,8 @@ var covers = document.querySelector('.covers'),
 
 /**
  * loadData() 함수 - 데이터를 불러오는 함수
- * @param  {Object} data   데이터 객체
- * @param  {ElementNode} target 데이터를 뿌릴 부모 요소노드
+ * @param  {Object} data   데이터 객체 (필수!)
+ * @param  {ElementNode} target 데이터를 뿌릴 부모 요소노드 (필수!)
  * @param  {Number} count  불러올 데이터의 개수
  * @param  {Number} start  불러올 데이터의 시작 숫자
  * @return {undefined}
@@ -190,8 +199,8 @@ function loadData(data, target, count, start) {
 	}
 
 	// 초기값 설정
-	start = start || 0;
-	count = count || data.length;
+	start = start-1 || 0;
+	count = start+count || data.length;
 
 	// 템플릿
 	var template = '';
