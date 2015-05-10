@@ -5,23 +5,12 @@
 	<meta charset="UTF-8">
 	<title>Javascript 템플릿 - 예리님 과제</title>
 	<style>
-		html {
-			overflow-y: scroll;
-		}
-
-		.covers {
-			display: inline-block;
-		}
-
-		.cover {
-			float: left;
-			margin-right: 10px;
-		}
-
-		.cover img {
-			border: 1px solid #D1D1D1;
-		}
+html { overflow-y: scroll; }
+.covers::after { content: ''; display: block; clear: both; }
+.cover { float: left; margin-right: 10px; }
+.cover img { border: 1px solid #D1D1D1; }
 	</style>
+<script src="../../libs/domHelper.js"></script>
 </head>
 <body>
 
@@ -36,9 +25,7 @@
 		</figure> -->
 	</div>
 
-
 <script>
-
 // Array
 // 어떤 목적의 배열을 만들 것인가?
 var images_path = [
@@ -66,75 +53,20 @@ var images_desc = [
 ];
 
 // 대상(요소노드) 대입(할당), 참조(레퍼런스)
-var covers = document.querySelector('.covers');
-// var button = document.querySelector('button');
-var button = document.getElementsByTagName('button')[0];
+var covers = document.querySelector('.covers')
+	,button = document.querySelector('button')
+	,lengths = images_path.length;
 
+// 피규어를 화면에 출력해주는 것
+// createElement()
+// createTextNode()
+// appendChild()
+//
+// innerHTML = 'html code'
 
-// images_path==images_desc== figure length가 같다. 공통의 변수를 만든다.
-var lengths = images_path.length;
+var template = '<figure class="cover"><img src="http://lorempixel.com/200/140/cats" width="200" height="140" alt title="cats" class="cover-img"><figcaption class="cover-desc"> 이미지 설명 </figcaption></figure>';
 
-//button click시 figure가 하나씩 나온다.
-var count = 0;
-
-load_count = 6;
-
-button.onclick = function() {
-	for(var i=0; i<load_count; i++) {
-		showImg();
-	}
-}
-
-function text(el, text) {
-	if (el.textContent) {
-		el.textContent = text;
-	} else {
-		el.innerText = text;
-	}
-}
-
-function showImg(){
-	//image
-	var new_img = document.createElement('img');
-	new_img.setAttribute('src', images_path[count]);
-	new_img.setAttribute('width', 200);
-	new_img.setAttribute('height', 140);
-	new_img.setAttribute('alt', '');
-	new_img.setAttribute('title', 'cats');
-	// new_img.setAttribute('class', 'cover-img');
-	new_img.classList.add('cover-img');
-
-	//figcaption
-	var new_fig = document.createElement('figcaption');
-	// new_fig.setAttribute('class', 'cover-desc');
-	new_fig.classList.add('cover-desc');
-	text(new_fig, images_desc[count]);
-
-	//figure
-	var figure = document.createElement('figure');
-	// figure.setAttribute('class','cover');
-	figure.classList.add('cover');
-
-	//화면에 출력
-	figure.appendChild(new_img);
-	figure.appendChild(new_fig);
-	covers.appendChild(figure);
-
-	if( count < lengths-1 ){
-		count++;
-		console.log(count);
-	} else {
-		// 버튼 클릭 이벤트 제거
-		button.onclick = null;
-		button.setAttribute('disabled', 'disabled');
-		// var txt = document.createTextNode('이미지가 없습니다.');
-		// var div = document.createElement('div');
-		// div.appendChild(txt);
-		// covers.appendChild(div);
-	}
-}
-
-
+covers.innerHTML = template;
 </script>
 </body>
 </html>

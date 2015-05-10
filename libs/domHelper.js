@@ -47,23 +47,31 @@ function _setStyle(el, prop, value) {
  */
 function attr(el, prop, value) {
 	if (!value) {
-		return getAttr(el, prop);
+		return _getAttr(el, prop);
 	} else {
-		setAttr(el, prop, value);
+		_setAttr(el, prop, value);
 	}
 }
 
-function getAttr(el, prop) {
+function _getAttr(el, prop) {
 	if ( !el || !el.nodeName ) { throw new Error(''); }
 	if ( !prop || typeof prop !== 'string' ) { throw new Error(''); }
 	return el.getAttribute(prop);
 }
 
-function setAttr(el, prop, value) {
+function _setAttr(el, prop, value) {
 	if ( !el || !el.nodeName ) { throw new Error(''); }
 	if ( !prop || typeof prop !== 'string' ) { throw new Error(''); }
 	if ( !value ) { throw new Error(''); }
 	el.setAttribute(prop, value);
+}
+
+function text(el, text) {
+	if (el.textContent) {
+		el.textContent = text;
+	} else {
+		el.innerText = text;
+	}
 }
 
 /**
