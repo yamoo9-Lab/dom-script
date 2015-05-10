@@ -143,8 +143,11 @@ var covers = document.querySelector('.covers'),
  * --------------------------------
  */
 
+var num = 1;
+
 button.onclick = function() {
-	loadData(images, covers, 4, 3);
+	loadData(images, covers, 3, num);
+	num += 3;
 };
 
 /**
@@ -199,7 +202,7 @@ function loadData(data, target, count, start) {
 	}
 
 	// 초기값 설정
-	start = start-1 || 0;
+	start = (start-1<0?0:start-1) || 0;
 	count = ( ((start+count)>data.length) ? data.length : (start+count) ) || data.length;
 
 	// 템플릿
@@ -210,7 +213,7 @@ function loadData(data, target, count, start) {
 		template += 	'<figcaption class="cover-desc"> '+ data[i].desc +' </figcaption>';
 		template += '</figure>';
 	}
-	target.innerHTML = template;
+	target.innerHTML += template;
 }
 
 </script>
