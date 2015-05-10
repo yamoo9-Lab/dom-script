@@ -8,7 +8,7 @@
 html { overflow-y: scroll; }
 .covers::after { content: ''; display: block; clear: both; }
 .cover { float: left; margin-right: 10px; }
-.cover img { border: 1px solid #D1D1D1; }
+.cover img { border: 1px solid hsl(0, 0%, 82%); }
 </style>
 <script src="../../libs/domHelper.js"></script>
 </head>
@@ -113,35 +113,29 @@ var images = [
 	},
 ];
 
-// var images = {
-// 	'cat1': {
-// 		'path': 'http://lorempixel.com/200/140/cats/1/',
-// 		'desc': '고양이 1',
-// 		'title': '냐옹이 1'
-// 	}
-// }
-
+// JSON (자바스크립트 객체 표현식)
+// DAY06/data-images.json 확인
 
 // var cssMap = {
-// 	'font': '14px/1.5 Verdana',
-// 	'color': '#ccc',
-// 	'background': 'url("images/bg.png") no-repeat'
+// 	'font'       : '14px/1.5 Verdana',
+// 	'color'      : 'hsl(0, 0%, 80%)',
+// 	'background' : 'url("images/bg.png") no-repeat'
 // };
 
 // var animal = {
-// 	'kind':     'cat',
-// 	'name':     'navi',
-// 	'year':     3,
-// 	'birthday': '2015-05-10',
-// 	'friends':  ['kunta', 'jirungi']
+// 	'kind'     : 'cat',
+// 	'name'     : 'navi',
+// 	'year'     : 3,
+// 	'birthday' : '2015-05-10',
+// 	'friends'  : ['kunta', 'jirungi']
 // };
 
 /**
  * 대상(요소노드) 대입(할당), 참조(레퍼런스)
  * --------------------------------
  */
-var covers = document.querySelector('.covers')
-	,button = document.querySelector('button');
+var covers = document.querySelector('.covers'),
+	button = document.querySelector('button');
 
 
 /**
@@ -159,20 +153,56 @@ var covers = document.querySelector('.covers')
  * HTML 템플릿
  * --------------------------------
  */
-var template = '';
+// var template = '';
 
-// console.time('innerHTML');
-for(var i=0, l=images.length; i<l; i++) {
-	template += '<figure class="cover">';
-	template += 	'<img src="'+ images[i].path +'" width="200" height="140" alt title="'+ images[i].title +'" class="cover-img">';
-	template += 	'<figcaption class="cover-desc"> '+ images[i].desc +' </figcaption>';
-	template += '</figure>';
+// // console.time('innerHTML');
+// for(var i=0, l=images.length; i<l; i++) {
+// 	template += '<figure class="cover">';
+// 	template += 	'<img src="'+ images[i].path +'" width="200" height="140" alt title="'+ images[i].title +'" class="cover-img">';
+// 	template += 	'<figcaption class="cover-desc"> '+ images[i].desc +' </figcaption>';
+// 	template += '</figure>';
+// }
+// // console.timeEnd('innerHTML');
+
+// covers.innerHTML = template;
+
+
+/**
+ * 함수(모듈화)
+ * --------------------------------
+ */
+
+/**
+ * loadData() 함수 - 데이터를 불러오는 함수
+ * @param  {Object} data   데이터 객체
+ * @param  {ElementNode} target 데이터를 뿌릴 부모 요소노드
+ * @param  {Number} count  불러올 데이터의 개수
+ * @param  {Number} start  불러올 데이터의 시작 숫자
+ * @return {undefined}
+ */
+function loadData(data, target, count, start) {
+	// 유효성 검사
+	if (!(data instanceof Array)) {
+		throw new Error('데이터의 유형은 객체여야만 합니다.');
+	}
+	if (!target || !target.nodeName) {
+		throw new Error('불러온 이미지를 추가할 부모 요소를 설정해야 합니다.');
+	}
+
+	// 초기값 설정
+	start = start || 0;
+	count = count || data.length;
+
+	// 템플릿
+	var template = '';
+	for(var i=start, l=count; i<l; i++) {
+		template += '<figure class="cover">';
+		template += 	'<img src="'+ data[i].path +'" width="200" height="140" alt title="'+ data[i].title +'" class="cover-img">';
+		template += 	'<figcaption class="cover-desc"> '+ data[i].desc +' </figcaption>';
+		template += '</figure>';
+	}
+	target.innerHTML = template;
 }
-// console.timeEnd('innerHTML');
-
-covers.innerHTML = template;
-
-
 
 </script>
 </body>
