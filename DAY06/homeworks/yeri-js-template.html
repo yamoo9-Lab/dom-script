@@ -25,6 +25,7 @@ html { overflow-y: scroll; }
  * DATA
  * --------------------------------
  */
+
 // 1차원 배열
 // var images_path = [
 // 	'http://lorempixel.com/200/140/cats/1/',
@@ -49,19 +50,91 @@ html { overflow-y: scroll; }
 // 	'고양이 9',
 // ];
 //
+
 // 2차원 배열
+// var images = [
+// 	['http://lorempixel.com/200/140/cats/1/', '고양이 1', '냐옹이1'],
+// 	['http://lorempixel.com/200/140/cats/2/', '고양이 2', '냐옹이2'],
+// 	['http://lorempixel.com/200/140/cats/3/', '고양이 3', '냐옹이3'],
+// 	['http://lorempixel.com/200/140/cats/4/', '고양이 4', '냐옹이4'],
+// 	['http://lorempixel.com/200/140/cats/5/', '고양이 5', '냐옹이5'],
+// 	['http://lorempixel.com/200/140/cats/6/', '고양이 6', '냐옹이6'],
+// 	['http://lorempixel.com/200/140/cats/7/', '고양이 7', '냐옹이7'],
+// 	['http://lorempixel.com/200/140/cats/8/', '고양이 8', '냐옹이8'],
+// 	['http://lorempixel.com/200/140/cats/9/', '고양이 9', '냐옹이9'],
+// ];
+
+// 객체
 var images = [
-	['http://lorempixel.com/200/140/cats/1/', '고양이 1'],
-	['http://lorempixel.com/200/140/cats/2/', '고양이 2'],
-	['http://lorempixel.com/200/140/cats/3/', '고양이 3'],
-	['http://lorempixel.com/200/140/cats/4/', '고양이 4'],
-	['http://lorempixel.com/200/140/cats/5/', '고양이 5'],
-	['http://lorempixel.com/200/140/cats/6/', '고양이 6'],
-	['http://lorempixel.com/200/140/cats/7/', '고양이 7'],
-	['http://lorempixel.com/200/140/cats/8/', '고양이 8'],
-	['http://lorempixel.com/200/140/cats/9/', '고양이 9'],
+	{
+		'path': 'http://lorempixel.com/200/140/cats/1/',
+		'desc': '고양이 1',
+		'title': '냐옹이 1'
+	},
+	{
+		'path': 'http://lorempixel.com/200/140/cats/2/',
+		'desc': '고양이 2',
+		'title': '냐옹이 2'
+	},
+	{
+		'path': 'http://lorempixel.com/200/140/cats/3/',
+		'desc': '고양이 3',
+		'title': '냐옹이 3'
+	},
+	{
+		'path': 'http://lorempixel.com/200/140/cats/4/',
+		'desc': '고양이 4',
+		'title': '냐옹이 4'
+	},
+	{
+		'path': 'http://lorempixel.com/200/140/cats/5/',
+		'desc': '고양이 5',
+		'title': '냐옹이 5'
+	},
+	{
+		'path': 'http://lorempixel.com/200/140/cats/6/',
+		'desc': '고양이 6',
+		'title': '냐옹이 6'
+	},
+	{
+		'path': 'http://lorempixel.com/200/140/cats/7/',
+		'desc': '고양이 7',
+		'title': '냐옹이 7'
+	},
+	{
+		'path': 'http://lorempixel.com/200/140/cats/8/',
+		'desc': '고양이 8',
+		'title': '냐옹이 8'
+	},
+	{
+		'path': 'http://lorempixel.com/200/140/cats/9/',
+		'desc': '고양이 9',
+		'title': '냐옹이 9'
+	},
 ];
 
+// var images = {
+// 	'cat1': {
+// 		'path': 'http://lorempixel.com/200/140/cats/1/',
+// 		'desc': '고양이 1',
+// 		'title': '냐옹이 1'
+// 	}
+// }
+
+
+// var cssMap = {
+// 	'font': '14px/1.5 Verdana',
+// 	'color': '#ccc',
+// 	'background': 'url("images/bg.png") no-repeat'
+// };
+
+// var animal = {
+// 	'kind':     'cat',
+// 	'name':     'navi',
+// 	'year':     3,
+// 	'birthday': '2015-05-10',
+// 	'friends':  ['kunta', 'jirungi']
+// };
 
 /**
  * 대상(요소노드) 대입(할당), 참조(레퍼런스)
@@ -82,16 +155,20 @@ var covers = document.querySelector('.covers')
  */
 
 
+/**
+ * HTML 템플릿
+ * --------------------------------
+ */
 var template = '';
 
-console.time('innerHTML');
+// console.time('innerHTML');
 for(var i=0, l=images.length; i<l; i++) {
 	template += '<figure class="cover">';
-	template += 	'<img src="'+ images[i][0] +'" width="200" height="140" alt title="cats" class="cover-img">';
-	template += 	'<figcaption class="cover-desc"> '+ images[i][1] +' </figcaption>';
+	template += 	'<img src="'+ images[i].path +'" width="200" height="140" alt title="'+ images[i].title +'" class="cover-img">';
+	template += 	'<figcaption class="cover-desc"> '+ images[i].desc +' </figcaption>';
 	template += '</figure>';
 }
-console.timeEnd('innerHTML');
+// console.timeEnd('innerHTML');
 
 covers.innerHTML = template;
 
