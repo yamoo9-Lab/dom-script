@@ -1,33 +1,30 @@
 <!DOCTYPE html>
 <html lang="ko-KR">
 <head>
-	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-	<meta charset="UTF-8">
-	<title>Javascript 템플릿 - 예리님 과제</title>
-	<style>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta charset="UTF-8">
+<title>Javascript 템플릿 - 예리님 과제</title>
+<style>
 html { overflow-y: scroll; }
 .covers::after { content: ''; display: block; clear: both; }
 .cover { float: left; margin-right: 10px; }
 .cover img { border: 1px solid #D1D1D1; }
-	</style>
+</style>
 <script src="../../libs/domHelper.js"></script>
 </head>
 <body>
 
 <button type="button">add list</button>
 
-	<div class="covers">
-		<!-- <figure class="cover">
-			<img src="http://lorempixel.com/200/140/cats" width="200" height="140" alt title="cats" class="cover-img">
-			<figcaption class="cover-desc">
-				이미지 설명
-			</figcaption>
-		</figure> -->
-	</div>
+<!-- 시작: .covers -->
+<div class="covers"></div>
+<!-- 끝: .covers -->
 
 <script>
-// Array
-// 어떤 목적의 배열을 만들 것인가?
+/**
+ * DATA
+ * --------------------------------
+ */
 var images_path = [
 	'http://lorempixel.com/200/140/cats/1/',
 	'http://lorempixel.com/200/140/cats/2/',
@@ -39,7 +36,6 @@ var images_path = [
 	'http://lorempixel.com/200/140/cats/8/',
 	'http://lorempixel.com/200/140/cats/9/',
 ];
-
 var images_desc = [
 	'고양이 1',
 	'고양이 2',
@@ -52,21 +48,37 @@ var images_desc = [
 	'고양이 9',
 ];
 
-// 대상(요소노드) 대입(할당), 참조(레퍼런스)
+/**
+ * 대상(요소노드) 대입(할당), 참조(레퍼런스)
+ * --------------------------------
+ */
 var covers = document.querySelector('.covers')
 	,button = document.querySelector('button')
 	,lengths = images_path.length;
 
-// 피규어를 화면에 출력해주는 것
-// createElement()
-// createTextNode()
-// appendChild()
-//
-// innerHTML = 'html code'
 
-var template = '<figure class="cover"><img src="http://lorempixel.com/200/140/cats" width="200" height="140" alt title="cats" class="cover-img"><figcaption class="cover-desc"> 이미지 설명 </figcaption></figure>';
+/**
+ * 피규어를 화면에 출력해주는 것
+ * createElement()
+ * createTextNode()
+ * appendChild()
+ * vs
+ * innerHTML = 'html code'
+ * --------------------------------
+ */
+
+
+var template = '';
+
+template += '<figure class="cover">';
+template += 	'<img src="'+ images_path[1] +'" width="200" height="140" alt title="cats" class="cover-img">';
+template += 	'<figcaption class="cover-desc"> '+ images_desc[1] +' </figcaption>';
+template += '</figure>';
 
 covers.innerHTML = template;
+
+
+
 </script>
 </body>
 </html>
