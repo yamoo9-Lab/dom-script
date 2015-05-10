@@ -200,7 +200,7 @@ function loadData(data, target, count, start) {
 
 	// 초기값 설정
 	start = start-1 || 0;
-	count = start+count || data.length;
+	count = ( ((start+count)>data.length) ? data.length : (start+count) ) || data.length;
 
 	// 템플릿
 	var template = '';
