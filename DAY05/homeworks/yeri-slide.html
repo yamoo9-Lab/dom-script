@@ -57,11 +57,14 @@ function next_slide(){
 		next_li=0;
 	}
 	li_el[next_li].className = 'on'; //다음 li에 class 추가
-	console.log(next_li);	
+	console.log(next_li);
 };
 
-/* //click
+// console.log(li_length);
+
+ //click
 for(var j=0; j<li_length; j++){
+	console.log(target_a[j]);
 	target_a[j].onclick = function(){
 		//stop_animation // clearInterval이 들어있는 함수는 적용되지 않아 아래에 직접 적어줌. 이유 모르겠음.
 		clearInterval(animation_slide);
@@ -75,43 +78,6 @@ for(var j=0; j<li_length; j++){
 		return false;
 	};
 };
-*/
-
-slide_box.onmouseover = stop_animation; //mouseover 이벤트는 div에 적용했는데, 마우스를 움직이니 계속 적용됩니다. 이유가 뭘까요? 
-
-slide_box.onmouseleave = function(){//함수가 아닌 animation_slide 변수를 사용하면 작동하지 않는다.
-	animation_slide = setInterval(function(){next_slide()},2000);
-	console.log("leave");
-}
-
-
-// -> onmouseleave와 onclick 이벤트가 동시에 적용되어. stop이 되지 않는다.....ㅠㅠ
-// 2초마다 다음 li에 class="on"을 적용한다.
-var animation_slide = setInterval(function(){next_slide()},2000);
-
-function stop_animation(){
-	clearInterval(animation_slide);
-	console.log('mouseover');
-};
-
-
-for(var j=0; j<li_length; j++){
-	target_a[j].onclick = function(){
-		clearInterval(animation_slide);
-		return false;
-	};
-};
-
-
-
-
-
-
-
-
-
-
-// http://www.w3schools.com/jsref/event_preventdefault.asp
 
 </script>
 </body>

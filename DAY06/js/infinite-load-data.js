@@ -73,7 +73,7 @@ var covers = document.querySelector('.covers'),
 function loadData(data, target, count, start) {
 	// 유효성 검사
 	if (!(data instanceof Array)) {
-		throw new Error('데이터의 유형은 객체여야만 합니다.');
+		throw new Error('데이터의 유형은 배열 객체여야만 합니다.');
 	}
 	if (!target || !target.nodeName) {
 		throw new Error('불러온 이미지를 추가할 부모 요소를 설정해야 합니다.');
@@ -109,7 +109,7 @@ function loadData(data, target, count, start) {
 
 var body = document.body;
 
-
+var num = 1;
 
 window.onscroll = function() {
 	var target_point = this.scrollY + this.innerHeight;
@@ -117,6 +117,10 @@ window.onscroll = function() {
 	if (document.height === target_point) {
 		// console.log('맨 끝');
 		// loadData(images, covers);
+		if ( num < images.length ) {
+			loadData(images, covers, 3, num);
+			num += 3;
+		}
 	}
 }
 
@@ -125,7 +129,7 @@ window.onscroll = function() {
  * Button 이벤트 핸들링
  * --------------------------------
  */
-var num = 1;
+
 button.onclick = function() {
 	loadData(images, covers, 3, num);
 	num += 3;
