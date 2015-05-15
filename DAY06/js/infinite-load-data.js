@@ -116,7 +116,6 @@ window.onscroll = function() {
 	// console.log(body.clientHeight, target_point);
 	if (document.height === target_point) {
 		// console.log('맨 끝');
-		// loadData(images, covers);
 		if ( num < images.length ) {
 			loadData(images, covers, 3, num);
 			num += 3;
