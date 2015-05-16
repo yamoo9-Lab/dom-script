@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>라이트박스와 관련된 UI를 처리하기 위한 기본 학습</title>
+	<style>
+		button {
+			cursor: pointer;
+		}
+		button:focus {
+			outline: 3px solid red;
+		}
+	</style>
+</head>
+<body>
+
+<button type="button">overlay button</button>
+
+<script>
+(function(global){
+	var dimBtn = document.querySelector('button');
+	dimBtn.addEventListener('click', function() {
+		console.log(this);
+	});
+})(window);
+</script>
+</body>
+</html>

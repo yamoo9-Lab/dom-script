@@ -83,8 +83,3 @@ document.onclick = function() {
 브라우저 단에 이미 존재하는 객체 (Native Object)
 
 ### 웹 vs 앱의 차이
-Web   vs App
-설치 안함 vs 설치
-느려요   vs 빨라요
-쉽다    vs 어렵다(플랫폼마다 공부할게 달라요)
-보편성   vs 독립성(제한적)
