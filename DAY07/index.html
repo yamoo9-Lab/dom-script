@@ -26,6 +26,7 @@
 	var targetEl = document.querySelector('#target');
 
 	targetEl.onclick = function() {
+		console.log(this);
 		this.classList.toggle('on');
 	};
 
@@ -37,6 +38,14 @@
 	// 		_cl.add('on');
 	// 	}
 	// };
+	//
+
+	setInterval(targetEl.onclick.bind(targetEl), 1000);
+
+	// setInterval(function() {
+	// 	// console.log('interval try');
+	// 	targetEl.onclick();
+	// }, 1000);
 
 })();
 </script>
