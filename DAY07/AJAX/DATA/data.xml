@@ -1,0 +1,23 @@
+<books>
+	<book>
+		<title>JavaScript, the Definitive Guide</title>
+		<publisher>O'Reilly</publisher>
+		<author>David Flanagan</author>
+		<cover src="/images/cover_defguide.jpg" />
+		<blurb>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</blurb>
+	</book>
+	<book>
+		<title>DOM Scripting</title>
+		<publisher>Friends of Ed</publisher>
+		<author>Jeremy Keith</author>
+		<cover src="/images/cover_domscripting.jpg" />
+		<blurb>Praesent et diam a ligula facilisis venenatis.</blurb>
+	</book>
+	<book>
+		<title>DHTML Utopia: Modern Web Design using JavaScript &amp; DOM</title>
+		<publisher>Sitepoint</publisher>
+		<author>Stuart Langridge</author>
+		<cover src="/images/cover_utopia.jpg" />
+		<blurb>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</blurb>
+	</book>
+</books>
