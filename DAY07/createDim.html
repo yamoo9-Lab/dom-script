@@ -96,9 +96,17 @@
 		_dim.setAttribute('class', 'dim');
 		// console.log(_dim);
 		// 생성한 _dim을 DOM에 붙이는 일을 해야 한다.
-
 		after(dimBtn, _dim);
+
+		// _dim을 클릭하면 생성된 _dim이 제거된다.
+		_dim.onclick = removeDim;
+
+
 		// return _dim;
+	}
+
+	function removeDim() {
+		this.parentNode.removeChild(this);
 	}
 
 	// 목표 요소의 앞에 삽입하고자 하는 요소를 추가하는 헬퍼함수
