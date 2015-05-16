@@ -62,7 +62,7 @@
 	<p>엮어가는 하고 눈부신 꽃처럼 소리, 해도 씩씩하게 빛나는 그대 운동화도.</p>
 </article>
 
-<div class="dim"></div>
+<!-- <div class="dim"></div> -->
 <script>
 /**
  * --------------------------------
@@ -89,8 +89,28 @@
 	 * 딤처리를 해주는 함수
 	 * --------------------------------
 	 */
-	function createDim () {
+	function createDim() {
+		// div 요소 생성
+		var _dim = document.createElement('div');
+		// class 속성 값을 'dim'
+		_dim.setAttribute('class', 'dim');
+		// console.log(_dim);
+		// 생성한 _dim을 DOM에 붙이는 일을 해야 한다.
 
+		after(dimBtn, _dim);
+		// return _dim;
+	}
+
+	// 목표 요소의 앞에 삽입하고자 하는 요소를 추가하는 헬퍼함수
+	function before(insertEl, targetEl) {
+		var parentNode = targetEl.parentNode;
+		parentNode.insertBefore(insertEl, targetEl);
+	}
+	// 목표 요소의 다음 형제 요소 앞에 삽입하고자 하는 요소를 추가하는 헬퍼함수
+	function after(targetEl, insertEl) {
+		var parentNode = targetEl.parentNode;
+		var nextEl = targetEl.nextElementSibling;
+		parentNode.insertBefore(insertEl, nextEl);
 	}
 
 })(window);
