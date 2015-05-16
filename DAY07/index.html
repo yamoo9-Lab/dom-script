@@ -18,7 +18,7 @@
 <script>
 
 (function(global){
-	'use strict';
+	// 'use strict';
 
 	/**
 	 * DOM 탐색
@@ -26,51 +26,25 @@
 	 */
 	var targetEl = document.querySelector('#target');
 
-	targetEl.onclick = function() {
+	// targetEl 요소에 마우스가 진입했을 때 이벤트 발동 -> 주기(interval)마다 함수 targetElToggleClass 실행
+	targetEl.onmouseenter = function() {
+		// console.log('enter');
+		global.intervalID = setInterval(targetElToggleClass.bind(this), 1000);
+	}
+	// targetEl 요소에 마우스가 빠져나갔을 때 이벤트 발동 -> 주기마다 수행되는 동작 중지
+	targetEl.onmouseleave = function() {
+		// console.log('leave');
+		clearInterval(intervalID);
+	}
+	// 전역(Global)에서 접근 가능하도록 조치한 targetElToggleClass 함수
+	// this는 콘텍스트(context)를 가리키는 참조자로 함수를 호출하는 콘텍스트에 따라 값이 변하게 된다.
+	global.targetElToggleClass = function() {
 		// console.log(this);
 		this.classList.toggle('on');
 	};
 
-	// targetEl.onclick = function() {
-	// 	var _cl = this.classList;
-	// 	if (_cl.contains('on')) {
-	// 		_cl.remove('on');
-	// 	} else {
-	// 		_cl.add('on');
-	// 	}
-	// };
-	//
-
-	// 시간을 제어
-	// 설정
-	// var intervalID = setInterval
-	// var timeoutID = setTimeout
-	// 제거
-	// clearInterval
-	// clearTimeout
-
 	// global은 전역을 의미하는 스코프 함수(영역) 내에서만 사용하는 지역 변수 (명시적 설정)
-	global.intervalID = setInterval(targetEl.onclick.bind(targetEl), 1000);
-
-	// 재귀함수: 스스로 자신(함수)을 다시 호출하는 것.
-
-	// // 함수 표현식
-	// var me = function ego() {
-
-	// };
-
-	// // 함수 선언식
-	// function me() {
-
-	// }
-
-	// setTimeout(function() {}, 1000);
-	// setTimeout('console.log("문자열 형태의 코드문")', 1000);
-
-	// setInterval(function() {
-	// 	// console.log('interval try');
-	// 	targetEl.onclick();
-	// }, 1000);
+	// global.intervalID = setInterval(targetElToggleClass.bind(targetEl), 1000);
 
 })(window);
 </script>
