@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>시간을 제어하는 자!</title>
+	<style>
+		#target {
+			cursor: pointer;
+		}
+		.on { background: #f00; }
+	</style>
+</head>
+<body>
+
+	<div id="target">division</div>
+
+<script>
+(function(){
+	'use strict';
+
+	/**
+	 * DOM 탐색
+	 * --------------------------------
+	 */
+	var targetEl = document.querySelector('#target');
+
+	targetEl.onclick = function() {
+		this.classList.toggle('on');
+	};
+
+	// targetEl.onclick = function() {
+	// 	var _cl = this.classList;
+	// 	if (_cl.contains('on')) {
+	// 		_cl.remove('on');
+	// 	} else {
+	// 		_cl.add('on');
+	// 	}
+	// };
+
+})();
+</script>
+</body>
+</html>

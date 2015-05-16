@@ -11,6 +11,11 @@
 	- `requestAnimationFrame` [#](http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/)
 	- `cancelAnimationFrame` [#](https://developer.mozilla.org/en-US/docs/Web/API/Window/cancelAnimationFrame)
 - 비동기통신(AJAX) & JSON
+	AJAX 통신을 통해 읽어들일 수 있는 파일 포멧 [#](http://www.quirksmode.org/blog/archives/2005/12/the_ajax_respon.html)
+	- Text File
+	- HTML
+	- XML
+	- JSON
 - ECMAScript v5 [#](http://kangax.github.io/compat-table/es5/)
 	- `Object.prototype.create`
 	- `String.prototype.trim`
@@ -36,3 +41,50 @@ Microsoft에서 제시한 해결 방법은 .html 파일에 해결 코드 한 줄
 ```html
 <!-- saved from url=(0013)about:internet -->
 ```
+
+-
+
+### 자바스크립트의 대부분은 객체이다.
+
+객체가 아닌 것들
+- null
+- undefined
+
+객체
+	- 속성(변수)
+	- 속성(Method, 함수)
+
+// 전역(Window 객체)
+var
+
+변수, 함수
+
+- Number
+- String
+- Boolean
+- Function
+- Array
+- Object
+- NaN(Not a Number)
+- !isNaN(9)
+
+
+### 변수 & 상수
+
+var memory = '기억'; // 변수
+const MEMORY = '기억'; // 상수
+
+document.onclick = function() {
+	memory = null; //
+	MEMORY = null; // 지워지지 않아요.
+}
+
+### 객체
+브라우저 단에 이미 존재하는 객체 (Native Object)
+
+### 웹 vs 앱의 차이
+Web   vs App
+설치 안함 vs 설치
+느려요   vs 빨라요
+쉽다    vs 어렵다(플랫폼마다 공부할게 달라요)
+보편성   vs 독립성(제한적)
