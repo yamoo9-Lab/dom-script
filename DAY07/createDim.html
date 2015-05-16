@@ -17,11 +17,25 @@
 
 		.dim {
 			position: fixed;
+			z-index: 100;
 			left: 0;
 			top: 0;
 			width: 100%;
 			height: 100vh;
-			background: rgba(0,0,0, 0.7);
+			background: rgba(255,255,255, 0.7);
+		}
+
+		.layer {
+			position: fixed;
+			z-index: 1000;
+			left: 50%;
+			top: 50%;
+			width: 400px;
+			height: 140px;
+			background: #fff;
+			border-radius: 4px;
+			box-shadow: 0 0 4px rgba(0,0,0,0.4);
+			transform: translateX(-50%) translateY(-50%);
 		}
 	</style>
 </head>
@@ -62,7 +76,10 @@
 	<p>엮어가는 하고 눈부신 꽃처럼 소리, 해도 씩씩하게 빛나는 그대 운동화도.</p>
 </article>
 
-<!-- <div class="dim"></div> -->
+<div class="layer">
+	<a href role="button">close</a>
+</div>
+<div class="dim"></div>
 <script>
 /**
  * --------------------------------
@@ -99,14 +116,14 @@
 		after(dimBtn, _dim);
 
 		// _dim을 클릭하면 생성된 _dim이 제거된다.
-		_dim.onclick = removeDim;
+		_dim.onclick = remove.bind(_dim);
 
 
 		// return _dim;
 	}
 
-	function removeDim() {
-		this.parentNode.removeChild(this);
+	function remove(el) {
+		el.parentNode.removeChild(el);
 	}
 
 	// 목표 요소의 앞에 삽입하고자 하는 요소를 추가하는 헬퍼함수

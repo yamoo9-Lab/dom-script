@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>Javascript - hoist 개념 이해</title>
+</head>
+<body>
+
+<script>
+// 전역(Global Scope)
+var cup = '종이컵';
+
+(function(global){
+	// 지역(Local Scope)
+	function setCupContent(content) {
+		cup = content;
+	}
+	// var setCupContent;
+	// var cup; // undefined
+	if ( cup === '종이컵' ) {
+		setCupContent('유리컵');
+	}
+
+
+
+	console.log(cup); // '유리컵' ? undefined
+
+})(window);
+</script>
+</body>
+</html>
