@@ -18,11 +18,31 @@
 <button type="button">overlay button</button>
 
 <script>
+/**
+ * --------------------------------
+ * 스코프 함수(외부에서 접근 불가)
+ * --------------------------------
+ */
 (function(global){
+	// 엄격 모드 발동
+	'use strict';
+
+	/**
+	 * 대상 참조 & 이벤트 핸들링
+	 * --------------------------------
+	 */
 	var dimBtn = document.querySelector('button');
+
+	// W3C 진보 이벤트 모델
 	dimBtn.addEventListener('click', function() {
-		console.log(this);
+		// 화면 전체를 감싸는 어둑어둑한 반투명 레이어가 뜹니다.
+		createDim();
 	});
+
+	function createDim () {
+		console.log('createDim');
+	}
+
 })(window);
 </script>
 </body>
