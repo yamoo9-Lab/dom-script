@@ -3,9 +3,24 @@
 ;(function(global){
 	'use strict';
 
-	// var xhr = createXHR();
+	sendRequest('/AJAX/data/data.txt', function() {
+		if (this.status === 200 && this.readyState === 4) {
 
-	console.log(xhr);
+		}
+	});
+
+	sendRequest('/AJAX/data/book.xml', function() {
+		if (this.status === 200 && this.readyState === 4) {
+			var XMLDoc = this.responseXML;
+			var books = XMLDoc.querySelector('books');
+			var book = books.querySelectorAll('book');
+			for(var i=0, l=book.length; i<l; i++) {
+				var item = book[i];
+				console.log(item.querySelector('author').firstChild.nodeValue);
+			}
+		}
+	});
+
 
 
 //* -----------------------------------------------------------------

@@ -23,6 +23,7 @@
 		if (typeof callback !== 'function') { throw new Error('콜백은 함수여야만 합니다.') }
 
 		var _xhr = createXHR();
+
 		var _method = !method ? 'GET' : 'POST';
 
 		_xhr.open(_method, file);
@@ -30,6 +31,8 @@
 		_xhr.onreadystatechange = callback;
 
 		_xhr.send();
+
+		return _xhr;
 
 	};
 
