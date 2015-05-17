@@ -1,8 +1,22 @@
+### Node.js + http-server
+```sh
+$ node -v
+$ npm -v
+$ npm i -g http-server
+```
+
+### http-server 명령
+```sh
+http-server -a localhost -p 90 -o
+```
+
+
 ### Learning UI Design
 - 라이트 박스(Lightbox)
 - 슬라이드 갤러리(Gallery)
 - 슬라이드 메뉴(Slide Menu)
 - 레이지 로드(lazyLoad)
+- 무비클립(MovieClip)[#](https://prospek.ca/en/team/#teammate_id_1690)
 
 ---
 
