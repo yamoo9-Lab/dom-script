@@ -3,21 +3,29 @@
 ;(function(global){
 	'use strict';
 
-	sendRequest('/AJAX/data/data.txt', function() {
-		if (this.status === 200 && this.readyState === 4) {
+	// TEXT
+	ajax('/AJAX/data/data.txt', function() {
+		// console.log(this.responseText);
+	});
 
+	// XML
+	ajax('/AJAX/data/book.xml', function() {
+		var XMLDoc = this.responseXML;
+		var books  = XMLDoc.querySelector('books');
+		var book   = books.querySelectorAll('book');
+		for(var i = 0, l=book.length; i<l; i++) {
+			var item = book[i];
+			var author = item.querySelector('author');
+			var pages = item.querySelector('pages');
 		}
 	});
 
-	sendRequest('/AJAX/data/book.xml', function() {
-		if (this.status === 200 && this.readyState === 4) {
-			var XMLDoc = this.responseXML;
-			var books = XMLDoc.querySelector('books');
-			var book = books.querySelectorAll('book');
-			for(var i=0, l=book.length; i<l; i++) {
-				var item = book[i];
-				console.log(item.querySelector('author').firstChild.nodeValue);
-			}
+	// JSON
+	ajax('/AJAX/data/book.json', function() {
+		var data = JSON.parse(this.responseText);
+		for (var i=0, l=data.length; i<l; i++) {
+			var item = data[i];
+			console.log(item.author, item.pages);
 		}
 	});
 
