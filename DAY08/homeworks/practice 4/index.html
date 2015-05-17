@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>Day7 복습</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<!-- 갤러리 만들기. 2초 간격으로 자동 재생. 마우스 클릭시 멈춤. 재생/일시정지버튼 기능. 로드시 처음엔 딤/레이어팝업 제어  -->
+
+	<!-- 그림 목록 부분 -->
+	<div class="gallery">
+		<ul>
+			<li><a href="" class="box1"></a></li>
+			<li><a href="" class="box2"></a></li>
+			<li><a href="" class="box3"></a></li>
+			<li><a href="" class="box4"></a></li>
+			<li><a href="" class="box5"></a></li>
+			<li><a href="" class="box6"></a></li>
+		</ul>
+	</div>
+	<!-- 그림 보여지는 부분 -->
+	<section class="showWindow"></section>
+
+	<!-- 그림 설명 레이어 부분 -->
+	<div class="descLayer">
+		<!-- <figcaption class="desc">
+			<h1>사진제목</h1>
+			<p>사진 설명</p>
+			<a href="">+</a>
+		</figcaption> -->
+	</div>
+
+	<!-- 처음 레이어팝업 부분 -->
+	<div class="layer" tabindex="0">
+		<a href role="button" class="closeBtn">close</a>
+	</div>
+
+	<!-- 딤처리 부분 -->
+	<div class="dim"></div>
+
+
+
+
+<script>
+var gallery = document.querySelector('.gallery'),
+	boxs = gallery.querySelectorAll('a'),
+	boxsCount = boxs.length,
+	item,
+	showWindow = document.querySelector('.showWindow');
+// console.log(boxsCount);
+
+// 그림 설명 레이어 데이터 //배열 중 하나씩 가져오게 하는 방법?
+var descLayer = document.querySelector('.descLayer'),
+	desc_closeBtn = descLayer.querySelector('a');
+var descs = [
+	{
+		'title': '히말라야',
+		'para': '구름 사이로 눈 내린 산이 보인다.'
+	},
+	{
+		'title': '오로라',
+		'para': '오로라가 펼쳐진 풍경'
+	}
+];
+// console.log(descLayer);
+
+
+
+// ---------- 갤러리 만들기 ----------
+while ( --boxsCount > -1 ) {
+	item = boxs[boxsCount];
+	item.index = boxsCount;
+	item.onclick = showImage;
+	// item.onclick = showdescLayer;
+}
+
+function showImage() {
+	showWindow.style.backgroundImage = 'url(images/0'+this.index+'.jpg)';
+	// console.log(this);
+	showWindow.style.backgroundSize = 'cover';
+	return false;
+}
+// 그림 설명 데이터 붙이기
+// function showdescLayer() {
+// 	var template = '';
+// 	for(var i=0, l=descs.length; i<l; i++) {
+// 		// console.log(descs.length);
+// 		template += '<figcaption class="desc">';
+// 		template +=	'<h1>'+ descs[i].title +'</h1>';
+// 		template +=	'<p>'+ descs[i].para +'</p>';
+// 		template +=	'<a href="">+</a>';
+// 		template += '</figcaption>';
+// 	}
+// 	descLayer.innerHTML = template;
+// 	desc_closeBtn.onclick = closeLayer;
+// 	return false;
+// }
+// function closeLayer() {
+// 	var parent = this.parentNode;
+// 	// var descEl = _parent.nextElementSibling;
+// 	console.log(parent);
+// 	// parent.parentNode.removeChild(parent); //레이어 없애기
+// 	return false;
+// }
+
+// ---------- 시간 제어하기 ----------
+// setInterval(showImage.bind(showWindow), 1000);
+// (function(global) {
+// 	var _boxs = document.querySelectorAll('li');
+// 	console.log(_boxs);
+
+
+// })(window);
+
+
+// ---------- 첫 레이어 팝업 제어하기 ----------
+(function(global){
+	'use strict';
+	var _layer = document.querySelector('.layer'),
+		_closeBtn = _layer.querySelector('.closeBtn');
+		// console.log(_layer, _closeBtn);
+		//
+	// 진보 이벤트 모델
+	// _closeBtn.addEventListener('click', function() {
+	// 	console.log(this);
+	// 	return false;
+	// 	// removeDim();
+	// });
+
+	_closeBtn.onclick = function() {
+		// console.log(this)
+		var _parent = this.parentNode;
+		var _dimEl = _parent.nextElementSibling;
+		// console.log(_parent, _dimEl);
+		_parent.parentNode.removeChild(_parent); //레이어 없애기
+		_dimEl.parentNode.removeChild(_dimEl); // 딤 없애기
+		return false;
+	}
+})(window);
+
+</script>
+
+</body>
+</html>
