@@ -3,7 +3,7 @@
 ;(function(global){
 	'use strict';
 
-	var xhr = createXHR();
+	// var xhr = createXHR();
 
 	console.log(xhr);
 
