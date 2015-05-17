@@ -1,5 +1,5 @@
 html {
-	overflow-y: scroll; 
+	overflow-y: scroll;
 }
 body {
 	margin: 0;
@@ -36,6 +36,8 @@ body {
 	height: 100px;
 	width: 100px;
 	/*background: #ddd;*/
+	-webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
 }
 .box1 { background: url(../images/00.jpg); background-size: cover; }
 .box2 { background: url(../images/01.jpg); background-size: cover; }
@@ -43,6 +45,14 @@ body {
 .box4 { background: url(../images/03.jpg); background-size: cover; }
 .box5 { background: url(../images/04.jpg); background-size: cover; }
 .box6 { background: url(../images/05.jpg); background-size: cover; }
+
+.gallery a.show {
+	position: relative;
+	z-index: 100;
+	outline: 6px solid #34C0FF;
+	-webkit-filter: none;
+	filter: none;
+}
 
 /* 그림 보여지는 부분 */
 .showWindow {
@@ -52,7 +62,7 @@ body {
 	width: 80%;
 	height: 100vh;
 	background: url(../images/00.jpg);
-	background-size: cover; 
+	background-size: cover;
 }
 
 /*딤처리 부분*/
