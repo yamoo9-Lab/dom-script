@@ -14,8 +14,36 @@
 
 
 ## 자바스크립트를 작성하는 곳
-* head 내부 뒷 부분 (`<link>` 뒤)
-* body 내부 어디든... (앞, 중간, 뒤)
+* `<head>` 내부 뒷 부분 (`<link rel="stylesheet" href="style.css">` 뒤)
+* `<body>` 내부 어디든... (앞, 중간, 뒤)
+
+```html
+<!DOCTYPE html>
+<html lang="ko-KR">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<meta charset="UTF-8">
+		<title>자바스크립트를 작성하는 곳</title>
+		<link rel="stylesheet" href="style.css">
+		<script>// <head> 내부 입력</script>
+	</head>
+	<body>
+		<script>// <body> 시작 위치 입력</script>
+
+		<div id="page">
+
+			<script>// <body> 중간 위치 입력</script>
+
+			<main></main>
+
+			<script>// <body> 중간 위치 입력</script>
+
+		</div>
+
+		<script>// <body> 끝 위치 입력</script>
+	</body>
+</html>
+```
 
 
 ## 자바스크립트 엔진 해석
