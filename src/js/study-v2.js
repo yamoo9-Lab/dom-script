@@ -25,15 +25,52 @@ window.onload = function() {
 	// 버튼의 개수는 어떻게 가져오죠? buttons.length
 	// 몇 번 반복해야 할까요? 4번 (화면에 버튼이 4개니까)
 
+
+	/**
+	 * --------------------------------
+	 * while, do ~ while 반복문
+	 * while (조건) {
+	 * 	조건이 참이면 코드 실행
+	 * }
+
+ 	 * do {
+ 	 * 	조건 유무와 상관없이 반드시 1회는 실행.
+ 	 * 	조건이 참이면, 조건이 참인 동안 반복 실행.
+	 * } while (조건);
+	 * --------------------------------
+	 */
+
+
 	var buttons_len = buttons.length; // 4
 	var k = 0;
 
 	while( k < buttons_len ) {
+		buttons[k++].onclick = function() {
+			var background = getStyle(this, 'background');
+			body.style.background = background;
+			body.style.backgroundSize = 'cover';
+		};
+		// k = k + 1;
+		// k += 1;
+		// k++;
+		// ++k;
+	}
+
+	/**
+	 * ---------------------------------------------
+	 * for 반복문
+	 * for (변수 선언 및 값 할당; 조건 확인; 변위 값 변화) {
+	 * 	반복 처리 구문
+	 * }
+	 * ---------------------------------------------
+	 */
+
+	for(var buttons_len = buttons.length, k = 0; k < buttons_len; k++ ) {
 		buttons[k].onclick = function() {
 			var background = getStyle(this, 'background');
 			body.style.background = background;
 			body.style.backgroundSize = 'cover';
 		};
-		k = k + 1;
 	}
+
 };
