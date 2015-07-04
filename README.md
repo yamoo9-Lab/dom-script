@@ -136,3 +136,36 @@ div[0].onclick = function() {
 	this.style.color = '#34c0ff';
 }
 ```
+
+#### W3C 표준 vs MS IE 비표준
+```js
+// W3C 표준 방식
+var bgColor = window.getComputedStyle(this).backgroundColor;
+
+// MS IE 비표준 방식
+var bgColor = this.currentStyle.backgroundColor;
+```
+
+### 크로스 브라우징 헬퍼 함수
+```js
+// CSS 문서에 정의된 스타일 값을 가져오는 헬퍼함수
+function getStyle(el, prop) {
+
+	// 스크립트의 조건문
+	// 조건이 참이면 실행
+	// 조건이 거짓이면 실행 X
+
+	// if ( 조건 ) {
+	// 	조건이 참이면 실행되는 코드
+	// } else {
+	// 	조건이 거짓이면 실행되는 코드
+	// }
+
+	if ( window.getComputedStyle ) {
+		return window.getComputedStyle(el)[prop];
+	} else {
+		return el.currentStyle[prop];
+	}
+
+};
+```

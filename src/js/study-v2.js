@@ -32,7 +32,7 @@ window.onload = function() {
 		// var bgColor = window.getComputedStyle(this).backgroundColor;
 		// MS IE 비표준 방식
 		// var bgColor = this.currentStyle.backgroundColor;
-		var bgColor = y9.getStyle(this, 'backgroundColor');
+		var bgColor = getStyle(this, 'backgroundColor');
 		body.style.backgroundColor = bgColor;
 	};
 	// 두번째 버튼
@@ -41,7 +41,7 @@ window.onload = function() {
 
 		// W3C 표준 방식
 		// var bgColor = window.getComputedStyle(this).backgroundColor;
-		var bgColor = y9.getStyle(this, 'backgroundColor');
+		var bgColor = getStyle(this, 'backgroundColor');
 		body.style.backgroundColor = bgColor;
 	};
 	// 세번째 버튼
@@ -50,7 +50,7 @@ window.onload = function() {
 
 		// W3C 표준 방식
 		// var bgColor = window.getComputedStyle(this).backgroundColor;
-		var bgColor = y9.getStyle(this, 'backgroundColor');
+		var bgColor = getStyle(this, 'backgroundColor');
 		body.style.backgroundColor = bgColor;
 	};
 
