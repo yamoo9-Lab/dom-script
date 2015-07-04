@@ -1,0 +1,17 @@
+@import "normalize.css";
+
+body {
+	margin: 0;
+}
+
+#wrap {
+	background: #34C0FF;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	/*width: 600px;
+	margin-left: -300px;
+	height: 40px;
+	margin-top: -20px*/;
+	transform: translate(-50%, -50%);
+}
