@@ -1,4 +1,4 @@
-## Pre Test
+## 사전 수준 테스트
 1. 3초마다 `<body>` 요소의 배경색을 바뀌도록 설정해보세요.
 2. `<html>`, `<head>`, `<body>` 이 3개 요소를 각각의 변수 명에 할당(Assign)한 후,<br>
 콘솔(Console)에 출력(Log)해보세요.
@@ -127,6 +127,7 @@ footer  = document.getElementById('footer');
 
 // -------------------------------------------------------------
 // 복수 형태의 요소를 수집하는 것 : HTML Collection, NodeList
+// 집합 내 수집될 때는 마크업된 순서대로 수집된다.
 // -------------------------------------------------------------
 var div = document.getElementsByTagName('div'); // [div, div, div, div]
 
