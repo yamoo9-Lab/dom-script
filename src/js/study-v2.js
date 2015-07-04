@@ -41,20 +41,20 @@ window.onload = function() {
 	 */
 
 
-	var buttons_len = buttons.length; // 4
-	var k = 0;
+	// var buttons_len = buttons.length; // 4
+	// var k = 0;
 
-	while( k < buttons_len ) {
-		buttons[k++].onclick = function() {
-			var background = getStyle(this, 'background');
-			body.style.background = background;
-			body.style.backgroundSize = 'cover';
-		};
-		// k = k + 1;
-		// k += 1;
-		// k++;
-		// ++k;
-	}
+	// while( k < buttons_len ) {
+	// 	buttons[k++].onclick = function() {
+	// 		var background = getStyle(this, 'background');
+	// 		body.style.background = background;
+	// 		body.style.backgroundSize = 'cover';
+	// 	};
+	// 	// k = k + 1;
+	// 	// k += 1;
+	// 	// k++;
+	// 	// ++k;
+	// }
 
 	/**
 	 * ---------------------------------------------
