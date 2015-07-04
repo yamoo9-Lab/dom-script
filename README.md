@@ -1,6 +1,7 @@
-### 프리 테스트
-1. 3초마다 `<body>` 요소의 배경색을 바뀌게 설정해보세요.
-2. `<html>`, `<head>`, `<body>` 이 3개 요소를 각각의 변수 명에 할당(Assign)한 후, 콘솔(Console)에 출력(Log)해보세요.
+## Pre Test
+1. 3초마다 `<body>` 요소의 배경색을 바뀌도록 설정해보세요.
+2. `<html>`, `<head>`, `<body>` 이 3개 요소를 각각의 변수 명에 할당(Assign)한 후,<br>
+콘솔(Console)에 출력(Log)해보세요.
 
 ---
 
@@ -84,7 +85,7 @@ console.log(html, head, body);
 HTML 문서를 해석하는 엔진은 Javascript 코드를 만나면 Javasvript 해석기에게 일을 맡기고 쉰다.(일을 하지 않는다) 가능하다면 Javascript 코드는 UI가 완성되는데 시간을 지체하지 않도록 하는 것이 중요하다. 권장하는 스크립트 코드의 위치는 `</body>` 바로 앞이다.
 
 
-#### 자바스크립트 디자인 패턴 (설계 규칙)
+## 자바스크립트 디자인 패턴 (설계 규칙)
 
 1. **선택** `Selecting` ─ 제어할 대상을 찾는 것
 
@@ -108,3 +109,29 @@ HTML 문서를 해석하는 엔진은 Javascript 코드를 만나면 Javasvript 
 			this.style.color: '#FE4940';
 		};
 	```
+
+## 문서 객체 모델 API
+
+#### 접근(선택)
+```js
+// -------------------------------------------------------------
+// ID 속성 값으로부터 대상(요소노드)을 참조하는 방법
+// -------------------------------------------------------------
+var page = document.getElementById('page');
+
+var header, main, sidebar, footer;
+header  = document.getElementById('header');
+main    = document.getElementById('main');
+sidebar = document.getElementById('sidebar');
+footer  = document.getElementById('footer');
+
+// -------------------------------------------------------------
+// 복수 형태의 요소를 수집하는 것 : HTML Collection, NodeList
+// -------------------------------------------------------------
+var div = document.getElementsByTagName('div'); // [div, div, div, div]
+
+// 집합 내에서 원소(요소노드)를 꺼내야 이베튼 핸들링을 처리할 수 있다.
+div[0].onclick = function() {
+	this.style.color = '#34c0ff';
+}
+```
