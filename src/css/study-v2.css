@@ -3,6 +3,8 @@
 body {
 	margin: 0;
 	height: 100vh;
+	-webkit-background-size: cover;
+	background-size: cover;
 }
 
 #wrap {
@@ -32,6 +34,8 @@ body {
 	margin-left: 10px;
 	margin-right: 10px;
 	transition: all 0.3s cubic-bezier(0.32, -0.51, 0.45, 1.49);
+	text-shadow: 0 0 2px #3f3f3f;
+	background: no-repeat center;
 }
 
 #wrap button:hover,
@@ -42,13 +46,17 @@ body {
 }
 
 #wrap button:nth-child(1) {
-	background: #FC3D48;
+	background-image: url(../images/photo-01.jpg);
 }
 
 #wrap button:nth-child(2) {
-	background: #69CD27;
+	background-image: url(../images/photo-02.jpg);
 }
 
 #wrap button:nth-child(3) {
-	background: #2B6CBF;
+	background-image: url(../images/photo-03.jpg);
+}
+
+#wrap button:nth-child(4) {
+	background-image: url(../images/photo-04.jpg);
 }

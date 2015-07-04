@@ -21,37 +21,19 @@ window.onload = function() {
 
 	// 수집된 버튼에 이벤트 핸들링
 	// --------------------------------------------------------
-	// 첫번째 버튼
-	buttons[0].onclick = function() {
-		// this.innerText란?
-		// this는 buttons[0] 요소를 가리키고,
-		// this.innerText는 buttons[0]이 포함한 텍스트를 말합니다.
-		// body.style.backgroundColor = this.innerText;
+	// 버튼은 어떻게 가져오죠? buttons = document.getElementsByTagName('button');
+	// 버튼의 개수는 어떻게 가져오죠? buttons.length
+	// 몇 번 반복해야 할까요? 4번 (화면에 버튼이 4개니까)
 
-		// W3C 표준 방식
-		// var bgColor = window.getComputedStyle(this).backgroundColor;
-		// MS IE 비표준 방식
-		// var bgColor = this.currentStyle.backgroundColor;
-		var bgColor = getStyle(this, 'backgroundColor');
-		body.style.backgroundColor = bgColor;
-	};
-	// 두번째 버튼
-	buttons[1].onclick = function() {
-		// body.style.backgroundColor = this.innerText;
+	var buttons_len = buttons.length; // 4
+	var k = 0;
 
-		// W3C 표준 방식
-		// var bgColor = window.getComputedStyle(this).backgroundColor;
-		var bgColor = getStyle(this, 'backgroundColor');
-		body.style.backgroundColor = bgColor;
-	};
-	// 세번째 버튼
-	buttons[2].onclick = function() {
-		// body.style.backgroundColor = this.innerText;
-
-		// W3C 표준 방식
-		// var bgColor = window.getComputedStyle(this).backgroundColor;
-		var bgColor = getStyle(this, 'backgroundColor');
-		body.style.backgroundColor = bgColor;
-	};
-
+	while( k < buttons_len ) {
+		buttons[k].onclick = function() {
+			var background = getStyle(this, 'background');
+			body.style.background = background;
+			body.style.backgroundSize = 'cover';
+		};
+		k = k + 1;
+	}
 };
