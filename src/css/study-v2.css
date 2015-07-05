@@ -1,0 +1,66 @@
+@import "normalize.css";
+
+body {
+	margin: 0;
+	height: 100vh;
+	-webkit-background-size: cover;
+	background-size: cover;
+}
+
+#wrap {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	padding: 40px;
+	/*width: 600px;
+	margin-left: -300px;
+	height: 40px;
+	margin-top: -20px*/;
+	background: #fff;
+	border-radius: 100px;
+	box-shadow: 0 0 10px hsla(0,0%,0%,.25);
+
+	/* IE 9+ */
+	transform: translate(-50%, -50%);
+}
+
+#wrap button {
+	border: none;
+	color: #fff;
+	width: 100px;
+	height: 100px;
+	text-align: center;
+	border-radius: 50%;
+	margin-left: 10px;
+	margin-right: 10px;
+	transition: all 0.3s cubic-bezier(0.32, -0.51, 0.45, 1.49);
+	text-shadow: 0 0 2px #3f3f3f;
+	background: no-repeat center;
+}
+
+#wrap button:hover,
+#wrap button:focus {
+	outline: none;
+	transform: scale(1.4);
+	opacity: 0.7;
+}
+
+#wrap button:nth-child(1) {
+	background-image: url(../images/photo-01.jpg);
+}
+
+#wrap button:nth-child(2) {
+	background-image: url(../images/photo-02.jpg);
+}
+
+#wrap button:nth-child(3) {
+	background-image: url(../images/photo-03.jpg);
+}
+
+#wrap button:nth-child(4) {
+	background-image: url(../images/photo-04.jpg);
+}
+
+#wrap button:nth-child(5) {
+	background-image: url(../images/photo-05.jpg);
+}
