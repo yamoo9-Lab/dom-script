@@ -58,7 +58,7 @@ body    = document.body;
 buttons = document.getElementsByTagName('button');
 
 // 변수 선언과 동시에 값 할당
-var body = document.body;
+var body    = document.body;
 var buttons = document.getElementsByTagName('button');
 
 // var 싱글턴 패턴
@@ -259,13 +259,12 @@ function getStyle(el, prop) {
  * 	조건이 참이면 코드 실행
  * }
 
-	 * do {
-	 * 	조건 유무와 상관없이 반드시 1회는 실행.
-	 * 	조건이 참이면, 조건이 참인 동안 반복 실행.
+ * do {
+ * 	조건 유무와 상관없이 반드시 1회는 실행.
+ * 	조건이 참이면, 조건이 참인 동안 반복 실행.
  * } while (조건);
  * --------------------------------
  */
-
 
 var buttons_len = buttons.length; // 4
 var k = 0;
