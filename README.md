@@ -58,7 +58,7 @@ body    = document.body;
 buttons = document.getElementsByTagName('button');
 
 // 변수 선언과 동시에 값 할당
-var body = document.body;
+var body    = document.body;
 var buttons = document.getElementsByTagName('button');
 
 // var 싱글턴 패턴
@@ -109,24 +109,24 @@ HTML 문서를 해석하는 엔진은 Javascript 코드를 만나면 Javasvript 
 1. **선택** `Selecting` ─ 제어할 대상을 찾는 것
 
 	```js
-		document.body // body element
+	var body = document.body; // body element
 	```
 
 2. **조작** `Manipulation` ─ 선택한 대상을 조작하는 것
 
 	```js
-		var body = document.body;
-		document.body.style.background = '#fcfae1';
-		console.log(body.style.background); // #fcfae1
+	var body = document.body;
+	body.style.background = '#fcfae1';
+	console.log(body.style.background); // #fcfae1
 	```
 
 3. **시점** `Event` ─ 대상에 언제 스타일을 설정할 것인가?
 
 	```js
-		// var body = document.body;
-		document.body.onclick = function() {
-			this.style.color: '#FE4940';
-		};
+	var body = document.body;
+	body.onclick = function() {
+		this.style.color: '#FE4940';
+	};
 	```
 
 ```js
@@ -259,13 +259,12 @@ function getStyle(el, prop) {
  * 	조건이 참이면 코드 실행
  * }
 
-	 * do {
-	 * 	조건 유무와 상관없이 반드시 1회는 실행.
-	 * 	조건이 참이면, 조건이 참인 동안 반복 실행.
+ * do {
+ * 	조건 유무와 상관없이 반드시 1회는 실행.
+ * 	조건이 참이면, 조건이 참인 동안 반복 실행.
  * } while (조건);
  * --------------------------------
  */
-
 
 var buttons_len = buttons.length; // 4
 var k = 0;
