@@ -73,4 +73,6 @@ window.onload = function() {
 		};
 	}
 
+	buttons[0].onclick();
+
 };
