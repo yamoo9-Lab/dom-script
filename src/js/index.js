@@ -20,22 +20,47 @@ window.onload = function() {
 	// contorls_btns에 사용자가 마우스로 클릭하면... 뭔가를 수행해라. (클릭 이벤트 & 핸들링)
 	// 클릭하면 콘솔 창에 class 속성, aria-label 속성을 출력하라.
 
+	// 변수0 = 값;
+	// 변수1 = 변수0;
+	// 변수2 = 변수0;
+	// 변수3 = 변수0;
+
 	// 찾은 각각의 버튼에 click 이벤트를 연결
 	controls_btns[0].onclick = function() {
 		// this 참조는 function 내부에서 사용될 때, 이벤트에 연결된 문서 객체를 가리킨다.
-		console.log(this.className); // class 속성은 className으로 써야 한다.
+		// class 속성은 className으로 써야 한다.
+		console.log(this.getAttribute('class'));
+		console.log(this.getAttribute('id'));
+		// console.log(this['aria-label']);
+		// aria-label 속성을 출력해본다.
+		console.log(this.getAttribute('aria-label'));
 		return false;
 	};
 	controls_btns[1].onclick = function() {
-		console.log(this.className);
+		// console.log(this.className);
+		// console.log(this.id);
+		// return false;
+		console.log(this.getAttribute('class'));
+		console.log(this.getAttribute('id'));
+		console.log(this.getAttribute('aria-label'));
 		return false;
 	};
 	controls_btns[2].onclick = function() {
-		console.log(this.className);
+		// console.log(this.className);
+		// console.log(this.id);
+		// return false;
+		console.log(this.getAttribute('class'));
+		console.log(this.getAttribute('id'));
+		console.log(this.getAttribute('aria-label'));
 		return false;
 	};
 	controls_btns[3].onclick = function() {
-		console.log(this.className);
+		// console.log(this.className);
+		// console.log(this.id);
+		// return false;
+		console.log(this.getAttribute('class'));
+		console.log(this.getAttribute('id'));
+		console.log(this.getAttribute('aria-label'));
 		return false;
 	};
 
