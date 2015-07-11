@@ -12,18 +12,36 @@ body {
 	background: #FC414B;
 }
 
+#controls {
+	position:   absolute;
+	top:        50%;
+	left:       50%;
+	width:      200px;
+	height:     200px;
+	background: #fff;
+	transform:  translate(-50%, -50%);
+	box-shadow: 0 0 4px #878787;
+}
+
+#controls a {
+	height: 100px;
+}
+
 #wallpages {
 	height: 100vh;
 	background: #000;
 }
 
 #wallpages div {
-	float: left;
-	width: 50%;
 	height: 50vh;
 }
 
-#wallpages .top.left     { background: #BCBCBC; }
-#wallpages .top.right    { background: #efefef; }
-#wallpages .bottom.left  { background: #848484; }
-#wallpages .bottom.right { background: #645646; }
+.fl-50 {
+	float: left;
+	width: 50%;
+}
+
+.top.left     { background: #BCBCBC; }
+.top.right    { background: #efefef; }
+.bottom.left  { background: #848484; }
+.bottom.right { background: #645646; }
