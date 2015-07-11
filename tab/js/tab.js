@@ -4,6 +4,16 @@
 var tab          = document.querySelector('.tab'),
 	tab_menuitem = tab.querySelectorAll('.tab-menuitem');
 
+function hasClass(el, name) {
+	var check_class = el.getAttribute('class');
+	if (check_class === null) {return false;}
+	if ( check_class.indexOf(name) === -1 ) {
+		return false;
+	} else {
+		return true;
+	}
+}
+
 // addClass() 헬퍼 함수
 function addClass(el, name) {
 	// 전달 받은 el의 class 속성을 확인합니다.
@@ -16,9 +26,16 @@ function addClass(el, name) {
 	// 	// 만약에 같은게 없다면, name을 class 속성에 추가합니다.
 	// 	el.setAttribute('class', check_class + ' ' + name);
 	// }
-	if ( check_class.indexOf(name) === -1 ) {
+	if ( !hasClass(el, name) ) {
 		el.setAttribute('class', check_class + ' ' + name);
 	}
+}
+
+// removeClass()
+function removeClass(el, name) {
+	var current_class = el.getAttribute('class');
+	var change_class = current_class.replace(name, '');
+	el.setAttribute('class', change_class);
 }
 
  // 3
@@ -36,6 +53,12 @@ for(var n = tab_menuitem.length-1; n > -1; n--) { // n = 3
 
 		// addClass() 헬퍼 함수 사용
 
+		// .tab-menubar 내부의 .tab-menuitem 중에 active 클래스를 가진 아이에게서 active 클래스를 제거한다.
+		var cur_active_el = tab.querySelector('.tab-menubar').querySelector('.active');
+
+		removeClass(cur_active_el, 'active');
+
+		// this에 active 클래스를 설정한다.
 		addClass(this, 'active');
 
 		// 네이티브 classList 방식을 사용
