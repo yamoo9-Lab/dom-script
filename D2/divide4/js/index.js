@@ -10,14 +10,20 @@ function init() {
 
 	// 0, 1, 2, 3, 4 ,,,, n
 
-	var n = 0,
-		l = controls_btns.length;
+	// var n = 0,
+	// 	l = controls_btns.length;
 
-	while(n < l) {
-		var btn = controls_btns[n];
-		btn.index = n; // 버튼 인덱스 설정, 자신의 index 속성에다가 반복 순환되는 n 변수 값을 할당
+	// while(n < l) {
+	// 	var btn     = controls_btns[n];
+	// 	btn.index   = n; // 버튼 인덱스 설정, 자신의 index 속성에다가 반복 순환되는 n 변수 값을 할당
+	// 	btn.onclick = btnAction;
+	// 	n++;
+	// }
+
+	for( var n = 0, l = controls_btns.length; n < l; n++ ) {
+		var btn     = controls_btns[n];
+		btn.index   = n; // 버튼 인덱스 설정, 자신의 index 속성에다가 반복 순환되는 n 변수 값을 할당
 		btn.onclick = btnAction;
-		n++;
 	}
 
 	// controls_btns[0].onclick = btnAction;
@@ -30,8 +36,8 @@ function btnAction() {
 	// console.log(this.index);
 	var image_path = this.getAttribute('data-image-path');
 	// var target = wallpages.querySelectorAll('div').item(this.index);
-	var target = wallpages.querySelectorAll('div')[this.index];
+	var target     = wallpages.querySelectorAll('div')[this.index];
 	target.style.backgroundImage = "url(" + image_path + ")";
-	target.style.backgroundSize = 'cover';
+	target.style.backgroundSize  = 'cover';
 	return false;
 }

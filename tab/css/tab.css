@@ -1,0 +1,68 @@
+@charset "utf-8";
+/*! tab.css © yamoo9.net, 2015 */
+
+@import url("common/normalize.css");
+
+/**
+ * --------------------------------
+ * 기본 스타일
+ * --------------------------------
+ */
+html, body {
+	height: 100%;
+}
+body {
+	margin: 0;
+	font: 14px/1.5 Arial, Sans-Serif;
+	color: #333;
+	background: #fff;
+}
+
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
+header *, aside *, footer * {
+	margin: 0;
+}
+
+header {
+	height: 180px;
+	background: #FC4A54;
+}
+
+main {
+	overflow: hidden;
+	float: left;
+	width: 70%;
+	height: 900px;
+}
+
+aside {
+	float: left;
+	width: 30%;
+	height: 900px;
+	background: #FFB03B;
+}
+
+footer {
+	clear: both;
+	height: 220px;
+	background: #34C0FF;
+}
+
+h2 {
+	font-family: 'Helvetica Neue';
+	letter-spacing: 0.03em;
+	font-weight: 400;
+	font-size: 30px;
+	padding-left: 15px;
+	padding-top: 15px;
+	color: #fff;
+}
+
+/**
+ * --------------------------------
+ * 탭 메뉴 디자인
+ * --------------------------------
+ */
