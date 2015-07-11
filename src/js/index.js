@@ -67,10 +67,10 @@ function init() {
 
 		var target = document.querySelector( this.getAttribute('data-target') );
 
-		console.log(target);
+		// console.log(target);
 
 		// 버튼의 인라인 스타일 background 속성 값으로 url() 구문 내부에 변수 image_path 값을 접합해서 적용합니다.
-		target.style.background = "url(" + image_path + ")";
+		target.style.backgroundImage = "url(" + image_path + ")";
 		// 버튼의 인라인 스타일 background 속성 값으로 cover를 설정합니다.
 		target.style.backgroundSize = 'cover';
 		// 브라우저 기본 동작 차단
