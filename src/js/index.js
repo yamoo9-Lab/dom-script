@@ -1,5 +1,9 @@
 
 
+function convertClassSelector(cn) {
+	return '.' + cn.split(' ').join('.');
+}
+
 // window.alert()
 // alert('call me');
 
@@ -19,7 +23,7 @@ window.onload = init;
 // 초기화 함수
 function init() {
 	// 문서에서 #controls를 찾아라.
-	var controls = document.querySelector('#controls');
+	var controls  = document.querySelector('#controls');
 	var wallpages = document.querySelector('#wallpages');
 
 	// console.log(wallpages);
@@ -28,7 +32,7 @@ function init() {
 	// console.log(controls);
 
 	// controls(변수가 참조하는 문서 객체) 내부에 존재하는 버튼(<a>)을 찾아라.
-	var controls_btns = controls.querySelectorAll('a');
+	var controls_btns  = controls.querySelectorAll('a');
 	var wallpages_divs = wallpages.querySelectorAll('div');
 	console.log(wallpages_divs);
 	// ['a', 'a', 'a', 'a']
@@ -55,7 +59,7 @@ function init() {
 		// 버튼의 속성 data-image-path 값을 가져와 변수 image_path에 참조합니다.
 		var image_path = this.getAttribute('data-image-path');
 		var my_class = this.getAttribute('class');
-		my_class = '.' + my_class.split(' ').join('.');
+		my_class = '.' + convertClassSelector(my_class);
 		// console.log(my_class);
 		var target = wallpages.querySelector( my_class );
 		// console.log(target);
