@@ -1,0 +1,137 @@
+@charset "utf-8";
+/*! tab.css © yamoo9.net, 2015 */
+
+@import url("common/normalize.css");
+
+/**
+ * --------------------------------
+ * 기본 스타일
+ * --------------------------------
+ */
+html, body {
+	height: 100%;
+}
+body {
+	min-width: 920px;
+	margin: 0;
+	font: 14px/1.5 Arial, Sans-Serif;
+	color: #333;
+	background: #fff;
+}
+
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
+header *, main *, aside *, footer * {
+	margin: 0;
+}
+
+header {
+	height: 140px;
+	background: #FC4A54;
+}
+
+main {
+	overflow: hidden;
+	float: left;
+	width: 70%;
+	height: 550px;
+}
+
+aside {
+	float: left;
+	width: 30%;
+	height: 550px;
+	background: #FFB03B;
+}
+
+footer {
+	clear: both;
+	height: 120px;
+	background: #34C0FF;
+}
+
+h2 {
+	font-family: 'Helvetica Neue';
+	letter-spacing: 0.03em;
+	font-weight: 400;
+	font-size: 30px;
+	padding-left: 15px;
+	padding-top: 15px;
+	color: #fff;
+}
+
+/**
+ * --------------------------------
+ * 탭 메뉴 디자인
+ * --------------------------------
+ */
+.tab {
+	margin-top: 20px;
+	margin-left: 20px;
+	width: 600px;
+}
+
+.tab ul {
+	list-style: none;
+	margin: 0;
+	padding-left: 0;
+}
+
+.tab a {
+	text-decoration: none;
+}
+
+:focus {
+	outline: 3px solid #ff0 !important;
+}
+
+.tab-menubar {
+	position: relative;
+}
+
+.tab-menuitem {
+	position: absolute;
+	top: 0;
+	padding: .5em 1.2em;
+	background: #000;
+	color: #fff;
+}
+
+.tab-menuitem.item-1 { left: 0; }
+.tab-menuitem.item-2 { left: 67px; }
+.tab-menuitem.item-3 { left: 134px; }
+
+.tab-menuitem:hover,
+.tab-menuitem.active {
+	background: #34C0FF;
+	color: #11354A;
+}
+
+.tab-menuitem.active + .tab-menu {
+	z-index: 100;
+}
+
+.tab-menu {
+	/*display: none;*/
+	position: absolute;
+	top: 35px;
+	background: #34c0ff;
+	color: #fff;
+	padding: 2em;
+}
+
+.tab-menu img {
+	display: block;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.tab-menu a {
+	color: #c2eb0d;
+}
+
+.tab-menu a:hover {
+	color: #0F143F;
+}
