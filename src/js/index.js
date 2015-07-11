@@ -5,7 +5,9 @@
 
 // 아래 코드가 실행되는 시점(Event)을 설정하라.
 // 문서가 다 읽어와지고 나서.... load
-window.onload = function() {
+window.onload = init;
+
+function init() {
 	// 문서에서 #controls를 찾아라.
 	var controls = document.getElementById('controls');
 
@@ -25,8 +27,7 @@ window.onload = function() {
 	// 변수2 = 변수0;
 	// 변수3 = 변수0;
 
-	// 찾은 각각의 버튼에 click 이벤트를 연결
-	controls_btns[0].onclick = function() {
+	function btnAction() {
 		// this 참조는 function 내부에서 사용될 때, 이벤트에 연결된 문서 객체를 가리킨다.
 		// class 속성은 className으로 써야 한다.
 		console.log(this.getAttribute('class'));
@@ -36,33 +37,15 @@ window.onload = function() {
 		console.log(this.getAttribute('aria-label'));
 		return false;
 	};
-	controls_btns[1].onclick = function() {
-		// console.log(this.className);
-		// console.log(this.id);
-		// return false;
-		console.log(this.getAttribute('class'));
-		console.log(this.getAttribute('id'));
-		console.log(this.getAttribute('aria-label'));
-		return false;
-	};
-	controls_btns[2].onclick = function() {
-		// console.log(this.className);
-		// console.log(this.id);
-		// return false;
-		console.log(this.getAttribute('class'));
-		console.log(this.getAttribute('id'));
-		console.log(this.getAttribute('aria-label'));
-		return false;
-	};
-	controls_btns[3].onclick = function() {
-		// console.log(this.className);
-		// console.log(this.id);
-		// return false;
-		console.log(this.getAttribute('class'));
-		console.log(this.getAttribute('id'));
-		console.log(this.getAttribute('aria-label'));
-		return false;
-	};
+
+	// k = 10;
+	// a = b = c = d = k;
+
+	// 찾은 각각의 버튼에 click 이벤트를 연결
+	controls_btns[0].onclick = btnAction;
+	controls_btns[1].onclick = btnAction;
+	controls_btns[2].onclick = btnAction;
+	controls_btns[3].onclick = btnAction;
 
 
 };
