@@ -12,3 +12,18 @@ body {
 	background: #FC414B;
 }
 
+#wallpages {
+	height: 100vh;
+	background: #000;
+}
+
+#wallpages div {
+	float: left;
+	width: 50%;
+	height: 50vh;
+}
+
+#wallpages .top.left     { background: #BCBCBC; }
+#wallpages .top.right    { background: #efefef; }
+#wallpages .bottom.left  { background: #848484; }
+#wallpages .bottom.right { background: #645646; }
