@@ -21,11 +21,11 @@ function addClass(el, name) {
 	}
 }
 
-var n = tab_menuitem.length; // 3
+ // 3
 
-while(n--) { // n = 3
+for(var n = tab_menuitem.length-1; n > -1; n--) { // n = 3
 	// n = 2
-	console.log(n);
+	// console.log(n);
 
 	// 탭 위젯의 메뉴아이템을 클릭하면 이벤트 핸들러가 처리됩니다.
 	// 클릭하면 해당되는 요소에 class 속성을 부여한다. active
