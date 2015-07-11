@@ -7,6 +7,16 @@
 // 문서가 다 읽어와지고 나서.... load
 window.onload = init;
 
+// console.log('callback temp function');
+
+// 함수 이름을 이벤트에 연결할 때는 왜? 실행 연산자 ()를 붙이지 않는가?
+document.onclick = temp;
+
+function temp() {
+	console.log('callback temp function');
+}
+
+// 초기화 함수
 function init() {
 	// 문서에서 #controls를 찾아라.
 	var controls = document.getElementById('controls');
@@ -27,6 +37,7 @@ function init() {
 	// 변수2 = 변수0;
 	// 변수3 = 변수0;
 
+	// 버튼 액션 함수 정의
 	function btnAction() {
 		// this 참조는 function 내부에서 사용될 때, 이벤트에 연결된 문서 객체를 가리킨다.
 		// class 속성은 className으로 써야 한다.
