@@ -12,6 +12,7 @@ html, body {
 	height: 100%;
 }
 body {
+	min-width: 920px;
 	margin: 0;
 	font: 14px/1.5 Arial, Sans-Serif;
 	color: #333;
@@ -27,7 +28,7 @@ header *, main *, aside *, footer * {
 }
 
 header {
-	height: 180px;
+	height: 140px;
 	background: #FC4A54;
 }
 
@@ -35,19 +36,19 @@ main {
 	overflow: hidden;
 	float: left;
 	width: 70%;
-	height: 900px;
+	height: 550px;
 }
 
 aside {
 	float: left;
 	width: 30%;
-	height: 900px;
+	height: 550px;
 	background: #FFB03B;
 }
 
 footer {
 	clear: both;
-	height: 220px;
+	height: 120px;
 	background: #34C0FF;
 }
 
@@ -93,19 +94,19 @@ h2 {
 .tab-menuitem {
 	position: absolute;
 	top: 0;
-	padding: .2em .8em;
+	padding: .5em 1.2em;
 	background: #000;
 	color: #fff;
 }
 
 .tab-menuitem.item-1 { left: 0; }
-.tab-menuitem.item-2 { left: 55px; }
-.tab-menuitem.item-3 { left: 110px; }
+.tab-menuitem.item-2 { left: 67px; }
+.tab-menuitem.item-3 { left: 134px; }
 
 .tab-menuitem:hover,
 .tab-menuitem.active {
 	background: #34C0FF;
-	color: #fff;
+	color: #11354A;
 }
 
 .tab-menuitem.active + .tab-menu {
@@ -115,8 +116,8 @@ h2 {
 .tab-menu {
 	/*display: none;*/
 	position: absolute;
-	top: 28px;
-	background: #000;
+	top: 35px;
+	background: #34c0ff;
 	color: #fff;
 	padding: 2em;
 }
@@ -128,9 +129,9 @@ h2 {
 }
 
 .tab-menu a {
-	color: #FC414B;
+	color: #c2eb0d;
 }
 
 .tab-menu a:hover {
-	color: #C2EB0D;
+	color: #0F143F;
 }
