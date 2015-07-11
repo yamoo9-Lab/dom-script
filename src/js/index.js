@@ -15,7 +15,7 @@ function init() {
 
 	while(n < l) {
 		var btn = controls_btns[n];
-		btn.index = n;
+		btn.index = n; // 버튼 인덱스 설정, 자신의 index 속성에다가 반복 순환되는 n 변수 값을 할당
 		btn.onclick = btnAction;
 		n++;
 	}
@@ -27,9 +27,10 @@ function init() {
 }
 
 function btnAction() {
-	console.log(this.index);
-	return false;
+	// console.log(this.index);
 	var image_path = this.getAttribute('data-image-path');
+	// var target = wallpages.querySelectorAll('div').item(this.index);
+	var target = wallpages.querySelectorAll('div')[this.index];
 	target.style.backgroundImage = "url(" + image_path + ")";
 	target.style.backgroundSize = 'cover';
 	return false;
