@@ -22,7 +22,7 @@ body {
 	box-sizing: border-box;
 }
 
-header *, aside *, footer * {
+header *, main *, aside *, footer * {
 	margin: 0;
 }
 
@@ -66,3 +66,71 @@ h2 {
  * 탭 메뉴 디자인
  * --------------------------------
  */
+.tab {
+	margin-top: 20px;
+	margin-left: 20px;
+	width: 600px;
+}
+
+.tab ul {
+	list-style: none;
+	margin: 0;
+	padding-left: 0;
+}
+
+.tab a {
+	text-decoration: none;
+}
+.tab a:hover,
+.tab a:focus {
+	outline: 3px solid #ff0;
+}
+
+.tab-menubar {
+	position: relative;
+}
+
+.tab-menuitem {
+	position: absolute;
+	top: 0;
+	padding: .2em .8em;
+	background: #000;
+	color: #fff;
+}
+
+.tab-menuitem:hover,
+.tab-menuitem:focus {
+	background: #cfcfcf;
+	color: #313331;
+}
+
+.tab-menuitem.item-1 { left: 0; }
+.tab-menuitem.item-2 { left: 55px; }
+.tab-menuitem.item-3 { left: 110px; }
+
+.tab-menu {
+	/*display: none;*/
+	position: absolute;
+	top: 28px;
+	background: #000;
+	color: #fff;
+	padding: 2em;
+}
+
+.tab-menu img {
+	display: block;
+	margin-bottom: 1em;
+}
+
+.tab-menu a {
+	color: #FC414B;
+}
+
+.tab-menu a:hover,
+.tab-menu a:focus {
+	outline: 3px solid #ff0;
+}
+
+.tab-menu.active {
+	z-index: 10;
+}
