@@ -1,8 +1,8 @@
 
 
-function convertClassSelector(cn) {
-	return '.' + cn.split(' ').join('.');
-}
+// function convertClassSelector(cn) {
+// 	return '.' + cn.split(' ').join('.');
+// }
 
 // window.alert()
 // alert('call me');
@@ -59,10 +59,16 @@ function init() {
 		// 버튼의 속성 data-image-path 값을 가져와 변수 image_path에 참조합니다.
 		var image_path = this.getAttribute('data-image-path');
 		var my_class = this.getAttribute('class');
-		my_class = '.' + convertClassSelector(my_class);
+
+		// my_class = '.' + convertClassSelector(my_class);
 		// console.log(my_class);
-		var target = wallpages.querySelector( my_class );
+		// var target = wallpages.querySelector( my_class );
 		// console.log(target);
+
+		var target = document.querySelector( this.getAttribute('data-target') );
+
+		console.log(target);
+
 		// 버튼의 인라인 스타일 background 속성 값으로 url() 구문 내부에 변수 image_path 값을 접합해서 적용합니다.
 		target.style.background = "url(" + image_path + ")";
 		// 버튼의 인라인 스타일 background 속성 값으로 cover를 설정합니다.
