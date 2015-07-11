@@ -84,7 +84,7 @@ h2 {
 }
 
 :focus {
-	outline: 3px solid #ff0 !important;
+	/*outline: 3px solid #ff0;*/
 }
 
 .tab-menubar {
@@ -103,23 +103,30 @@ h2 {
 .tab-menuitem.item-2 { left: 67px; }
 .tab-menuitem.item-3 { left: 134px; }
 
-.tab-menuitem:hover,
+.tab-menuitem:hover {
+	background: #7DD3FF;
+	color: #164161;
+}
 .tab-menuitem.active {
 	background: #34C0FF;
 	color: #11354A;
 }
 
 .tab-menuitem.active + .tab-menu {
+	opacity: 1;
 	z-index: 100;
 }
 
 .tab-menu {
+	opacity: 0;
 	/*display: none;*/
 	position: absolute;
 	top: 35px;
 	background: #34c0ff;
 	color: #fff;
 	padding: 2em;
+	-webkit-transition: all 0.22s cubic-bezier(0.71, 0.49, 0.55, 0.9);
+	        transition: all 0.22s cubic-bezier(0.71, 0.49, 0.55, 0.9);
 }
 
 .tab-menu img {
