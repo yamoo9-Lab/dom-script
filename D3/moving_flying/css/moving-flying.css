@@ -35,4 +35,17 @@ body {
 	width: 90px;
 	height: 70px;
 	background: url(../images/flying.gif);
+	animation: dungdung 1s linear infinite alternate;
+}
+
+@keyframes dungdung {
+	0% {
+		top: 100px;
+	}
+	50% {
+		top: 150px;
+	}
+	100% {
+		top: 100px;
+	}
 }
