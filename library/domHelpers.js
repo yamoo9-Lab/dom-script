@@ -52,7 +52,8 @@ function css(el, cssCode) {
  * bgColor [css 배경색]
  */
 function createDim(sign, bgColor) {
-	var dim_layer = createEl('div');
+	var body = selector('body'),
+		dim_layer = createEl('div');
 	dim_layer.setAttribute('id', sign);
 	if (bgColor) {
 		css(dim_layer, 'background-color: ' + bgColor);
