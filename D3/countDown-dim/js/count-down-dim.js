@@ -6,10 +6,10 @@ function init() {
 	var dim_layer = createDim('dim');
 
 	// 2. 카운트다운 요소를 화면 가운데 추가한다.
-	var body = selector('body');
+	var body      = selector('body');
 	var countDown = createEl('div');
-	var _count = 5;
-	var count = createText( _count );
+	var _count    = 5;
+	var count     = createText( _count );
 
 	countDown.setAttribute('id', 'countdown');
 
@@ -24,19 +24,15 @@ function init() {
 	 */
 
 	var intervalID = setInterval(function() {
-		// 1초가 지난 뒤에 뭔가 수행
-		remove(countDown.firstChild);
-		// countDown.firstChild.parentNode.removeChild(countDown.firstChild);
-		append(countDown, createText( --_count ) );
 
-		if ( _count < 1 ) {
-			clearInterval(intervalID);
-			// dim 제거
+		if ( _count === 1 ) {
 			remove(dim_layer);
-			// dim_layer.parentNode.removeChild(dim_layer);
 			remove(countDown);
-			// countDown.parentNode.removeChild(countDown);
+			clearInterval(intervalID);
 		}
+
+		remove(countDown.firstChild);
+		append(countDown, createText( --_count ) );
 
 	}, 1000);
 }

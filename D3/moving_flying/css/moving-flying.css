@@ -1,0 +1,17 @@
+html {
+	background: url(../images/sky.jpg);
+	background-size: cover;
+}
+
+body {
+	margin: 0;
+}
+
+#flying {
+	position: absolute;
+	top: 100px;
+	left: 0;
+	width: 90px;
+	height: 70px;
+	background: url(../images/flying.gif);
+}
