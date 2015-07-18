@@ -22,3 +22,22 @@ function selector(ex) {
 
 	return list;
 }
+
+/**
+ * DOM 요소/텍스트 노드 추가 헬퍼함수
+ */
+function createEl(name) {
+	return document.createElement(name);
+}
+
+function createText(content) {
+	return document.createTextNode(content);
+}
+
+/**
+ * DOM 조작 함수
+ * 부모 요소 내부에 자식 요소를 마지막 자식 요소로 추가하는 함수
+ */
+function append(parentEl, childEl) {
+	parentEl.appendChild(childEl);
+}
