@@ -41,3 +41,7 @@ function createText(content) {
 function append(parentEl, childEl) {
 	parentEl.appendChild(childEl);
 }
+
+function css(el, cssCode) {
+	el.style.cssText = cssCode;
+}
