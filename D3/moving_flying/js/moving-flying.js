@@ -12,29 +12,28 @@ controller.onclick = function(e) {
 	// 사용자가 누른 대상 (e.target)
 	// 실제 이벤트가 걸린 부모 대상 (e.currentTarget)
 
-	var currentPos;
+	var direction = e.target.getAttribute('class').replace('btn-', ''),
+		distance  = 100;
 
-	switch( e.target.getAttribute('class').replace('btn-', '') ) {
+	switch( direction ) {
 		case 'left':
-			currentPos = parseInt( css(flying, 'left') );
-			currentPos -= 30;
-			css(flying, 'left', currentPos + 'px');
+			move(flying, 'left', -1 * distance);
 		break;
 		case 'right':
-			currentPos = parseInt( css(flying, 'left') );
-			currentPos += 30;
-			css(flying, 'left', currentPos + 'px');
+			move(flying, 'left', distance);
 		break;
 		case 'top':
-			currentPos = parseInt( css(flying, 'top') );
-			currentPos -= 30;
-			css(flying, 'top', currentPos + 'px');
+			move(flying, 'top', -1 * distance);
 		break;
 		case 'bottom':
-			currentPos = parseInt( css(flying, 'top') );
-			currentPos += 30;
-			css(flying, 'top', currentPos + 'px');
+			move(flying, 'top', distance);
 		break;
 	}
 
+}
+
+function move(el, direction, distance) {
+	var currentPos = parseInt( css(flying, direction) );
+	currentPos += distance;
+	css(flying, direction, currentPos + 'px');
 }
