@@ -46,8 +46,34 @@ function remove(childEl) {
 	childEl.parentNode.removeChild(childEl);
 }
 
-function css(el, cssCode) {
-	el.style.cssText = cssCode;
+function css(el, prop, value) {
+	if (!value) {
+		if ( prop.match(/:/) ) {
+			setStyle(el, prop);
+		}
+		return getStyle(el, prop);
+	} else {
+		setStyle(el, prop, value);
+	}
+}
+
+function getStyle(el, prop) {
+	if ( window.getComputedStyle ) {
+		// IE 9+
+		return window.getComputedStyle(el)[prop];
+	} else {
+		// IE 8-
+		return el.currentStyle[prop];
+	}
+}
+
+function setStyle(el, prop, value) {
+	if ( typeof prop === 'string' && prop.match(/:/) ) {
+		el.style.cssText = prop;
+	} else {
+		el.style[prop] = value;
+	}
+
 }
 
 /**
