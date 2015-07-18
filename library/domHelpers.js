@@ -42,6 +42,10 @@ function append(parentEl, childEl) {
 	parentEl.appendChild(childEl);
 }
 
+function remove(childEl) {
+	childEl.parentNode.removeChild(childEl);
+}
+
 function css(el, cssCode) {
 	el.style.cssText = cssCode;
 }
@@ -59,4 +63,6 @@ function createDim(sign, bgColor) {
 		css(dim_layer, 'background-color: ' + bgColor);
 	}
 	append(body, dim_layer);
+
+	return dim_layer;
 }
