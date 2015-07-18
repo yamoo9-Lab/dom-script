@@ -19,32 +19,7 @@ var body = document.querySelector('body');
 var app  = document.querySelector('#app');
 var memo = document.querySelectorAll('[class*="memo-"]');
 
-// 쉽게 사용할 수 있는 DOM 헬퍼함수를 만들어 사용한다.
-// 함수 정의 , 표현
-function selector(css_selector_ex) {
-	var list = document.querySelectorAll(css_selector_ex),
-		list_len = list.length;
 
-	switch(list_len) {
-		case 0:
-			return null;
-		break;
-		case 1:
-			return list[0];
-		break;
-	}
-
-	return list;
-
-	// if ( list_len === 1 ) {
-	// 	return list[0];
-	// } else if ( list_len === 0 ) {
-	// 	return null;
-	// } else {
-	// 	return list;
-	// }
-
-}
 
 var app = selector('#app')[0];
 var memo = selector('[class*=memo-]');
