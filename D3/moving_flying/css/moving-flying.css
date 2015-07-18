@@ -30,28 +30,33 @@ body {
 
 #flying {
 	position: absolute;
-	top: 200px;
+	top: 100px;
 	left: 0;
 	width: 90px;
 	height: 70px;
+}
+
+#flying .anim {
+	position: relative;
+	height: inherit;
 	background: url(../images/flying.gif);
 	animation: dungdung 3s cubic-bezier(0.71, 0.21, 0.25, 1.98) infinite alternate;
 }
 
-/*@keyframes dungdung {
+@keyframes dungdung {
 	0% {
-		top: 100px;
+		top: 0px;
 	}
 	20% {
-		top: 120px;
+		top: 20px;
 	}
 	50% {
-		top: 90px;
+		top: -20px;
 	}
 	70% {
-		top: 130px;
+		top: 30px;
 	}
 	100% {
-		top: 100px;
+		top: 0px;
 	}
-}*/
+}
