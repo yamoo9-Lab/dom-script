@@ -45,3 +45,17 @@ function append(parentEl, childEl) {
 function css(el, cssCode) {
 	el.style.cssText = cssCode;
 }
+
+/**
+ * DIM 요소를 생성하는 헬퍼 함수
+ * sign [id 속성 값]
+ * bgColor [css 배경색]
+ */
+function createDim(sign, bgColor) {
+	var dim_layer = createEl('div');
+	dim_layer.setAttribute('id', sign);
+	if (bgColor) {
+		css(dim_layer, 'background-color: ' + bgColor);
+	}
+	append(body, dim_layer);
+}
