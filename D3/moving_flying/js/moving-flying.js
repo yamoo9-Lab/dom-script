@@ -13,7 +13,7 @@ controller.onclick = function(e) {
 	// 실제 이벤트가 걸린 부모 대상 (e.currentTarget)
 
 	var direction = e.target.getAttribute('class').replace('btn-', ''),
-		distance  = 100;
+		distance  = 200;
 
 	switch( direction ) {
 		case 'left':

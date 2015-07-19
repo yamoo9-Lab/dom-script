@@ -4,6 +4,105 @@
 
 ---
 
+
+### DOM Helpers 라이브러리 제작
+```js
+/**
+ * DOM 요소 선택 함수
+ */
+function selector(ex) {
+	// 함수 사용 시, 오류를 확인하기 위해 유효성검사
+	// ex 값은 반드시 문자열이어야만 한다.
+	if (typeof ex !== 'string') {
+		console.error('CSS 선택자 표기식을 문자열을 인자로 전달해야 합니다.')
+	}
+
+	var list     = document.querySelectorAll(ex),
+		list_len = list.length;
+
+	switch(list_len) {
+		case 0:
+			return null;
+		break;
+		case 1:
+			return list[0];
+		break;
+	}
+
+	return list;
+}
+
+/**
+ * DOM 요소/텍스트 노드 추가 헬퍼함수
+ */
+function createEl(name) {
+	return document.createElement(name);
+}
+
+function createText(content) {
+	return document.createTextNode(content);
+}
+
+/**
+ * DOM 조작 함수
+ * 부모 요소 내부에 자식 요소를 마지막 자식 요소로 추가하는 함수
+ */
+function append(parentEl, childEl) {
+	parentEl.appendChild(childEl);
+}
+
+function remove(childEl) {
+	childEl.parentNode.removeChild(childEl);
+}
+
+function css(el, prop, value) {
+	if (!value) {
+		if ( prop.match(/:/) ) {
+			setStyle(el, prop);
+		}
+		return getStyle(el, prop);
+	} else {
+		setStyle(el, prop, value);
+	}
+}
+
+function getStyle(el, prop) {
+	if ( window.getComputedStyle ) {
+		// IE 9+
+		return window.getComputedStyle(el)[prop];
+	} else {
+		// IE 8-
+		return el.currentStyle[prop];
+	}
+}
+
+function setStyle(el, prop, value) {
+	if ( typeof prop === 'string' && prop.match(/:/) ) {
+		el.style.cssText = prop;
+	} else {
+		el.style[prop] = value;
+	}
+
+}
+
+/**
+ * DIM 요소를 생성하는 헬퍼 함수
+ * sign [id 속성 값]
+ * bgColor [css 배경색]
+ */
+function createDim(sign, bgColor) {
+	var body = selector('body'),
+		dim_layer = createEl('div');
+	dim_layer.setAttribute('id', sign);
+	if (bgColor) {
+		css(dim_layer, 'background-color: ' + bgColor);
+	}
+	append(body, dim_layer);
+
+	return dim_layer;
+}
+```
+
 ### `switch ~ case ~ break` 문과 `try ~ catch(e)`문
 
 ```js
@@ -26,5 +125,51 @@ function selector(ex) {
 		console.error(e.message);
 	}
 
+}
+```
+
+#### `switch ~ case ~ break` 문 활용 예
+
+`moving_flying/js/moving-flying.js`
+
+```js
+var controller = selector('.controller');
+var flying = selector('#flying');
+
+// 이벤트 위임
+controller.onclick = function(e) {
+	// if (!e) {
+	// 	e = window.event;
+	// }
+	// 크로스 브라우징을 위한 목적의 코드
+	e = e || window.event;
+
+	// 사용자가 누른 대상 (e.target)
+	// 실제 이벤트가 걸린 부모 대상 (e.currentTarget)
+
+	var direction = e.target.getAttribute('class').replace('btn-', ''),
+		distance  = 200;
+
+	switch( direction ) {
+		case 'left':
+			move(flying, 'left', -1 * distance);
+		break;
+		case 'right':
+			move(flying, 'left', distance);
+		break;
+		case 'top':
+			move(flying, 'top', -1 * distance);
+		break;
+		case 'bottom':
+			move(flying, 'top', distance);
+		break;
+	}
+
+}
+
+function move(el, direction, distance) {
+	var currentPos = parseInt( css(flying, direction) );
+	currentPos += distance;
+	css(flying, direction, currentPos + 'px');
 }
 ```
