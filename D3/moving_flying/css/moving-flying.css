@@ -1,0 +1,63 @@
+html {
+	background: url(../images/sky.jpg);
+	background-size: cover;
+}
+
+body {
+	margin: 0;
+}
+
+.controller {
+	position: fixed;
+	top: 20px;
+	right: 20px;
+}
+
+.controller [class*="btn-"] {
+	cursor: pointer;
+	font-size: 32px;
+	border: 0;
+	background: #fff;
+	border-radius: 4px;
+	transition: all .4s;
+}
+
+.controller [class*="btn-"]:hover,
+.controller [class*="btn-"]:focus {
+	background: #000;
+	color: #fff;
+}
+
+#flying {
+	position: absolute;
+	top: 100px;
+	left: 0;
+	width: 90px;
+	height: 70px;
+	transition: all 0.3s ease;
+}
+
+#flying .anim {
+	position: relative;
+	height: inherit;
+	background: url(../images/flying.gif);
+	animation: dungdung 3s cubic-bezier(0.71, 0.21, 0.25, 1.98) infinite alternate;
+}
+
+@keyframes dungdung {
+	0% {
+		top: 0px;
+	}
+	20% {
+		top: 20px;
+	}
+	50% {
+		top: -20px;
+	}
+	70% {
+		top: 30px;
+	}
+	100% {
+		top: 0px;
+	}
+}
