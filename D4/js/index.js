@@ -36,72 +36,88 @@ dimBtn.onclick = function() {
  * --------------------------------
  */
 
-// -----------------------------------------------------------------------------------------------
-// .popup-layer 동적 생성
-var popLayer = createEl('div');
-// .popup-layer 속성 설정
-attr(popLayer, 'class', 'popup-layer');
-// .popup-layer body 요소에 삽입
-append($('body'), popLayer);
+// HTML4, XHTML1 비표준(사실상의 표준) vs HTML5 표준
+// innerHTML 속성
+// 문자열 접합
+var popLayerHTMLCode = '';
+popLayerHTMLCode += '<div class="popup-layer">';
+popLayerHTMLCode += 	'<h3 class="popup-layer-title">Do you want Save this?</h3>';
+popLayerHTMLCode += 	'<p class="popup-layer-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos.</p>';
+popLayerHTMLCode += 	'<div class="popup-layer-btnset">';
+popLayerHTMLCode += 		'<button class="popup-layer-btnset-save" type="button">Save</button>';
+popLayerHTMLCode += 		'<button class="popup-layer-btnset-cancel" type="button">Cancel</button>';
+popLayerHTMLCode += 	'</div>';
+popLayerHTMLCode += 	'<button class="popup-layer-close" aria-label="팝업 레이어 닫기">X</button>';
+popLayerHTMLCode += '</div>';
 
-// -----------------------------------------------------------------------------------------------
-// .popup-layer-title 동적 생성
-var popLayerTitle = createEl('h3');
-// .popup-layer-title 텍스트 콘텐츠 동적 생성
-var popLayerTitleTxt = createText('Do you want Save this?');
+$('body').innerHTML += popLayerHTMLCode;
 
-// .popup-layer-title 요소에 텍스트 콘테츠 삽입
-append(popLayerTitle, popLayerTitleTxt);
-// .popup-layer 요소에 .popup-layer-title 삽입
-append(popLayer, popLayerTitle);
+// // -----------------------------------------------------------------------------------------------
+// // .popup-layer 동적 생성
+// var popLayer = createEl('div');
+// // .popup-layer 속성 설정
+// attr(popLayer, 'class', 'popup-layer');
+// // .popup-layer body 요소에 삽입
+// append($('body'), popLayer);
 
-// -----------------------------------------------------------------------------------------------
-// .popup-layer-desc 동적 생성
-var popLayerDesc = createEl('p');
-// .popup-layer-desc 텍스트 콘텐츠 동적 생성
-var popLayerDescTxt = createText('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos.');
+// // -----------------------------------------------------------------------------------------------
+// // .popup-layer-title 동적 생성
+// var popLayerTitle = createEl('h3');
+// // .popup-layer-title 텍스트 콘텐츠 동적 생성
+// var popLayerTitleTxt = createText('Do you want Save this?');
 
-// .popup-layer-desc 요소에 텍스트 콘테츠 삽입
-append(popLayerDesc, popLayerDescTxt);
-// .popup-layer 요소에 .popup-layer-desc 삽입
-append(popLayer, popLayerDesc);
+// // .popup-layer-title 요소에 텍스트 콘테츠 삽입
+// append(popLayerTitle, popLayerTitleTxt);
+// // .popup-layer 요소에 .popup-layer-title 삽입
+// append(popLayer, popLayerTitle);
 
-// -----------------------------------------------------------------------------------------------
-// .popup-layer-btnset 동적 생성
-var popLayerbtnset = createEl('div');
-attr(popLayerbtnset, 'class', 'popup-layer-btnset');
-append(popLayer, popLayerbtnset);
+// // -----------------------------------------------------------------------------------------------
+// // .popup-layer-desc 동적 생성
+// var popLayerDesc = createEl('p');
+// // .popup-layer-desc 텍스트 콘텐츠 동적 생성
+// var popLayerDescTxt = createText('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos.');
 
-// -----------------------------------------------------------------------------------------------
-// .popup-layer-btnset-save 동적 생성
-var popLayerbtnsetSave = createEl('button');
-var popLayerbtnsetSaveTxt = createText('Save');
-attr(popLayerbtnsetSave, 'class', 'popup-layer-btnset-save');
-attr(popLayerbtnsetSave, 'type', 'button');
+// // .popup-layer-desc 요소에 텍스트 콘테츠 삽입
+// append(popLayerDesc, popLayerDescTxt);
+// // .popup-layer 요소에 .popup-layer-desc 삽입
+// append(popLayer, popLayerDesc);
 
-append(popLayerbtnsetSave, popLayerbtnsetSaveTxt);
+// // -----------------------------------------------------------------------------------------------
+// // .popup-layer-btnset 동적 생성
+// var popLayerbtnset = createEl('div');
+// attr(popLayerbtnset, 'class', 'popup-layer-btnset');
+// append(popLayer, popLayerbtnset);
 
-// -----------------------------------------------------------------------------------------------
-// .popup-layer-btnset-cancel 동적 생성
-var popLayerbtnsetCancel = createEl('button');
-var popLayerbtnsetCancelTxt = createText('Cancel');
-attr(popLayerbtnsetCancel, 'class', 'popup-layer-btnset-cancel');
-attr(popLayerbtnsetCancel, 'type', 'button');
+// // -----------------------------------------------------------------------------------------------
+// // .popup-layer-btnset-save 동적 생성
+// var popLayerbtnsetSave = createEl('button');
+// var popLayerbtnsetSaveTxt = createText('Save');
+// attr(popLayerbtnsetSave, 'class', 'popup-layer-btnset-save');
+// attr(popLayerbtnsetSave, 'type', 'button');
 
-append(popLayerbtnsetCancel, popLayerbtnsetCancelTxt);
+// append(popLayerbtnsetSave, popLayerbtnsetSaveTxt);
 
-// -----------------------------------------------------------------------------------------------
-// .popup-layer-btnset에 생성한 Save, Cancel 버튼 삽입
-append(popLayerbtnset, popLayerbtnsetSave);
-append(popLayerbtnset, popLayerbtnsetCancel);
+// // -----------------------------------------------------------------------------------------------
+// // .popup-layer-btnset-cancel 동적 생성
+// var popLayerbtnsetCancel = createEl('button');
+// var popLayerbtnsetCancelTxt = createText('Cancel');
+// attr(popLayerbtnsetCancel, 'class', 'popup-layer-btnset-cancel');
+// attr(popLayerbtnsetCancel, 'type', 'button');
 
-// -----------------------------------------------------------------------------------------------
-// .popup-layer-close 동적 생성
-var popLayerClose = createEl('button');
-var popLayerCloseTxt = createText('X');
+// append(popLayerbtnsetCancel, popLayerbtnsetCancelTxt);
 
-attr(popLayerClose, 'class', 'popup-layer-close');
-attr(popLayerClose, 'aria-label', '팝업 레이어 닫기');
+// // -----------------------------------------------------------------------------------------------
+// // .popup-layer-btnset에 생성한 Save, Cancel 버튼 삽입
+// append(popLayerbtnset, popLayerbtnsetSave);
+// append(popLayerbtnset, popLayerbtnsetCancel);
 
-append(popLayerClose, popLayerCloseTxt);
-append(popLayer, popLayerClose);
+// // -----------------------------------------------------------------------------------------------
+// // .popup-layer-close 동적 생성
+// var popLayerClose = createEl('button');
+// var popLayerCloseTxt = createText('X');
+
+// attr(popLayerClose, 'class', 'popup-layer-close');
+// attr(popLayerClose, 'aria-label', '팝업 레이어 닫기');
+
+// append(popLayerClose, popLayerCloseTxt);
+// append(popLayer, popLayerClose);
