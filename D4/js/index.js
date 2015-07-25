@@ -27,6 +27,11 @@ append( $('body'), dimBtn );
 dimBtn.onclick = function() {
 	// 헬퍼함수 createDim() 실행
 	createDim('dim');
+	createPopLayer({
+		title: 'hi~ Tom',
+		desc: 'I\'m Hungry',
+		closeLabel: '나를 닫아줘'
+	});
 };
 
 
@@ -39,18 +44,44 @@ dimBtn.onclick = function() {
 // HTML4, XHTML1 비표준(사실상의 표준) vs HTML5 표준
 // innerHTML 속성
 // 문자열 접합
-var popLayerHTMLCode = '';
-popLayerHTMLCode += '<div class="popup-layer">';
-popLayerHTMLCode += 	'<h3 class="popup-layer-title">Do you want Save this?</h3>';
-popLayerHTMLCode += 	'<p class="popup-layer-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos.</p>';
-popLayerHTMLCode += 	'<div class="popup-layer-btnset">';
-popLayerHTMLCode += 		'<button class="popup-layer-btnset-save" type="button">Save</button>';
-popLayerHTMLCode += 		'<button class="popup-layer-btnset-cancel" type="button">Cancel</button>';
-popLayerHTMLCode += 	'</div>';
-popLayerHTMLCode += 	'<button class="popup-layer-close" aria-label="팝업 레이어 닫기">X</button>';
-popLayerHTMLCode += '</div>';
 
-$('body').innerHTML += popLayerHTMLCode;
+// popLayerOptions 객체 생성
+var popLayerOptions = {
+	title      : 'Do you want Save this?',
+	desc       : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos.',
+	closeLabel : '팝업 레이어 닫기'
+};
+
+// popLayer.title = 'Do you want Save this?';
+// popLayer.desc = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos.';
+// popLayer.closeLabel = '팝업 레이어 닫기';
+
+// 변수는 데이터를 단 하나만 가질 수 있어요.
+// 객체(Object)는 다수의 변수를 소유할 수 있어요.
+// 아이폰.재질, 아이폰.색상, 아이폰.무게, 아이폰.가격
+// 아이폰.전화걸다(), 아이폰.인터넷하다()
+
+function createPopLayer (settings) {
+	// 유효성 검사
+	if ( typeof settings !== 'object' ) {
+		throw new TypeError('Error Message');
+		console.error('setttings 전달인자의 데이터 형은 객체({})를 전달해야 합니다.');
+	}
+	var htmlCode = '';
+	htmlCode    += '<div class="popup-layer">';
+	htmlCode    += 	'<h3 class="popup-layer-title">'+ settings.title +'</h3>';
+	htmlCode    += 	'<p class="popup-layer-desc">'+ settings.desc +'</p>';
+	htmlCode    += 	'<div class="popup-layer-btnset">';
+	htmlCode    += 		'<button class="popup-layer-btnset-save" type="button">Save</button>';
+	htmlCode    += 		'<button class="popup-layer-btnset-cancel" type="button">Cancel</button>';
+	htmlCode    += 	'</div>';
+	htmlCode    += 	'<button class="popup-layer-close" aria-label="'+ settings.closeLabel +'">X</button>';
+	htmlCode    += '</div>';
+
+	$('body').innerHTML += htmlCode;
+}
+
+
 
 // // -----------------------------------------------------------------------------------------------
 // // .popup-layer 동적 생성
