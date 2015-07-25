@@ -97,6 +97,8 @@ function createDim(sign, cssValue) {
 
 	append(body, dim_layer);
 
+	dim_layer.onclick = removeDim;
+
 	return dim_layer;
 }
 

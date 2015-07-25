@@ -31,11 +31,14 @@ $('body').innerHTML += addDimBtnCode;
 
 $('.dim-button').onclick = function() {
 	// 헬퍼함수 createDim() 실행
-	createDim('dim');
 	createPopLayer();
+	createDim('dim');
 };
 
-
+function removeDim () {
+	remove( $('#dim') );
+	remove( $('.popup-layer') );
+}
 
 /**
  * 레이어 팝업 생성
@@ -71,18 +74,7 @@ function createPopLayer (settings) {
 
 	// ------------------------------------------------------------------------
 
-	// 3항 연산식
-	// (조건) ? (참) : (거짓)
-	// isIronMan ? 'Yes. I\'m IronMan.' : 'No. I\'m not IronMan.'
-
-	// if(조건) {
-	// 	(참)
-	// } else {
-	// 	(거짓)
-	// }
-
-
-	settings.title      = settings.title ? settings.title : defaults.title;
+	// settings.title      = settings.title ? settings.title : defaults.title;
 	// settings.desc       = settings.desc ? settings.desc : defaults.desc;
 	// settings.closeLabel = settings.closeLabel ? settings.closeLabel : defaults.closeLabel;
 
@@ -108,5 +100,7 @@ function createPopLayer (settings) {
 
 	// 동적 생성
 	$('body').innerHTML += htmlCode;
+
+	$('.popup-layer-close').onclick = removeDim;
 
 }
