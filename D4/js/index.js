@@ -31,7 +31,9 @@ $('body').innerHTML += addDimBtnCode;
 
 $('.dim-button').onclick = function() {
 	// 헬퍼함수 createDim() 실행
-	createPopLayer();
+	createPopLayer({
+		closeTxt: '닫기'
+	});
 	createDim('dim');
 };
 
@@ -51,7 +53,8 @@ function createPopLayer (settings) {
 	var defaults = {
 		title      : 'Do you want Save this?',
 		desc       : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos.',
-		closeLabel : '팝업 레이어 닫기'
+		closeLabel : '팝업 레이어 닫기',
+		closeTxt   : 'X'
 	};
 
 	// 옵션 오버라이딩: 사용자가 전달한 객체 설정이 없으면 기본 옵션을 사용
@@ -80,10 +83,13 @@ function createPopLayer (settings) {
 
 	// ------------------------------------------------------------------------
 
-	settings.title      = settings.title || defaults.title;
-	settings.desc       = settings.desc || defaults.desc;
-	settings.closeLabel = settings.closeLabel || defaults.closeLabel;
+	// settings.title      = settings.title || defaults.title;
+	// settings.desc       = settings.desc || defaults.desc;
+	// settings.closeLabel = settings.closeLabel || defaults.closeLabel;
 
+	for (var key in settings) {
+		settings[key] = settings[key] || defaults[key];
+	}
 
 
 	// HTML 템플릿
@@ -95,7 +101,7 @@ function createPopLayer (settings) {
 	htmlCode += 		'<button class="popup-layer-btnset-save" type="button">Save</button>';
 	htmlCode += 		'<button class="popup-layer-btnset-cancel" type="button">Cancel</button>';
 	htmlCode += 	'</div>';
-	htmlCode += 	'<button class="popup-layer-close" aria-label="'+ settings.closeLabel +'">X</button>';
+	htmlCode += 	'<button class="popup-layer-close" aria-label="'+ settings.closeLabel +'">'+ settings.closeTxt +'</button>';
 	htmlCode += '</div>';
 
 	// 동적 생성
