@@ -1,0 +1,7 @@
+@import url(http://fonts.googleapis.com/css?family=Noto+Sans);
+
+body {
+	max-width: 680px;
+	margin: 20px auto;
+	font: 0.875rem/1.5 'Noto Sans', Dotum, Sans-Serif;
+}
