@@ -1,7 +1,60 @@
 @import url(http://fonts.googleapis.com/css?family=Noto+Sans);
 
-body {
+#app {
+	overflow: hidden;
+	position: relative;
 	max-width: 680px;
-	margin: 20px auto;
-	font: 0.875rem/1.5 'Noto Sans', Dotum, Sans-Serif;
+	margin: 80px auto;
+	font: 1.175rem/1.5 'Noto Sans', Dotum, Sans-Serif;
+}
+
+#app h1 {
+	margin-top: 40px;
+}
+
+/**
+ * --------------------------------
+ * .slide-menu
+ * --------------------------------
+ */
+
+.slide-menu {
+	position: absolute;
+	top: 0;
+	left: -500px;
+	width: 500px;
+	transition: all 0.4s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+}
+
+.slide-menu.on {
+	left: 0;
+}
+
+.slide-menu.slide-left {
+
+}
+
+.slide-menu .slide-handle {
+	position: absolute;
+	top: 0;
+	right: -2em;
+	padding: .4em .6em;
+	background: #000;
+}
+.slide-menu .slide-handle a {
+	color: #fff;
+}
+
+.slide-menu .slide-panel {
+	background: #fff;
+	padding: 1em;
+	box-shadow: 0px 0px 3px hsla(0,0%,0%,.25);
+}
+
+.slide-menu .slide-panel img {
+	display: block;
+	margin-bottom: 20px;
+	max-width: 100%;
+	width: 100%;
+	height: auto;
 }
