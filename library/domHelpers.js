@@ -83,13 +83,18 @@ function setStyle(el, prop, value) {
  * sign [id 속성 값]
  * bgColor [css 배경색]
  */
-function createDim(sign, bgColor) {
+function createDim(sign, cssValue) {
 	var body = selector('body'),
 		dim_layer = createEl('div');
-	dim_layer.setAttribute('id', sign);
-	if (bgColor) {
-		css(dim_layer, 'background-color: ' + bgColor);
+
+	attr(dim_layer, 'id', sign);
+
+	if (cssValue) {
+		css(dim_layer, 'position:fixed; z-index:100; top:0; left:0; width:100%; height:100vh; background:' + cssValue + ';');
+	} else {
+		css(dim_layer, 'position:fixed; z-index:100; top:0; left:0; width:100%; height:100vh; background:rgba(0,0,0,0.5);');
 	}
+
 	append(body, dim_layer);
 
 	return dim_layer;
