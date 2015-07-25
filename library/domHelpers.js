@@ -1,6 +1,8 @@
 /**
  * DOM 요소 선택 함수
  */
+var $ = selector;
+
 function selector(ex) {
 	// 함수 사용 시, 오류를 확인하기 위해 유효성검사
 	// ex 값은 반드시 문자열이어야만 한다.
@@ -91,4 +93,21 @@ function createDim(sign, bgColor) {
 	append(body, dim_layer);
 
 	return dim_layer;
+}
+
+/**
+ * 속성을 가져오거나, 설정하는 헬퍼함수
+ * attr($('body'), 'class'); // GET
+ * attr($('body'), 'class', 'this-is-body'); // SET
+ * --------------------------------
+ */
+function attr(el, prop, value) {
+	// 요소(el), 속성(prop), 속성 값(value)
+	if( !value ) {
+		// 사용자가 value를 설정하지 않았을 때, 처리되는 블럭 코드 구간
+		return el.getAttribute(prop);
+	} else {
+		// 사용자가 value를 설정했을 때, 처리되는 블럭 코드 구간
+		el.setAttribute(prop, value);
+	}
 }
