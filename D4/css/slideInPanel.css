@@ -21,7 +21,7 @@
 .slide-menu {
 	position: absolute;
 	top: 0;
-	left: -500px;
+	left: -501px;
 	width: 500px;
 	transition: all 0.4s cubic-bezier(0.175, 0.885, 0.320, 1.275);
 }

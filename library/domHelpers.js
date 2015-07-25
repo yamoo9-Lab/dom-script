@@ -26,6 +26,37 @@ function selector(ex) {
 }
 
 /**
+ * find() 헬퍼함수
+ * find($('body'), 'a')
+ * --------------------------------
+ */
+function find(parentEl, childSelector) {
+	if ( !parentEl.nodeName || typeof childSelector !== 'string' ) {
+		console.error('첫번째 인자는 돔 객체를, 두번째 인자는 문자열을 넣어야 합니다.');
+	}
+	var children = parentEl.querySelectorAll(childSelector);
+	var children_len = children.length;
+
+	switch(children_len) {
+		case 0: return null;
+		break;
+		case 1: return children[0];
+		break;
+		default: return children;
+	}
+
+	// if (children_len === 0) {
+	// 	return null;
+	// } else if ( children_len === 1 ) {
+	// 	return children[0];
+	// } else {
+	// 	return children;
+	// }
+}
+
+
+
+/**
  * DOM 요소/텍스트 노드 추가 헬퍼함수
  */
 function createEl(name) {
@@ -40,6 +71,42 @@ function createText(content) {
  * DOM 조작 함수
  * 부모 요소 내부에 자식 요소를 마지막 자식 요소로 추가하는 함수
  */
+function hasClass (el, className) {
+	var currentClass = attr(el, 'class');
+	if (currentClass === null) { return false; }
+	var reg = new RegExp(className, 'ig');
+	if ( currentClass.match(reg) ) {
+		return true;
+	} else {
+		return false;
+	}
+}
+function addClass (el, className) {
+	if ( !hasClass(el, className) ) {
+		// el.className += ' ' + className;
+		// el.setAttribute( 'class', el.getAttribute('class') + ' ' + className );
+		var oldClassName = attr(el, 'class');
+		if (oldClassName === null ) {
+			oldClassName = '';
+		}
+		attr(el, 'class',  oldClassName + ' ' + className);
+	}
+}
+function removeClass (el, className) {
+	if ( hasClass(el, className) ) {
+		attr(el, 'class',  attr(el, 'class').replace(className, ''));
+	}
+}
+function toggleClass (el, className) {
+	if ( hasClass(el, className) ) {
+		removeClass(el, className);
+	} else {
+		addClass(el, className);
+	}
+}
+
+
+
 function append(parentEl, childEl) {
 	parentEl.appendChild(childEl);
 }
