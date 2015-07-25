@@ -87,10 +87,14 @@ function createPopLayer (settings) {
 	// settings.desc       = settings.desc || defaults.desc;
 	// settings.closeLabel = settings.closeLabel || defaults.closeLabel;
 
-	for (var key in settings) {
+	// for ( var 속성 in 객체 ) {
+	// 	console.log(속성);     // 속성 출력
+	// 	console.log(객체[속성]); // 속성 값 출력
+	// }
+
+	for (var key in defaults) {
 		settings[key] = settings[key] || defaults[key];
 	}
-
 
 	// HTML 템플릿
 	var htmlCode = '';
