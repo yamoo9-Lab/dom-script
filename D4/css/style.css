@@ -17,3 +17,21 @@ body {
 	height: 100vh;
 	background: rgba(0,0,0,0.5);
 }*/
+
+.popup-layer {
+	position: fixed;
+	z-index: 1000;
+	top: 50%;
+	left: 50%;
+	width: 600px;
+	height: 320px;
+	background: #333;
+	color: #fff;
+	transform: translate(-50%, -50%);
+}
+
+/* IE 8- */
+.no-csstransforms .popup-layer {
+	margin-left: -300px;
+	margin-top: -160px;
+}

@@ -1,17 +1,28 @@
 <!DOCTYPE html>
-<html lang="ko-KR">
+<html lang="ko-KR" class="no-js">
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<meta charset="UTF-8">
 	<title>DOM 조작(Manipulation) - 생성(Creating), 삽입(Insertion), 제거(Removing), 복제(Duplicating)</title>
 	<link rel="stylesheet" href="css/style.css">
+	<script src="../library/modernizr.js"></script>
 	<!-- DOM 헬퍼 라이브러리 호출 -->
 	<script src="../library/domHelpers.js"></script>
 </head>
 <body>
 
-	<!-- 딤처리, 레이어 팝업 생성해서 띄워봅니다. -->
+	<!-- 팝업 레이어 마크업 구조화 -->
+	<div class="popup-layer">
+		<h3 class="popup-layer-title">Do you want Save this?</h3>
+		<p class="popup-layer-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos.</p>
+		<div class="popup-layer-btnset">
+			<button class="popup-layer-btnset-save" type="button">Save</button>
+			<button class="popup-layer-btnset-cancel" type="button">Cancel</button>
+		</div>
+		<button class="popup-layer-close" aria-label="팝업 레이어 닫기">X</button>
+	</div>
 
 	<script src="js/index.js"></script>
+	<!-- 딤처리, 레이어 팝업 생성해서 띄워봅니다. -->
 </body>
 </html>
