@@ -4,24 +4,8 @@
  */
 
 var addDimBtnCode = '';
-addDimBtnCode += '<button class="dim-button" type="button">딤처리</button>';
+addDimBtnCode += '<button class="dim-button" type="button">create dim layer</button>';
 $('body').innerHTML += addDimBtnCode;
-
-// // <button> 요소 노드 생성
-// var dimBtn = createEl('button');
-
-// // button 요소에 추가할 텍스트 노드 생성
-// var dimBtnTxt = createText('딤처리');
-
-// // 헬퍼 함수 attr() 활용해서 dimBtn에 속성 설정
-// attr(dimBtn, 'class', 'dim-button');
-
-// // <button> 요소 노드 내부에 생성한 텍스트 노드 마지막 자식 노드로 삽입
-// append(dimBtn, dimBtnTxt);
-
-// // <body> 요소 내부 마지막 자식 노드로 dimBtn을 삽입
-// append( $('body'), dimBtn );
-
 
 
 /**
@@ -32,7 +16,7 @@ $('body').innerHTML += addDimBtnCode;
 $('.dim-button').onclick = function() {
 	// 헬퍼함수 createDim() 실행
 	createPopLayer({
-		closeTxt: '닫기'
+		closeTxt: '×'
 	});
 	createDim('dim');
 };
@@ -52,7 +36,7 @@ function createPopLayer (settings) {
 	// 옵션 기본 값 객체 설정
 	var defaults = {
 		title      : 'Do you want Save this?',
-		desc       : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos.',
+		desc       : 'Lorem ipsum dolor sit amet, consectetur adipisicing',
 		closeLabel : '팝업 레이어 닫기',
 		closeTxt   : 'X'
 	};
@@ -61,36 +45,6 @@ function createPopLayer (settings) {
 	if ( typeof settings !== 'object' || typeof settings === 'undefined' ) {
 		settings = defaults;
 	}
-
-	// 사용자 정의 설정 값이 없는 속성의 경우는
-	// 기본 설정 값(defaults)의 속성으로 대체한다.
-
-	// if ( !settings.title ) {
-	// 	settings.title = defaults.title;
-	// }
-	// if ( !settings.desc ) {
-	// 	settings.desc = defaults.desc;
-	// }
-	// if ( !settings.closeLabel ) {
-	// 	settings.closeLabel = defaults.closeLabel;
-	// }
-
-	// ------------------------------------------------------------------------
-
-	// settings.title      = settings.title ? settings.title : defaults.title;
-	// settings.desc       = settings.desc ? settings.desc : defaults.desc;
-	// settings.closeLabel = settings.closeLabel ? settings.closeLabel : defaults.closeLabel;
-
-	// ------------------------------------------------------------------------
-
-	// settings.title      = settings.title || defaults.title;
-	// settings.desc       = settings.desc || defaults.desc;
-	// settings.closeLabel = settings.closeLabel || defaults.closeLabel;
-
-	// for ( var 속성 in 객체 ) {
-	// 	console.log(속성);     // 속성 출력
-	// 	console.log(객체[속성]); // 속성 값 출력
-	// }
 
 	for (var key in defaults) {
 		settings[key] = settings[key] || defaults[key];

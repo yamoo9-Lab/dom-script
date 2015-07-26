@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>전역 vs 지역</title>
+	<script>
+
+	function move () {
+		return true;
+	}
+
+	// window는 전역 공간
+	var a = 9;
+
+	if (a === 9) {
+		var a = 10;
+		console.log(a); // 10
+	}
+
+	// local();
+
+	console.log(a); // 9
+	</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -30,18 +30,15 @@
 	left: 0;
 }
 
-.slide-menu.slide-left {
-
-}
-
 .slide-menu .slide-handle {
 	position: absolute;
-	top: 0;
+	top: 2px;
 	right: -2em;
-	padding: .4em .6em;
 	background: #000;
 }
 .slide-menu .slide-handle a {
+	display: block;
+	padding: .2em .6em .3em;
 	color: #fff;
 }
 
