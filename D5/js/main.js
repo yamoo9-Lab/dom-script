@@ -1,47 +1,30 @@
-/*! main.js © yamoo9.net, 2015 */
+(function(global, _){
 
-// IIFE 패턴
-(function(global){
+	// DOM 객체 참조
+	var gnb     = _.$('#gnb'),
+		gnb_lv1 = _.$('.lv-1', gnb),
+		gnb_lv2 = _.$('.lv-2', gnb_lv1);
 
-// Javascript MVC
-// Model (구조)
-// View (표현)
-// Controller (동작)
+	// 이벤트 핸들링 대상 찾기
+	var lv1_li = _.children( gnb_lv1, 'li' );
 
-// 모듈 패턴 구현
-// 캡슐화 (다른 사람과의 코드 충돌 방지)
+	// _.each() 반복 구문 활용
+	_.each(lv1_li, function(item, index) {
+		// 이벤트 연결
+		item.onmouseenter = openMenu;
+		item.onmouseleave = closeMenu;
+	});
 
-// 조작할 대상 선택
-// nav .lv-1 > li
-// nav .lv-1 > li > a
+	// 이벤트 핸들러 [메뉴 열기 | 메뉴 닫기]
+	function openMenu() {
+		// 마우스가 올라간 li 요소에 on 클래스 추가
+		_.addClass(this, 'on');
+	}
 
-// 각 대상에 이벤트 설정
-// nav .lv-1 > li === mouse events [ enter | leave ]
-// nav .lv-1 > li > a === keyboard events [ focus | blur ]
-
-// 이벤트 핸들러 (함수)
-// function expandMenu() {
-
-// }
-// function collapseMenu() {
-
-// }
-
-
-/**
- * --------------------------------
- * 문서에서 내비게이션 컴포넌트를 적용할
- * 문서 객체 참조
- * --------------------------------
- */
-var gnb     = $('#gnb'),
-	gnb_lv1 = find(gnb, '.lv-1'); // #gnb .lv-1
-
-gnb_lv1.onmouseenter = function () {
-	console.log(this);
-};
+	function closeMenu() {
+		// 마우스가 올라간 li 요소에 on 클래스 제거
+		_.removeClass(this, 'on');
+	}
 
 
-
-
-})(window);
+})(window, window.yamoo9);
