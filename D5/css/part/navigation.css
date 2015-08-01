@@ -25,8 +25,15 @@ nav.horizontal a {
 	padding: 0.3em 0.6em;
 }
 
+nav .lv-1 > li:hover .lv-2,
+nav .lv-1 > li > a:focus + .lv-2 {
+	display: block;
+}
+
+
 nav .lv-2 {
 	display: none;
+	padding-left: 2em;
 }
 
 nav.horizontal.polygon a {
@@ -47,10 +54,10 @@ nav.horizontal.polygon a::before {
 	z-index: -1;
 	top: 0;
 	left: 0;
-	background: #000;
 	width: 100%;
 	height: 100%;
-	transform: skew(-40deg);
+	background: #000;
+	transform: skew(-45deg);
 }
 
 nav.horizontal.polygon a:hover::before,
