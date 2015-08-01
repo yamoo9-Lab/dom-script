@@ -17,13 +17,43 @@ nav a:focus {
 
 nav.horizontal li {
 	float: left;
-	margin-right: 20px;
+	/*margin-right: 20px;*/
 }
 
 nav.horizontal a {
 	display: block;
+	padding: 0.3em 0.6em;
 }
 
-nav.horizontal .lv-2 {
+nav .lv-2 {
 	display: none;
+}
+
+nav.horizontal.polygon a {
+	position: relative;
+	color: #fff;
+	margin-right: 2px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+nav.horizontal.polygon a:focus {
+	outline: none;
+}
+
+nav.horizontal.polygon a::before {
+	content: '';
+	position: absolute;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	background: #000;
+	width: 100%;
+	height: 100%;
+	transform: skew(-40deg);
+}
+
+nav.horizontal.polygon a:hover::before,
+nav.horizontal.polygon a:focus::before {
+	background: #FC414B;
 }
