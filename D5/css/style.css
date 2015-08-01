@@ -1,5 +1,8 @@
 @charset "utf-8";
+@import "normalize.css";
+@import "part/navigation.css";
 
-html {
+/* 기본 설정 */
+body {
 	margin: 0;
 }
