@@ -6,3 +6,24 @@
 body {
 	margin: 0;
 }
+
+#app {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 960px;
+}
+
+#app header {
+	height: 100px;
+	background: #333;
+}
+
+#app nav {
+	margin-top: 20px;
+}
+
+.cf::after {
+	content: '';
+	display: block;
+	clear: both; }
+.lt-ie8 .cf { zoom: 1; }

@@ -1,0 +1,29 @@
+nav ul {
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-left: 0;
+	list-style: none;
+}
+
+nav a {
+	color: #34C0FF;
+	text-decoration: none;
+}
+
+nav a:hover,
+nav a:focus {
+	color: #1A5B81;
+}
+
+nav.horizontal li {
+	float: left;
+	margin-right: 20px;
+}
+
+nav.horizontal a {
+	display: block;
+}
+
+nav.horizontal .lv-2 {
+	display: none;
+}
