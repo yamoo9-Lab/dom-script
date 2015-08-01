@@ -13,12 +13,20 @@
 		// 이벤트 연결
 		item.onmouseenter = openMenu;
 		item.onmouseleave = closeMenu;
+		// item === <li>
+		var item_a = _.children(item, 'a');
+		item_a.onfocus = openMenu;
 	});
 
 	// 이벤트 핸들러 [메뉴 열기 | 메뉴 닫기]
 	function openMenu() {
+		var node = this.nodeName.toLowerCase(); // li, a
+		if (node === 'a') {
+			_.addClass( _.parent(this) , 'on');
+		} else {
+			_.addClass(this, 'on');
+		}
 		// 마우스가 올라간 li 요소에 on 클래스 추가
-		_.addClass(this, 'on');
 	}
 
 	function closeMenu() {
