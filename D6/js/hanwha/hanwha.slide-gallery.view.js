@@ -39,8 +39,12 @@
 
 		options.template += options.end_code;
 
-		// 컨테이너 요소에 options.template 코드 추가
-		container.innerHTML = options.template;
+		if (container) {
+			// 컨테이너 요소에 options.template 코드 추가
+			container.innerHTML = options.template;
+		} else {
+			return options.template;
+		}
 	}
 
 	/**
@@ -78,6 +82,24 @@
 	var container_width = container_item.clientWidth * model.length;
 	container.style.width = container_width + 'px';
 
+	// 페이지네이션 동적 템플릿 추가 설정
+
+	var pagenation_count = [];
+
+	for (var i=0, l=Math.ceil(model.length/3); i<l; i++) {
+		pagenation_count.push('');
+	};
+
+	var pagenation_code = makeTemplate({
+		'model': pagenation_count,
+		'start_code': '<div class="hw-gallery-pagenation">',
+		'loop': function(item, index) {
+			this.template += '<a href role="button" aria-label="'+ (index+1) +'번째 슬라이드"></a>'
+		},
+		'end_code': '</div>'
+	});
+
+	wrapper.innerHTML = pagenation_code + wrapper.innerHTML;
 
 	/**
 	 * --------------------------------
