@@ -41,8 +41,8 @@
 			this.template += '<li class="hw-gallery-item">';
 			this.template += 	'<a href="'+ item.href +'">';
 			this.template += 		'<img src="'+ item.image +'" alt>';
-			this.template += 		'<h3 class="hw-gallery-headline">'+ item.headline +'</h3>';
-			this.template += 		'<p class="hw-gallery-summary">'+ item.summary +'</p>';
+			this.template += 		'<h3 class="headline">'+ item.headline +'</h3>';
+			this.template += 		'<p class="summary">'+ item.summary +'</p>';
 			this.template += 	'</a>';
 			this.template += '</li>';
 		},
@@ -98,6 +98,18 @@
 	// 		'\n' + data.summary
 	// 	);
 	// }
+
+	var wrapper = document.querySelector('#hanwha-contents'),
+		container = wrapper.querySelector('.hw-gallery-container'),
+		container_item = container.querySelector('.hw-gallery-item');
+
+	wrapper.classList.add('wrapper');
+	wrapper.classList.add('hw-gallery');
+
+	var container_width = container_item.clientWidth * model.length + 'px';
+
+	container.style.width = container_width;
+
 
 	// 뷰 객체 생성
 	hw.view = {
