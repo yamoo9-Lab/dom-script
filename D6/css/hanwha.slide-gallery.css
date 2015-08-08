@@ -1,0 +1,187 @@
+/**
+ * --------------------------------
+ * 기본 스타일 모듈
+ */
+body {
+	margin: 0;
+}
+
+
+/**
+ * --------------------------------
+ * 공통 모듈
+ */
+.wrapper {
+	width: 1170px;
+	margin-top: 100px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.wrapper::after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+.text-ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+
+/**
+ * --------------------------------
+ * .hw-gallery
+ */
+.hw-gallery {
+	padding-top: 30px;
+}
+
+.hw-gallery,
+.hw-gallery::before,
+.hw-gallery::after,
+.hw-gallery *,
+.hw-gallery *::before,
+.hw-gallery *::after, {
+	box-sizing: border-box;
+}
+
+.hw-gallery ul {
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-left: 0;
+	list-style: none;
+}
+
+/**
+ * --------------------------------
+ * .hw-gallery-pagenation
+ */
+.hw-gallery .hw-gallery-pagenation {
+	margin-bottom: 14px;
+	text-align: center;
+}
+
+.hw-gallery .hw-gallery-pagenation [role=button] {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	margin-right: 30px;
+	background: #d4d3d0;
+	border-radius: 50%;
+	transition: all .3s ease;
+}
+
+.hw-gallery .hw-gallery-pagenation [role=button]:last-child {
+	margin-right: 0;
+}
+
+.hw-gallery .hw-gallery-pagenation [role=button]:hover,
+.hw-gallery .hw-gallery-pagenation [role=button]:focus {
+	background: #565654;
+}
+
+.hw-gallery .hw-gallery-pagenation [role=button]:focus {
+	outline: none;
+}
+
+.hw-gallery .hw-gallery-pagenation [role=button].on {
+	cursor: default;
+	position: relative;
+	z-index: 10;
+	background: #ff7500;
+	transform: scale(1.5);
+}
+
+.hw-gallery .hw-gallery-pagenation [role=button].on::before {
+	content: '';
+	position: absolute;
+	z-index: -100;
+	top: 0;
+	left: 0;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background: hsla(40, 80%, 50%, 1);
+	animation: zoom-fade-out .8s cubic-bezier(0.190, 1.000, 0.220, 1.000) both;
+}
+
+@keyframes zoom-fade-out {
+	0% { opacity: 1;  transform: scale(0); }
+	100% { opacity: 0; transform: scale(3); }
+}
+
+
+/**
+ * --------------------------------
+ * .hw-gallery-container
+ */
+.hw-gallery .hw-gallery-container.anim {
+	transition: all 0.4s cubic-bezier(0.860, 0.000, 0.070, 1.000);
+}
+
+.hw-gallery .hw-gallery-container {
+	overflow: hidden;
+	height: 350px;
+}
+
+
+/**
+ * --------------------------------
+ * .hw-gallery-item
+ */
+.hw-gallery .hw-gallery-item {
+	overflow: hidden;
+	float: left;
+	width: 390px;
+	min-height: 350px;
+	border: 1px solid #efefef;
+}
+
+.hw-gallery .hw-gallery-item a {
+	position: relative;
+	display: block;
+	height: 340px;
+	background: url('../images/bg_list_link.png') no-repeat -1px 180px;
+	text-decoration: none;
+	padding-top: 210px;
+}
+
+.hw-gallery .hw-gallery-item img {
+	position: absolute;
+	z-index: -10;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: auto;
+}
+
+.hw-gallery .hw-gallery-item *:not(img) {
+	padding-left: 0.6em;
+	padding-right: 0.6em;
+}
+
+.hw-gallery .hw-gallery-item .headline {
+	margin: 0;
+	min-height: 2em;
+	color: #566b7c;
+	line-height: 1.2;
+}
+
+.hw-gallery .hw-gallery-item .summary {
+	position: relative;
+	height: 2em;
+	color: #767676;
+}
+
+.hw-gallery .hw-gallery-item .summary::after {
+	position: absolute;
+	bottom: -30px;
+	right: 4px;
+	content: '';
+	width: 16px;
+	height: 16px;
+	background: url(../images/bg_icon_more.png) no-repeat;
+}
