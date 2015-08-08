@@ -7,11 +7,26 @@
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<meta charset="UTF-8">
-	<title>HTML Template</title>
+	<title>한화 - 커스텀 컴포넌트 오토 슬라이드 갤러리 제작 :: 디자인 관점 - 사용성, 접근성, 성능, 유지보수</title>
+	<link rel="stylesheet" href="css/hanwha.slide-gallery.css">
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+	<div id="hanwha-contents">
+		<!-- 동적으로 뷰 콘텐츠(템플릿을 토대로 구성)를 추가 -->
+		<!-- <ul class="hw-gallery-container">
+			<li class="hw-gallery-item">
+				<a href="{{model[0].href}}">
+					<img src="{{model[0].image}}" alt>
+					<h3 class="hw-gallery-headline">{{model[0].headline}}</h3>
+					<p class="hw-gallery-summary">{{model[0].summary}}</p>
+				</a>
+			</li>
+		</ul> -->
+	</div>
+
+<script src="js/hanwha/hanwha.slide-gallery.model.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
