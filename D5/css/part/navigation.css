@@ -35,12 +35,38 @@ nav .lv-2 {
 	padding-left: 2em;
 }
 
+nav.horizontal.polygon {
+	position: relative;
+}
+
 nav.horizontal.polygon a {
 	position: relative;
 	color: #fff;
 	margin-right: 2px;
-	padding-left: 10px;
-	padding-right: 10px;
+	padding-left: 16px;
+	padding-right: 16px;
+}
+
+nav.horizontal.polygon li:hover,
+nav.horizontal.polygon li.on {
+	padding-bottom: 1px;
+}
+
+nav.horizontal.polygon .lv-2 {
+	position: absolute;
+	top: 100%;
+}
+
+nav.horizontal.polygon .lv-2.program {
+	left: -5px;
+}
+
+nav.horizontal.polygon .lv-2.movie {
+	left: 113px;
+}
+
+nav.horizontal.polygon .lv-2.event {
+	left: 41px;
 }
 
 nav.horizontal.polygon a:focus {
