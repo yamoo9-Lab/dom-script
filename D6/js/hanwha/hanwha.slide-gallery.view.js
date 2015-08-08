@@ -15,6 +15,41 @@
 	// 모델을 탐색하여 원하는 인덱스의 데이터를 출력
 	// 모델을 탐색하려면 반복문... 처리
 
+	function makeTemplate(options) {
+		// 문서의 컨테이너 요소 참조
+		var container = document.querySelector(options.container);
+
+		// HTML 템플릿 코드(문자열)
+		options.template = '';
+
+		options.template += options.start_code;
+
+		// View 템플릿 코드 작성
+		options.model.forEach(options.loop.bind(options));
+
+		options.template += options.end_code;
+
+		// 컨테이너 요소에 options.template 코드 추가
+		container.innerHTML = options.template;
+	}
+
+	makeTemplate({
+		'model'      : model,
+		'container'  : '#hanwha-contents',
+		'start_code' : '<ul class="hw-gallery-container">',
+		'loop'       : function(item, index){
+			this.template += '<li class="hw-gallery-item">';
+			this.template += 	'<a href="'+ item.href +'">';
+			this.template += 		'<img src="'+ item.image +'" alt>';
+			this.template += 		'<h3 class="hw-gallery-headline">'+ item.headline +'</h3>';
+			this.template += 		'<p class="hw-gallery-summary">'+ item.summary +'</p>';
+			this.template += 	'</a>';
+			this.template += '</li>';
+		},
+		'end_code'   : '</ul>'
+	});
+
+
 	/**
 	 * --------------------------------
 	 * forEach문 예시
@@ -23,29 +58,29 @@
 	 * es5shim.js를 사용하면 됩니다.
 	 */
 
-	// 문서의 컨테이너 요소 참조
-	var container = document.querySelector('#hanwha-contents');
+	// // 문서의 컨테이너 요소 참조
+	// var container = document.querySelector('#hanwha-contents');
 
-	// HTML 템플릿 코드(문자열)
-	var template = '';
+	// // HTML 템플릿 코드(문자열)
+	// var template = '';
 
-	template += '<ul class="hw-gallery-container">';
+	// template += '<ul class="hw-gallery-container">';
 
-	// View 템플릿 코드 작성
-	model.forEach(function(item, index){
-		template += '<li class="hw-gallery-item">';
-		template += 	'<a href="'+ item.href +'">';
-		template += 		'<img src="'+ item.image +'" alt>';
-		template += 		'<h3 class="hw-gallery-headline">'+ item.headline +'</h3>';
-		template += 		'<p class="hw-gallery-summary">'+ item.summary +'</p>';
-		template += 	'</a>';
-		template += '</li>';
-	});
+	// // View 템플릿 코드 작성
+	// model.forEach(function(item, index){
+	// 	template += '<li class="hw-gallery-item">';
+	// 	template += 	'<a href="'+ item.href +'">';
+	// 	template += 		'<img src="'+ item.image +'" alt>';
+	// 	template += 		'<h3 class="hw-gallery-headline">'+ item.headline +'</h3>';
+	// 	template += 		'<p class="hw-gallery-summary">'+ item.summary +'</p>';
+	// 	template += 	'</a>';
+	// 	template += '</li>';
+	// });
 
-	template += '</ul>';
+	// template += '</ul>';
 
-	// 컨테이너 요소에 template 코드 추가
-	container.innerHTML = template;
+	// // 컨테이너 요소에 template 코드 추가
+	// container.innerHTML = template;
 
 
 
@@ -66,7 +101,7 @@
 
 	// 뷰 객체 생성
 	hw.view = {
-
+		'makeTemplate': makeTemplate
 	};
 
 })(window, (window.hanwha = window.hanwha || {}) );
