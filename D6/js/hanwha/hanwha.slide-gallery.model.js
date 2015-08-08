@@ -8,6 +8,21 @@
  * ------------------------------------------------------------------
  */
 
+// 불의의 사고를 미연에 방지하기 위한 방책
+// 다른 사용자가 임의로 우리의 중요한 객체를 수정할 수 없도록 조치
+//
+// Object.defineProperty()
+// https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty
+
+Object.defineProperty(window, 'hanwha', {
+	'value': {},
+	// 'writeable': false,
+	// 'enumerable': false,
+	// 'configulable': false,
+});
+
+
+
 // 캡슐화
 // 모듈(모듈: 재사용 가능한 코드 작은 덩어리)을 다른 누군가와 협업하면서
 // 상쇄되지 않도록 보안처리...
