@@ -79,8 +79,11 @@
 	wrapper.classList.add('hw-gallery');
 
 	// container 요소에 width 설정
-	var container_width = container_item.clientWidth * model.length;
+	var container_item_width = container_item.clientWidth,
+		container_width = container_item_width * model.length;
 	container.style.width = container_width + 'px';
+
+	container.classList.add('anim');
 
 	// 페이지네이션 동적 템플릿 추가 설정
 
@@ -101,6 +104,8 @@
 
 	wrapper.innerHTML = pagenation_code + wrapper.innerHTML;
 
+	var pagenation = wrapper.querySelector('.hw-gallery-pagenation');
+
 	/**
 	 * --------------------------------
 	 * 뷰 객체 생성
@@ -109,8 +114,9 @@
 		'makeTemplate'    : makeTemplate,
 		'wrapper'         : wrapper,
 		'container'       : container,
-		'container_width' : container_width,
 		'container_item'  : container_item,
+		'container_item_width'  : container_item_width,
+		'pagenation'      : pagenation,
 	};
 
 })(window, (window.hanwha = window.hanwha || {}) );
