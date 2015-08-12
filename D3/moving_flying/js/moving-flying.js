@@ -1,5 +1,5 @@
-var controller = selector('.controller');
-var flying = selector('#flying');
+var controller = y9.$('.controller');
+var flying = y9.$('#flying');
 
 // 이벤트 위임
 controller.onclick = function(e) {
@@ -27,13 +27,39 @@ controller.onclick = function(e) {
 		break;
 		case 'bottom':
 			move(flying, 'top', distance);
-		break;
 	}
 
 }
 
+
+document.onkeydown = function(event) {
+	var key = event.keyCode || event.which, target;
+
+	switch( key ) {
+		case 37:
+			target = y9.find(controller, '.btn-left');
+		break;
+		case 39:
+			target = y9.find(controller, '.btn-right');
+		break;
+		case 38:
+			target = y9.find(controller, '.btn-top');
+		break;
+		case 40:
+			target = y9.find(controller, '.btn-bottom');
+	}
+
+	controller.onclick.call(controller, {'target': target});
+	y9.addClass(target, 'on');
+	setTimeout(function() {
+		y9.removeClass(target, 'on');
+	}, 150);
+
+}
+
+
 function move(el, direction, distance) {
-	var currentPos = parseInt( css(flying, direction) );
+	var currentPos = parseInt( y9.css(flying, direction) );
 	currentPos += distance;
-	css(flying, direction, currentPos + 'px');
+	y9.css(flying, direction, currentPos + 'px');
 }

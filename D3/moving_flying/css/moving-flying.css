@@ -23,7 +23,8 @@ body {
 }
 
 .controller [class*="btn-"]:hover,
-.controller [class*="btn-"]:focus {
+.controller [class*="btn-"]:focus,
+.controller [class*="btn-"].on {
 	background: #000;
 	color: #fff;
 }
